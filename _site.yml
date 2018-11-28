@@ -9,8 +9,10 @@ navbar:
       href: about.html
     - text: "Home"
       menu:
-       - text: "Index" 
+       - text: "Machine Learning"
          href: index.html
+       - text: "Python"
+       - text: "Julia"
     - icon: fa fa-home 
     - icon: fab fa-github
     - icon: face fa-facebook
