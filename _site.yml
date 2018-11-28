@@ -5,8 +5,13 @@ description: |
 output_dir: "_site"
 navbar:
   right:
-    - text: "Home"
-      href: index.html
     - text: "About"
       href: about.html
+    - text: "Home"
+      menu:
+       - text: "Index" 
+         href: index.html
+    - icon: fa fa-home 
+    - icon: fab fa-github
+    - icon: face fa-facebook
 output: radix::radix_article
