@@ -10,11 +10,12 @@ navbar:
         - text: "Me"
         - text: "blog"
           href: about.html
+        - text: "---"
         - text: "Contributors"
           href: about.html
     - text: "Home"
       href: index.html
     - icon: fa fa-home 
     - icon: fab fa-github
-    - icon: face fa-facebook
+    - icon: face fa-twitter
 output: radix::radix_article
