@@ -11,6 +11,7 @@ navbar:
         - text: "blog"
           href: about.html
         - text: "Contributors"
+          href: about.html
     - text: "Home"
       href: index.html
     - icon: fa fa-home 
