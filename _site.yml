@@ -1,21 +1,30 @@
-name: "personal blog"
-title: "My Blog"
+name: "Technical Notes"
+title: "Gabriel Cabrera"
 description: |
   In the beginning
 output_dir: "_site"
 navbar:
   right:
+    - text: "Notes"
+      menu:
+        - text: "R"
+          href: https://gcabrerag.rbind.io/
+        - text: "D3.js"
+        - text: "Ruby"
+        - text: "Julia"
+        - text: "Python"
+        - text: "Finance"
+        - text: "PostgreSQL"
+        - text: "Command Line (Linux)"
     - text: "About"
       menu:
-        - text: "Me"
-        - text: "blog"
+        - text: "About Gabriel"
           href: about.html
         - text: "---"
         - text: "Contributors"
           href: about.html
-    - text: "Home"
-      href: index.html
     - icon: fa fa-home 
+      href: index.html
     - icon: fab fa-github
     - icon: face fa-twitter
 output: radix::radix_article
