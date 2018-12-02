@@ -10,12 +10,17 @@ navbar:
         - text: "R"
           href: https://gcabrerag.rbind.io/
         - text: "D3.js"
+          href: about.html
         - text: "Ruby"
+          href: about.html
         - text: "Julia"
         - text: "Python"
         - text: "Finance"
         - text: "PostgreSQL"
+        - text: "Statistical Learning"
         - text: "Command Line (Linux)"
+        - text: "---"
+        - text: "miscellaneous"
     - text: "About"
       menu:
         - text: "About Gabriel"
@@ -27,4 +32,6 @@ navbar:
       href: index.html
     - icon: fab fa-github
     - icon: face fa-twitter
-output: radix::radix_article
+output: 
+  radix::radix_article:
+    css: custom.css
