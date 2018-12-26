@@ -5,7 +5,7 @@ description: |
 output_dir: "_site"
 navbar:
   right:
-    - text: "Notes"
+    - text: "NOTES"
       menu:
         - text: "R"
           href: https://gcabrerag.rbind.io/
@@ -21,7 +21,7 @@ navbar:
         - text: "Command Line (Linux)"
         - text: "---"
         - text: "miscellaneous"
-    - text: "About"
+    - text: "ABOUT"
       menu:
         - text: "About Gabriel"
           href: about.html

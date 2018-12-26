@@ -1,5 +1,6 @@
 ---
-title: "Technical Notes"
+title: "<center> Technical notes on using </center>"
+description: | 
+  Scientific and technical writing, native to the web
 site: radix::radix_website
-listing: posts
 ---
