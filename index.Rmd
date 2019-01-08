@@ -1,5 +1,5 @@
 ---
-title: "<center> Technical notes on using </center>"
+title: "Technical notes on using"
 description: | 
   Scientific and technical writing, native to the web
 site: radix::radix_website

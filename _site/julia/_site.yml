@@ -1,0 +1,20 @@
+name: "Julia"
+title: "Gabriel Cabrera"
+description: |
+  Julia
+output_dir: "_site"
+navbar:
+  right:
+    - icon: fa fa-home 
+      href: index.html
+    - icon: fab fa-github
+      href: "https://github.com/GaboCg"
+    - icon: face fa-twitter
+      href: "https://twitter.com/GaboC_g"
+
+collections:
+  posts:
+    feed_items_max: 50
+output: 
+  radix::radix_article:
+    css: custom.css

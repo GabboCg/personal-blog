@@ -1,0 +1,20 @@
+---
+title: "Install Julia in "
+description: |
+  A short description of the post.
+author:
+  - name: Gabriel Cabrera
+date: 01-07-2019
+output:
+  radix::radix_article:
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Radix is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Radix at <https://rstudio.github.io/radix>.
+
