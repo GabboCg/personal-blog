@@ -1,7 +1,7 @@
 ---
 title: "Setting Up a Web Server"
 description: |
-  Deploying a local server when some HTML restrictions exist..
+  Deploying a local server when some HTML restrictions exist.
   
 author:
   - name: Gabriel Cabrera 
@@ -13,7 +13,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-```Deploying a local server when some HTML restrictions exist.
+```
+
+Deploying a local server when some HTML restrictions exist.
 
 In some cases, local HTML files has restrictions to be visualize using a web 
 browser, a common solution is deploy a local server
