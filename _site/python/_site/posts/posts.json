@@ -1,0 +1,17 @@
+[
+  {
+    "path": "posts/2019-01-19-creating-a-local-server-using-python/",
+    "title": "Setting Up a Web Server",
+    "description": "In some cases, local HTML files has restrictions to be visualize using a web \nbrowser, a common solution is deploy a local server.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-01-19",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-01-19T19:55:47-03:00"
+  }
+]

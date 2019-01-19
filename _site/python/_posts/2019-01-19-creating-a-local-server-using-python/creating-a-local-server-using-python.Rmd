@@ -1,0 +1,43 @@
+---
+title: "Setting Up a Web Server"
+description: |
+  Deploying a local server when some HTML restrictions exist..
+  
+author:
+  - name: Gabriel Cabrera 
+date: 01-19-2019
+output:
+  radix::radix_article:
+    self_contained: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```Deploying a local server when some HTML restrictions exist.
+
+In some cases, local HTML files has restrictions to be visualize using a web 
+browser, a common solution is deploy a local server
+
+Suppose for a moment that you are programming in javascripts using d3 library 
+and you realize that for visualize your interactive graph a local server is 
+needed. The objective of this post is not  reinvented the wheel, instead is a 
+reminder for future personal proyects.
+
+
+# Terminal with Python
+
+I hope that you already have python installed and your operative system is Linux, 
+if not please do it. 
+
+Running a small Python server is definitely the quickest 
+option.
+
+## Run a Python web server
+
+
+
+
+
+
+
+
