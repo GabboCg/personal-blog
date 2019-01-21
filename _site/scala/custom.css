@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+
+.radix-site-nav {
+  color: rgba(255, 255, 255, 0.8);
+  background-color: #ff2a00; /* #ff4d44 Chris Albon color, other ff2a00 */
+  
+  /* padding: 14px 10px 14px 10px; grosor linea */
+
+  color: #fff;
+  /*text-transform: uppercase; */
+  font-size: 1em;
+  font-weight: 300;
+  
+}
+
+ @media screen and (min-width: 1000px) {
+    .radix-site-header .logo img {
+      display: inline-block;
+    }
+    .radix-site-header .nav-left {
+      margin-left: 385px;
+    }
+    .radix-site-header .nav-right {
+      margin-right: 385px;
+      font-size: 0.9em;
+      font-weight: 250;
+    }
+    .radix-site-header .title {
+      font-weight: bold;
+      font-size: 1em;
+      font-weight: 350;
+      text-transform: uppercase;
+    }
+  }
+
+
+body {
+  text-align: justify;
+  text-justify: inter-word;
+}

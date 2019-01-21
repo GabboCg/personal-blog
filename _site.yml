@@ -14,6 +14,7 @@ navbar:
         - text: "Ruby"
           href: about.html
         - text: "Scala"
+          href: scala/_site/index.html
         - text: "Julia"
           href:  julia/_site/index.html
         - text: "Python"
