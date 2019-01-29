@@ -24,7 +24,8 @@ navbar:
         - text: "Command Line (Linux)"
         - text: "Javascript"
         - text: "---"
-        - text: "miscellaneous"
+        - text: "Miscellaneous"
+          href:  miscellaneous/_site/index.html
     - text: "ABOUT"
       menu:
         - text: "About Gabriel"
