@@ -2,7 +2,7 @@
   {
     "path": "posts/2019-01-29-cascading-style-sheets/",
     "title": "Cascading Style Sheets",
-    "description": "A short description of the post.",
+    "description": "Considera este post como curso resumido sobre Web-Making 101 (parte 2).",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -11,13 +11,13 @@
     ],
     "date": "2019-01-29",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-01-29T00:21:59-03:00"
+    "preview": "https://www.logolynx.com/images/logolynx/b5/b570ec9f0b98f523a19b57163a2c588a.jpeg",
+    "last_modified": "2019-01-29T01:13:51-03:00"
   },
   {
     "path": "posts/2019-01-29-scalable-vector-graphics/",
     "title": "Scalable Vector Graphics",
-    "description": "A short description of the post.",
+    "description": "Considera este post como curso resumido sobre Web-Making 101 (parte 3).",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -26,13 +26,13 @@
     ],
     "date": "2019-01-29",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-01-29T00:22:10-03:00"
+    "preview": "https://content.linkedin.com/content/dam/me/learning/blog/2016/september/garrick-powerpoint-/SVG-1.png",
+    "last_modified": "2019-01-29T01:13:01-03:00"
   },
   {
     "path": "posts/2019-01-28-hypertext-markup-language/",
     "title": "Hypertext Markup Language",
-    "description": "Considera este post como curso resumido sobre Web-Making 101.",
+    "description": "Considera este post como curso resumido sobre Web-Making 101 (parte 1).",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -41,7 +41,7 @@
     ],
     "date": "2019-01-28",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-01-29T00:14:54-03:00"
+    "preview": "https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d",
+    "last_modified": "2019-01-29T01:14:04-03:00"
   }
 ]
