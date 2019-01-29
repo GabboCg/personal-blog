@@ -1,0 +1,21 @@
+---
+title: "Scalable Vector Graphics"
+description: |
+  Considera este post como curso resumido sobre Web-Making 101 (parte 3).
+author:
+  - name: Gabriel Cabrera
+    url: {}
+date: 01-29-2019
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+Radix is a publication format for scientific and technical writing, native to the web.
+
+Learn more about using Radix at <https://rstudio.github.io/radix>.
+
