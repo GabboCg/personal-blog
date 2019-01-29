@@ -22,6 +22,7 @@ navbar:
         - text: "PostgreSQL"
         - text: "Statistical Learning"
         - text: "Command Line (Linux)"
+        - text: "Javascript"
         - text: "---"
         - text: "miscellaneous"
     - text: "ABOUT"
