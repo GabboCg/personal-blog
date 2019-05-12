@@ -45,7 +45,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","preview","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypertext Markup Language"]},{"type":"character","attributes":{},"value":["Considera este post como curso resumido sobre Web-Making 101 (parte 1)."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]}]}]},{"type":"character","attributes":{},"value":["https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d"]},{"type":"character","attributes":{},"value":["01-28-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Hypertext Markup Language"]},{"type":"character","attributes":{},"value":["Considera este post como curso resumido sobre Web-Making 101 (parte 1)."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]}]}]},{"type":"character","attributes":{},"value":["01-28-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -534,6 +534,10 @@ figure img.external {
 /* Tweak code blocks (note that this CSS is repeated above in an injection
    into the d-code shadow dom) */
 
+d-code {
+  overflow-x: auto !important;
+}
+
 pre.d-code code.d-code {
   padding-left: 10px;
   font-size: 12px;
@@ -564,6 +568,11 @@ pre.text-output {
 }
 
 @media(min-width: 768px) {
+
+d-code {
+  overflow-x: visible !important;
+}
+
 pre.d-code code.d-code  {
     padding-left: 18px;
     font-size: 14px;

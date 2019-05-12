@@ -12,9 +12,7 @@ navbar:
         - text: "D3.js"
           href: about.html
         - text: "Ruby"
-          href: about.html
-        - text: "Scala"
-          href: scala/_site/index.html
+          href: ruby/_site/index.html
         - text: "Julia"
           href:  julia/_site/index.html
         - text: "Python"

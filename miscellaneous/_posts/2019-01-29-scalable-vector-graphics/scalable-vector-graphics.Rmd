@@ -5,7 +5,7 @@ description: |
 author:
   - name: Gabriel Cabrera
     url: {}
-preview: "https://content.linkedin.com/content/dam/me/learning/blog/2016/september/garrick-powerpoint-/SVG-1.png"
+# preview: "https://content.linkedin.com/content/dam/me/learning/blog/2016/september/garrick-powerpoint-/SVG-1.png"
 date: 01-29-2019
 output:
   radix::radix_article:

@@ -523,6 +523,10 @@
   /* Tweak code blocks (note that this CSS is repeated above in an injection
      into the d-code shadow dom) */
   
+  d-code {
+    overflow-x: auto !important;
+  }
+  
   pre.d-code code.d-code {
     padding-left: 10px;
     font-size: 12px;
@@ -553,6 +557,11 @@
   }
   
   @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
   pre.d-code code.d-code  {
       padding-left: 18px;
       font-size: 14px;
@@ -1364,7 +1373,7 @@
   padding-bottom: 12px;
 }
 .posts-list {
-  margin-top: 24px;
+  margin-top: 60px;
   margin-bottom: 24px;
 }
 
@@ -1498,9 +1507,6 @@
 @media(min-width: 768px) {
   .posts-list .post-preview h2 {
     font-size: 26px;
-  }
-  .posts-list {
-    margin-top: 60px;
   }
   .posts-list .post-preview .thumbnail {
     float: right;
@@ -1654,13 +1660,39 @@ function init_posts_list() {
 <div class="posts-container posts-apply-limit l-page">
 <div class="posts-list">
 <h1 class="posts-list-caption">Miscellaneous</h1>
+<a href="posts/2019-05-11-docker/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">May 11, 2019</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Docker</h2>
+<p>A short description of the post.</p>
+</div>
+</a>
+<a href="posts/2019-05-11-git-github/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">May 11, 2019</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Git &amp; Github</h2>
+<p>A short description of the post.</p>
+</div>
+</a>
 <a href="posts/2019-01-29-cascading-style-sheets/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
 <div class="publishedDate">Jan. 29, 2019</div>
 </div>
 <div class="thumbnail">
-<img data-src="https://www.logolynx.com/images/logolynx/b5/b570ec9f0b98f523a19b57163a2c588a.jpeg"/>
+<img/>
 </div>
 <div class="description">
 <h2>Cascading Style Sheets</h2>
@@ -1673,7 +1705,7 @@ function init_posts_list() {
 <div class="publishedDate">Jan. 29, 2019</div>
 </div>
 <div class="thumbnail">
-<img data-src="https://content.linkedin.com/content/dam/me/learning/blog/2016/september/garrick-powerpoint-/SVG-1.png"/>
+<img/>
 </div>
 <div class="description">
 <h2>Scalable Vector Graphics</h2>
@@ -1686,7 +1718,7 @@ function init_posts_list() {
 <div class="publishedDate">Jan. 28, 2019</div>
 </div>
 <div class="thumbnail">
-<img data-src="https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d"/>
+<img/>
 </div>
 <div class="description">
 <h2>Hypertext Markup Language</h2>

@@ -526,6 +526,10 @@
   /* Tweak code blocks (note that this CSS is repeated above in an injection
      into the d-code shadow dom) */
   
+  d-code {
+    overflow-x: auto !important;
+  }
+  
   pre.d-code code.d-code {
     padding-left: 10px;
     font-size: 12px;
@@ -556,6 +560,11 @@
   }
   
   @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
   pre.d-code code.d-code  {
       padding-left: 18px;
       font-size: 14px;
@@ -1323,8 +1332,7 @@ NOTES
 <div class="nav-dropdown-content">
 <a href="https://gcabrerag.rbind.io/">R</a>
 <a href="about.html">D3.js</a>
-<a href="about.html">Ruby</a>
-<a href="scala/_site/index.html">Scala</a>
+<a href="ruby/_site/index.html">Ruby</a>
 <a href="julia/_site/index.html">Julia</a>
 <a href="python/_site/index.html">Python</a>
 <span class="nav-dropdown-header">PostgreSQL</span>

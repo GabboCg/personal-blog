@@ -1,0 +1,18 @@
+---
+title: "Git & Github"
+description: |
+  A short description of the post.
+author:
+  - name: Gabriel Cabrera
+    url: {}
+date: 05-11-2019
+output:
+  radix::radix_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+

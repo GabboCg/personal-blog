@@ -3,7 +3,7 @@ title: "Hypertext Markup Language"
 description: |
  Considera este post como curso resumido sobre Web-Making 101 (parte 1).
 author: "Gabriel Cabrera"
-preview: "https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d"
+# preview: "https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d"
 date: 01-28-2019
 output:
   radix::radix_article:

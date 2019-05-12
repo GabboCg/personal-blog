@@ -1,5 +1,35 @@
 [
   {
+    "path": "posts/2019-05-11-docker/",
+    "title": "Docker",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-05-11",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-11T22:51:59-04:00"
+  },
+  {
+    "path": "posts/2019-05-11-git-github/",
+    "title": "Git & Github",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-05-11",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-11T22:55:27-04:00"
+  },
+  {
     "path": "posts/2019-01-29-cascading-style-sheets/",
     "title": "Cascading Style Sheets",
     "description": "Considera este post como curso resumido sobre Web-Making 101 (parte 2).",
@@ -11,8 +41,8 @@
     ],
     "date": "2019-01-29",
     "categories": [],
-    "preview": "https://www.logolynx.com/images/logolynx/b5/b570ec9f0b98f523a19b57163a2c588a.jpeg",
-    "last_modified": "2019-01-29T01:13:51-03:00"
+    "preview": {},
+    "last_modified": "2019-05-11T22:55:14-04:00"
   },
   {
     "path": "posts/2019-01-29-scalable-vector-graphics/",
@@ -26,8 +56,8 @@
     ],
     "date": "2019-01-29",
     "categories": [],
-    "preview": "https://content.linkedin.com/content/dam/me/learning/blog/2016/september/garrick-powerpoint-/SVG-1.png",
-    "last_modified": "2019-01-29T01:13:01-03:00"
+    "preview": {},
+    "last_modified": "2019-05-11T22:58:21-04:00"
   },
   {
     "path": "posts/2019-01-28-hypertext-markup-language/",
@@ -41,7 +71,7 @@
     ],
     "date": "2019-01-28",
     "categories": [],
-    "preview": "https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d",
-    "last_modified": "2019-01-29T01:14:04-03:00"
+    "preview": {},
+    "last_modified": "2019-05-11T22:58:42-04:00"
   }
 ]

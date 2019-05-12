@@ -3,7 +3,7 @@ title: "Cascading Style Sheets"
 description: |
   Considera este post como curso resumido sobre Web-Making 101 (parte 2).
 author: "Gabriel Cabrera"
-preview: "https://www.logolynx.com/images/logolynx/b5/b570ec9f0b98f523a19b57163a2c588a.jpeg"
+# preview: "https://www.logolynx.com/images/logolynx/b5/b570ec9f0b98f523a19b57163a2c588a.jpeg"
 date: 01-29-2019
 output:
   radix::radix_article:
@@ -13,8 +13,4 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
-Radix is a publication format for scientific and technical writing, native to the web.
-
-Learn more about using Radix at <https://rstudio.github.io/radix>.
 
