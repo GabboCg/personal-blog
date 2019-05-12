@@ -1,1 +1,17 @@
-[]
+[
+  {
+    "path": "posts/2019-05-12-setup-vs-code-for-ruby/",
+    "title": "Setup VS Code for Ruby",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-05-12",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-05-12T00:34:18-04:00"
+  }
+]

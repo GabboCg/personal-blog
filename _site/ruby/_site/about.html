@@ -526,6 +526,10 @@
   /* Tweak code blocks (note that this CSS is repeated above in an injection
      into the d-code shadow dom) */
   
+  d-code {
+    overflow-x: auto !important;
+  }
+  
   pre.d-code code.d-code {
     padding-left: 10px;
     font-size: 12px;
@@ -556,6 +560,11 @@
   }
   
   @media(min-width: 768px) {
+  
+  d-code {
+    overflow-x: visible !important;
+  }
+  
   pre.d-code code.d-code  {
       padding-left: 18px;
       font-size: 14px;
@@ -1318,7 +1327,39 @@
 <a href="index.html" class="title">Gabriel Cabrera</a>
 </div>
 <div class="nav-right">
-<a href="https://technotes.netlify.com">
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+NOTES
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="https://gcabrerag.rbind.io/">R</a>
+<a href="about.html">D3.js</a>
+<a href="https://technotes.netlify.com/ruby/_site/">Ruby</a>
+<a href="https://technotes.netlify.com/julia/_site/">Julia</a>
+<a href="https://technotes.netlify.com/python/_site/">Python</a>
+<span class="nav-dropdown-header">PostgreSQL</span>
+<span class="nav-dropdown-header">Statistical Learning</span>
+<span class="nav-dropdown-header">Command Line (Linux)</span>
+<span class="nav-dropdown-header">Javascript</span>
+<hr/>
+<a href="https://technotes.netlify.com/miscellaneous/_site/">Miscellaneous</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+ABOUT
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="about.html">About Gabriel</a>
+<hr/>
+<a href="about.html">Contributors</a>
+</div>
+</div>
+<a href="index.html">
 <i class="fa fa-home"></i>
 </a>
 <a href="https://github.com/GaboCg">
