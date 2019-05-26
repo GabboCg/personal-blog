@@ -10,7 +10,7 @@ navbar:
         - text: "R"
           href: https://gcabrerag.rbind.io/
         - text: "D3.js"
-          href: about.html
+          href: https://technotes.netlify.com/ruby/_site/
         - text: "Ruby"
           href: https://technotes.netlify.com/ruby/_site/
         - text: "Julia"
@@ -23,7 +23,7 @@ navbar:
         - text: "Javascript"
         - text: "---"
         - text: "Miscellaneous"
-          href:  miscellaneous/_site/index.html
+          href:  https://technotes.netlify.com/miscellaneous/_site/
     - text: "ABOUT"
       menu:
         - text: "About Gabriel"
