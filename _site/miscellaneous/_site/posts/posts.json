@@ -17,7 +17,7 @@
   {
     "path": "posts/2019-05-11-git-github/",
     "title": "Git & Github",
-    "description": "A short description of the post.",
+    "description": "Introducción a Git y Github para usuarios de R",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -27,7 +27,7 @@
     "date": "2019-05-11",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-05-11T22:55:27-04:00"
+    "last_modified": "2019-05-25T22:38:37-04:00"
   },
   {
     "path": "posts/2019-01-29-cascading-style-sheets/",

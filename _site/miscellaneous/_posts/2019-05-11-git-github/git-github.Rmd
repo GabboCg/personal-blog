@@ -1,7 +1,7 @@
 ---
 title: "Git & Github"
 description: |
-  A short description of the post.
+  Introducción a Git y Github para usuarios de R 
 author:
   - name: Gabriel Cabrera
     url: {}
@@ -15,4 +15,136 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
+```{r}
+if(!require("pacman")) install.packages("pacman")
+p_load("tidyverse", "fontawesome", "highcharter")
+```
 
+
+Este post tiene como objetivo introducir la herramienta Git y la plataforma Github para usuarios que estén empezando o tienen conocimientos de R.  
+
+## ¿Qué es Git?
+
+Git es una herramienta que trabaja con un sistema de control de versiones (*Version Control*). El objetivo es ayudar a desarrolladores a trabajar colaborativamente en grandes projectos. Los archivos que administra Git se denominan **repositorios**. Esto es parecido al seguimientos de cambios que tiene Word (*Track Changes*). 
+
+Git a tenido una participación activa en la comunidad de **data science** y se ha transformado en un actor relevante en el workflow del programador, por su capacidad de administrar:
+
+- Datos
+- Figuras
+- Reportes
+- Código fuente (*source code*)
+
+Considerando la encuesta *Developer Survey Results 2018* de **Stackoverflow**, aproximadamente el 87% de los usuarios (74,928) usa Git como herramienta para control de versiones (ver Figura \@ref(fig:versioncontrol)). Git es usado tanto para código abierto como desarrollo de
+software libre y comercial. 
+
+```{r}
+survey_tbl <- read_csv("https://www.dropbox.com/s/ksxotaidrxeafui/survey_results_public.csv?dl=1") 
+```
+
+```{r}
+version_data <- survey_tbl %>% 
+  select("Respondent", "VersionControl") %>% 
+  na.omit() %>% 
+  separate(VersionControl, into = c("Version_1", "Version_2", "Version_3"), 
+           sep = ";") %>% 
+  select("Respondent", "Version_1") %>% 
+  group_by(Version_1) %>% 
+  mutate(n = n()) %>%
+  select(Version_1, n) %>% 
+  arrange(desc(n)) %>% 
+  distinct() %>%  
+  ungroup() %>% 
+  mutate(total = sum(n), porc = n/total) %>%
+  arrange(desc(porc))
+```
+
+```{r versioncontrol, fig.cap="Herramientas de Version Control utilizados por los usuarios", fig.align='center'}
+highchart() %>% 
+  hc_chart(type = "column") %>% 
+  hc_title(text = "Version Control") %>% 
+  hc_xAxis(categories = version_data$Version_1) %>% 
+  hc_add_series(color = "#B71C1C",
+                data = round(version_data$porc*100, 2), name = "% Usuarios") %>% 
+  hc_yAxis(labels = list(format = "{value}%")) %>% 
+  hc_add_theme(hc_theme_smpl())
+```
+
+## Instalar Git
+
+Dependiendo del sistema operativo con el que estemos trabajando, es probable 
+que Git ya esté instalado, no obstante, a continuación se explicará como
+verificar su existencia en nuestro computador y si no, como instalarlo 
+(recomiendo leer el apéndice). 
+
+### Windows
+
+El sistema operativo Windows 10 ( y todos sus derivados), por defecto no traen
+instalado Git. Es recomendable instalar [Git for windows](https://gitforwindows.org/),
+al igual que todo ejecutable .exe se debe seguir los pasos y listo. Este Git 
+se llama `msysgit` o "Git Bash".
+
+Lo interesante de usar Git en Windows es que tendremos libertad en seleccionar la
+ubicación de instalación (`C:/Program Files`) y así ayudar a otros programas como 
+Rstudio a encontrarlo y usarlo.
+
+Otras opciones sería usar **Chocolatey**, un administrador de paquete  que 
+actua como **homebrew** (`apt-get`).
+
+### macOS
+
+En macOS la existencia de Git dependerá si el usuario está familiarizado con 
+la herramienta Xcode. 
+
+
+
+### Linux
+
+Existen muchas Distros de Linux con distintos "sabores", a mí personalmente me gusta Ubuntu que deriva de Debian y Pop Os de System 76 que deriva de Ubuntu. Por lo tanto y asumiendo que 
+el usuario sabe trabajar desde la terminal, para install git basta con:
+
+```bash
+sudo apt-get install git
+```
+
+
+```{r}
+language_data <- survey_tbl %>%
+  select("Respondent", "LanguageWorkedWith") %>% 
+  na.omit() %>% 
+  mutate(language = sapply(str_split(LanguageWorkedWith, ";"),
+                               function(x) x[[1]][1])) %>%
+  select(Respondent, language) %>% 
+  group_by(language) %>% 
+  mutate(n = n()) %>%
+  select(language, n) %>% 
+  arrange(desc(n)) %>% 
+  distinct() %>% 
+  ungroup() %>% 
+  mutate(total = sum(n), porc = n/total) %>%
+  arrange(desc(porc)) %>% 
+  head(20)
+  
+highchart() %>% 
+  hc_chart(type = "bar") %>% 
+  hc_title(text = "Lenguaje de programación") %>% 
+  hc_subtitle(text = "Top 20") %>% 
+  hc_xAxis(categories = language_data$language) %>% 
+  hc_add_series(color = "#B71C1C",
+                data = round(language_data$porc*100, 2), name = "Lenguaje") %>% 
+  hc_yAxis(labels = list(format = "{value}%"), max = 22) %>% 
+  hc_add_theme(hc_theme_smpl())
+```
+
+## ¿Qué es Github?
+
+### Crear cuenta 
+
+## Trabajando con Version Control en R Studio
+
+### Comandos desde la Terminal
+
+## Apéndice
+
+### La terminal (Shell)
+
+### Usar un sistema operativo con Unix 
