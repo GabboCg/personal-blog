@@ -3,7 +3,7 @@ title: "Gabriel Cabrera"
 description: |
   Python
 output_dir: "_site"
-avbar:
+navbar:
   right:
     - text: "NOTES"
       menu:
