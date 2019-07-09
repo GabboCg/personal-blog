@@ -16,5 +16,5 @@ collections:
   posts:
     feed_items_max: 50
 output: 
-  radix::radix_article:
-    css: custom.css
+  distill::distill_article:
+    css: style.css

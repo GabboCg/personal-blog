@@ -6,7 +6,8 @@ author: "Gabriel Cabrera"
 # preview: "https://www.logolynx.com/images/logolynx/b5/b570ec9f0b98f523a19b57163a2c588a.jpeg"
 date: 01-29-2019
 output:
-  radix::radix_article:
+  distill::distill_article:
+    css: style.css
     self_contained: false
 ---
 

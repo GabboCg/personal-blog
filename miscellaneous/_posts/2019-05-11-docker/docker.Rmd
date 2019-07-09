@@ -4,10 +4,10 @@ description: |
   A short description of the post.
 author:
   - name: Gabriel Cabrera
-    url: {}
 date: 05-11-2019
 output:
-  radix::radix_article:
+  distill::distill_article:
+    css: style.css
     self_contained: false
 ---
 

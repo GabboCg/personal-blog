@@ -38,5 +38,5 @@ navbar:
     - icon: face fa-twitter
       href: "https://twitter.com/GaboC_g"
 output: 
-  radix::radix_article:
-    css: custom.css
+  distill::distill_article:
+    css: style.css

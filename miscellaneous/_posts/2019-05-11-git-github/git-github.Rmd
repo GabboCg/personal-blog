@@ -4,17 +4,17 @@ description: |
   Introducción a Git y Github para usuarios de R 
 author:
   - name: Gabriel Cabrera
-    url: {}
 date: 05-11-2019
 output:
-  radix::radix_article:
+  distill::distill_article:
+    css: style.css
     self_contained: false
 ---
-
+ 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
-
+  
 ```{r}
 if(!require("pacman")) install.packages("pacman")
 p_load("tidyverse", "fontawesome", "highcharter")

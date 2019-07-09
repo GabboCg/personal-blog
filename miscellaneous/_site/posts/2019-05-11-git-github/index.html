@@ -6,7 +6,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1"/>
-  <meta name="generator" content="radix" />
+  <meta name="generator" content="distill" />
 
   <style type="text/css">
   /* Hide doc at startup (prevent jankiness while JS renders/transforms) */
@@ -45,7 +45,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Git & Github"]},{"type":"character","attributes":{},"value":["Introducción a Git y Github para usuarios de R"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["05-11-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["radix::radix_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Git & Github"]},{"type":"character","attributes":{},"value":["Introducción a Git y Github para usuarios de R"]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]}]}]},{"type":"character","attributes":{},"value":["05-11-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["css","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["style.css"]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -83,7 +83,7 @@
     });
 
     // responsive menu
-    $('.radix-site-header').each(function(i, val) {
+    $('.distill-site-header').each(function(i, val) {
       var topnav = $(this);
       var toggle = topnav.find('.nav-toggle');
       toggle.on('click', function() {
@@ -110,85 +110,85 @@
 
 /* Theme (user-documented overrideables for nav appearance) */
 
-.radix-site-nav {
+.distill-site-nav {
   color: rgba(255, 255, 255, 0.8);
   background-color: #455a64;
   font-size: 15px;
   font-weight: 300;
 }
 
-.radix-site-nav a {
+.distill-site-nav a {
   color: inherit;
   text-decoration: none;
 }
 
-.radix-site-nav a:hover {
+.distill-site-nav a:hover {
   color: white;
 }
 
 @media print {
-  .radix-site-nav {
+  .distill-site-nav {
     display: none;
   }
 }
 
-.radix-site-header {
+.distill-site-header {
 
 }
 
-.radix-site-footer {
+.distill-site-footer {
 
 }
 
 
 /* Site Header */
 
-.radix-site-header {
+.distill-site-header {
   width: 100%;
   box-sizing: border-box;
   z-index: 3;
 }
 
-.radix-site-header .nav-left {
+.distill-site-header .nav-left {
   display: inline-block;
   margin-left: 8px;
 }
 
 @media screen and (max-width: 768px) {
-  .radix-site-header .nav-left {
+  .distill-site-header .nav-left {
     margin-left: 0;
   }
 }
 
 
-.radix-site-header .nav-right {
+.distill-site-header .nav-right {
   float: right;
   margin-right: 8px;
 }
 
-.radix-site-header a,
-.radix-site-header .title {
+.distill-site-header a,
+.distill-site-header .title {
   display: inline-block;
   text-align: center;
   padding: 14px 10px 14px 10px;
 }
 
-.radix-site-header .title {
+.distill-site-header .title {
   font-size: 18px;
 }
 
-.radix-site-header .logo {
+.distill-site-header .logo {
   padding: 0;
 }
 
-.radix-site-header .logo img {
+.distill-site-header .logo img {
   display: none;
   max-height: 20px;
   width: auto;
   margin-bottom: -4px;
 }
 
-.radix-site-header .nav-image img {
+.distill-site-header .nav-image img {
   max-height: 18px;
   width: auto;
   display: inline-block;
@@ -198,22 +198,22 @@
 
 
 @media screen and (min-width: 1000px) {
-  .radix-site-header .logo img {
+  .distill-site-header .logo img {
     display: inline-block;
   }
-  .radix-site-header .nav-left {
+  .distill-site-header .nav-left {
     margin-left: 20px;
   }
-  .radix-site-header .nav-right {
+  .distill-site-header .nav-right {
     margin-right: 20px;
   }
-  .radix-site-header .title {
+  .distill-site-header .title {
     padding-left: 12px;
   }
 }
 
 
-.radix-site-header .nav-toggle {
+.distill-site-header .nav-toggle {
   display: none;
 }
 
@@ -295,18 +295,18 @@
 }
 
 @media screen and (max-width: 768px) {
-  .radix-site-header a, .radix-site-header .nav-dropdown  {display: none;}
-  .radix-site-header a.nav-toggle {
+  .distill-site-header a, .distill-site-header .nav-dropdown  {display: none;}
+  .distill-site-header a.nav-toggle {
     float: right;
     display: block;
   }
-  .radix-site-header .title {
+  .distill-site-header .title {
     margin-left: 0;
   }
-  .radix-site-header .nav-right {
+  .distill-site-header .nav-right {
     margin-right: 0;
   }
-  .radix-site-header {
+  .distill-site-header {
     overflow: hidden;
   }
   .nav-right .nav-dropdown-content {
@@ -316,24 +316,24 @@
 
 
 @media screen and (max-width: 768px) {
-  .radix-site-header.responsive {position: relative;}
-  .radix-site-header.responsive a.nav-toggle {
+  .distill-site-header.responsive {position: relative;}
+  .distill-site-header.responsive a.nav-toggle {
     position: absolute;
     right: 0;
     top: 0;
   }
-  .radix-site-header.responsive a,
-  .radix-site-header.responsive .nav-dropdown {
+  .distill-site-header.responsive a,
+  .distill-site-header.responsive .nav-dropdown {
     display: block;
     text-align: left;
   }
-  .radix-site-header.responsive .nav-left,
-  .radix-site-header.responsive .nav-right {
+  .distill-site-header.responsive .nav-left,
+  .distill-site-header.responsive .nav-right {
     width: 100%;
   }
-  .radix-site-header.responsive .nav-dropdown {float: none;}
-  .radix-site-header.responsive .nav-dropdown-content {position: relative;}
-  .radix-site-header.responsive .nav-dropdown .nav-dropbtn {
+  .distill-site-header.responsive .nav-dropdown {float: none;}
+  .distill-site-header.responsive .nav-dropdown-content {position: relative;}
+  .distill-site-header.responsive .nav-dropdown .nav-dropbtn {
     display: block;
     width: 100%;
     text-align: left;
@@ -342,7 +342,7 @@
 
 /* Site Footer */
 
-.radix-site-footer {
+.distill-site-footer {
   width: 100%;
   overflow: hidden;
   box-sizing: border-box;
@@ -1225,7 +1225,7 @@ function init_common() {
 
   // get rid of index.html references in header
   if (window.location.protocol !== "file:") {
-    $('.radix-site-header a[href]').each(function(i,val) {
+    $('.distill-site-header a[href]').each(function(i,val) {
       $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
     });
   }
@@ -1312,35 +1312,99 @@ document.addEventListener('DOMContentLoaded', function() {
   <script src="../../site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
 <style type="text/css">
-@charset "UTF-8";
+body {
+  text-align: justify;
+}
 
-
-.radix-site-nav {
-  color: rgba(255, 255, 255, 0.8);
-  background-color: #ff2a00; /* #ff4d44 Chris Albon color, other ff2a00 */
-  
-  /* padding: 14px 10px 14px 10px; grosor linea */
-
-  color: #fff;
-  /*text-transform: uppercase; */
-  font-size: 1em;
+d-article {
   font-weight: 300;
-  
+}
+
+.distill-site-nav {
+  animation:backgroundtransition 100s;
+  -moz-animation:backgroundtransition 100s infinite; /* Firefox */
+  -webkit-animation:backgroundtransition 100s infinite; /* Safari and Chrome */
+}
+
+@-moz-keyframes backgroundtransition /* Firefox */ {
+   0%   {background: #B71C1C;} /* red */
+   10%  {background: #311b92;} /* deep purlple */
+   20%  {background: #0D47A1;} /* blue */
+   30%  {background: #004D40;} /* teal */
+   40%  {background: #212121;} /* grey */
+   50%  {background: #1A237E;} /* indigo */
+   60%  {background: #33691E;} /* ligth green */
+   70%  {background: #006064;} /* cyan */
+   80%  {background: #827717;} /* lime */
+   90%  {background: #263238;} /* blue gray*/
+   100% {background: #B71C1C;} /* red */
+}
+
+@-webkit-keyframes backgroundtransition /* Safari and Chrome */ {
+   0%   {background: #B71C1C;} /* red */
+   10%  {background: #311b92;} /* deep purlple */
+   20%  {background: #0D47A1;} /* blue */
+   30%  {background: #004D40;} /* teal */
+   40%  {background: #212121;} /* grey */
+   50%  {background: #1A237E;} /* indigo */
+   60%  {background: #33691E;} /* ligth green */
+   70%  {background: #006064;} /* cyan */
+   80%  {background: #827717;} /* lime */
+   90%  {background: #263238;} /* blue gray*/
+   100% {background: #B71C1C;} /* red */
+}
+
+/* https://codepen.io/sdthornton/pen/wBZdXq */
+.distill-site-header {
+   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+/* thunder animation */
+/* from http://jsrocks.org/ */
+.fab:hover, .fa:hover {
+    animation-name: thunder;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+
+    -webkit-animation-name: thunder;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    -webkit-animation-iteration-count: infinite;
+     transition: all 150ms ease 0s;
+}
+
+@keyframes thunder{
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
+}
+
+@-webkit-keyframes thunder{
+    0%, 20%, 40%, 60%, 80%, 100% {
+        transform: rotate3d(0, 0, 1, -5deg);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: rotate3d(0, 0, 1, 5deg);
+    }
 }
 
  @media screen and (min-width: 1000px) {
-    .radix-site-header .logo img {
+    .distill-site-header .logo img {
       display: inline-block;
     }
-    .radix-site-header .nav-left {
+    .distill-site-header .nav-left {
       margin-left: 385px;
     }
-    .radix-site-header .nav-right {
+    .distill-site-header .nav-right {
       margin-right: 385px;
       font-size: 0.9em;
       font-weight: 250;
     }
-    .radix-site-header .title {
+    .distill-site-header .title {
       font-weight: bold;
       font-size: 1em;
       font-weight: 350;
@@ -1348,14 +1412,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-
-body {
-  text-align: justify;
-  text-justify: inter-word;
+  
+.distill-site-footer {
+   clear: both;
+   position: relative;
+   bottom: 0;
+   width: 100%;
+   height: 100px;
 }
+
 </style>
 <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="style.css" type="text/css"/>
 
 </head>
 
@@ -1364,13 +1433,13 @@ body {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Git & Github","description":"Introducción a Git y Github para usuarios de R","authors":[{"author":"Gabriel Cabrera","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-05-11T00:00:00.000-04:00","citationText":"Cabrera, 2019"}
+{"title":"Git & Github","description":"Introducción a Git y Github para usuarios de R","authors":[{"author":"Gabriel Cabrera","authorURL":"#","affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-05-11T00:00:00.000-04:00","citationText":"Cabrera, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
 <!--radix_placeholder_navigation_before_body-->
 <header class="header header--fixed" role="banner">
-<nav class="radix-site-nav radix-site-header">
+<nav class="distill-site-nav distill-site-header">
 <div class="nav-left">
 <a href="../../index.html" class="title">Gabriel Cabrera</a>
 </div>
@@ -1430,7 +1499,7 @@ ABOUT
 </div>
 
 <div class="d-byline">
-  Gabriel Cabrera true 
+  Gabriel Cabrera  
   
 <br/>05-11-2019
 </div>
@@ -1458,8 +1527,8 @@ ABOUT
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="figure" style="text-align: center"><span id="fig:versioncontrol"></span>
-<div id="htmlwidget-a1aa50d07134aca7d336" style="width:100%;height:500px;" class="highchart html-widget"></div>
-<script type="application/json" data-for="htmlwidget-a1aa50d07134aca7d336">{"x":{"hc_opts":{"title":{"text":"Version Control"},"yAxis":{"title":{"text":null},"labels":{"format":"{value}%"}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"chart":{"type":"column"},"xAxis":{"categories":["Git","I don't use version control","Subversion","Team Foundation Version Control","Copying and pasting files to network shares","Zip file back-ups","Mercurial"]},"series":[{"data":[87.25,4.02,3.38,2.43,1.46,0.87,0.59],"color":"#B71C1C","name":"% Usuarios"}]},"theme":{"colors":["#d35400","#2980b9","#2ecc71","#f1c40f","#2c3e50","#7f8c8d"],"chart":{"style":{"fontFamily":"Roboto","color":"#666666"}},"title":{"align":"left","style":{"fontFamily":"Roboto Condensed","fontWeight":"bold"}},"subtitle":{"align":"left","style":{"fontFamily":"Roboto Condensed"}},"legend":{"align":"right","verticalAlign":"bottom"},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"plotOptions":{"line":{"marker":{"enabled":false}},"spline":{"marker":{"enabled":false}},"area":{"marker":{"enabled":false}},"areaspline":{"marker":{"enabled":false}},"arearange":{"marker":{"enabled":false}},"bubble":{"maxSize":"10%"}}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":["Roboto","Roboto+Condensed"],"debug":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-6cc40ea4451ffb139562" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-6cc40ea4451ffb139562">{"x":{"hc_opts":{"title":{"text":"Version Control"},"yAxis":{"title":{"text":null},"labels":{"format":"{value}%"}},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"chart":{"type":"column"},"xAxis":{"categories":["Git","I don't use version control","Subversion","Team Foundation Version Control","Copying and pasting files to network shares","Zip file back-ups","Mercurial"]},"series":[{"data":[87.25,4.02,3.38,2.43,1.46,0.87,0.59],"color":"#B71C1C","name":"% Usuarios"}]},"theme":{"colors":["#d35400","#2980b9","#2ecc71","#f1c40f","#2c3e50","#7f8c8d"],"chart":{"style":{"fontFamily":"Roboto","color":"#666666"}},"title":{"align":"left","style":{"fontFamily":"Roboto Condensed","fontWeight":"bold"}},"subtitle":{"align":"left","style":{"fontFamily":"Roboto Condensed"}},"legend":{"align":"right","verticalAlign":"bottom"},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"plotOptions":{"line":{"marker":{"enabled":false}},"spline":{"marker":{"enabled":false}},"area":{"marker":{"enabled":false}},"areaspline":{"marker":{"enabled":false}},"arearange":{"marker":{"enabled":false}},"bubble":{"maxSize":"10%"}}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":["Roboto","Roboto+Condensed"],"debug":false},"evals":[],"jsHooks":[]}</script>
 <p class="caption">
 Figure 1: Herramientas de Version Control utilizados por los usuarios
 </p>
@@ -1478,12 +1547,13 @@ Figure 1: Herramientas de Version Control utilizados por los usuarios
 <pre class="bash"><code>
 sudo apt-get install git</code></pre>
 <div class="layout-chunk" data-layout="l-body">
-<div id="htmlwidget-d47fdfaf73e7757f86b5" style="width:100%;height:500px;" class="highchart html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d47fdfaf73e7757f86b5">{"x":{"hc_opts":{"title":{"text":"Lenguaje de programación"},"yAxis":{"title":{"text":null},"labels":{"format":"{value}%"},"max":22},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"chart":{"type":"bar"},"subtitle":{"text":"Top 20"},"xAxis":{"categories":["C#","C","JavaScript","Java","C++","Assembly","Go","Python","Groovy","CoffeeScript","PHP","Objective-C","Clojure","SQL","Haskell","Erlang","R","Matlab","Ruby","Swift"]},"series":[{"data":[21.66,17.02,15.51,15.43,8.99,7.35,2.69,2.13,1.89,1.8,0.97,0.75,0.58,0.49,0.39,0.35,0.31,0.31,0.19,0.19],"color":"#B71C1C","name":"Lenguaje"}]},"theme":{"colors":["#d35400","#2980b9","#2ecc71","#f1c40f","#2c3e50","#7f8c8d"],"chart":{"style":{"fontFamily":"Roboto","color":"#666666"}},"title":{"align":"left","style":{"fontFamily":"Roboto Condensed","fontWeight":"bold"}},"subtitle":{"align":"left","style":{"fontFamily":"Roboto Condensed"}},"legend":{"align":"right","verticalAlign":"bottom"},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"plotOptions":{"line":{"marker":{"enabled":false}},"spline":{"marker":{"enabled":false}},"area":{"marker":{"enabled":false}},"areaspline":{"marker":{"enabled":false}},"arearange":{"marker":{"enabled":false}},"bubble":{"maxSize":"10%"}}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":["Roboto","Roboto+Condensed"],"debug":false},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-ac81bf2ecf9ab442b099" style="width:100%;height:500px;" class="highchart html-widget"></div>
+<script type="application/json" data-for="htmlwidget-ac81bf2ecf9ab442b099">{"x":{"hc_opts":{"title":{"text":"Lenguaje de programación"},"yAxis":{"title":{"text":null},"labels":{"format":"{value}%"},"max":22},"credits":{"enabled":false},"exporting":{"enabled":false},"plotOptions":{"series":{"label":{"enabled":false},"turboThreshold":0},"treemap":{"layoutAlgorithm":"squarified"}},"chart":{"type":"bar"},"subtitle":{"text":"Top 20"},"xAxis":{"categories":["C#","C","JavaScript","Java","C++","Assembly","Go","Python","Groovy","CoffeeScript","PHP","Objective-C","Clojure","SQL","Haskell","Erlang","R","Matlab","Ruby","Swift"]},"series":[{"data":[21.66,17.02,15.51,15.43,8.99,7.35,2.69,2.13,1.89,1.8,0.97,0.75,0.58,0.49,0.39,0.35,0.31,0.31,0.19,0.19],"color":"#B71C1C","name":"Lenguaje"}]},"theme":{"colors":["#d35400","#2980b9","#2ecc71","#f1c40f","#2c3e50","#7f8c8d"],"chart":{"style":{"fontFamily":"Roboto","color":"#666666"}},"title":{"align":"left","style":{"fontFamily":"Roboto Condensed","fontWeight":"bold"}},"subtitle":{"align":"left","style":{"fontFamily":"Roboto Condensed"}},"legend":{"align":"right","verticalAlign":"bottom"},"xAxis":{"gridLineWidth":1,"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"yAxis":{"gridLineColor":"#F3F3F3","lineColor":"#F3F3F3","minorGridLineColor":"#F3F3F3","tickColor":"#F3F3F3","tickWidth":1},"plotOptions":{"line":{"marker":{"enabled":false}},"spline":{"marker":{"enabled":false}},"area":{"marker":{"enabled":false}},"areaspline":{"marker":{"enabled":false}},"arearange":{"marker":{"enabled":false}},"bubble":{"maxSize":"10%"}}},"conf_opts":{"global":{"Date":null,"VMLRadialGradientURL":"http =//code.highcharts.com/list(version)/gfx/vml-radial-gradient.png","canvasToolsURL":"http =//code.highcharts.com/list(version)/modules/canvas-tools.js","getTimezoneOffset":null,"timezoneOffset":0,"useUTC":true},"lang":{"contextButtonTitle":"Chart context menu","decimalPoint":".","downloadJPEG":"Download JPEG image","downloadPDF":"Download PDF document","downloadPNG":"Download PNG image","downloadSVG":"Download SVG vector image","drillUpText":"Back to {series.name}","invalidDate":null,"loading":"Loading...","months":["January","February","March","April","May","June","July","August","September","October","November","December"],"noData":"No data to display","numericSymbols":["k","M","G","T","P","E"],"printChart":"Print chart","resetZoom":"Reset zoom","resetZoomTitle":"Reset zoom level 1:1","shortMonths":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"thousandsSep":" ","weekdays":["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]}},"type":"chart","fonts":["Roboto","Roboto+Condensed"],"debug":false},"evals":[],"jsHooks":[]}</script>
 </div>
 <h2 id="que-es-github">¿Qué es Github?</h2>
 <h3 id="crear-cuenta">Crear cuenta</h3>
 <h2 id="trabajando-con-version-control-en-r-studio">Trabajando con Version Control en R Studio</h2>
+<h3 id="comandos-desde-la-terminal">Comandos desde la Terminal</h3>
 <h2 id="apendice">Apéndice</h2>
 <h3 id="la-terminal-shell">La terminal (Shell)</h3>
 <h3 id="usar-un-sistema-operativo-con-unix">Usar un sistema operativo con Unix</h3>
@@ -1501,7 +1571,11 @@ sudo apt-get install git</code></pre>
 <div class="appendix-bottom"></div>
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
+<div class="distill-site-nav distill-site-footer">
+  <p>© Copyright 2019 Gabriel Cabrera</p>
+</div>
 <!--/radix_placeholder_navigation_after_body-->
+
 
 </body>
 
