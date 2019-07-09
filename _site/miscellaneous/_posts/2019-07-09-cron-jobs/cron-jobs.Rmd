@@ -1,10 +1,10 @@
 ---
-title: "Docker"
+title: "Cron Jobs"
 description: |
   A short description of the post.
 author:
   - name: Gabriel Cabrera
-date: 05-11-2019
+date: 07-09-2019
 output:
   distill::distill_article:
     css: style.css
@@ -15,7 +15,9 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-Radix is a publication format for scientific and technical writing, native to the web.
+# title 
 
-Learn more about using Radix at <https://rstudio.github.io/radix>.
+Distill is a publication format for scientific and technical writing, native to the web.
+Learn more about using Distill at <https://rstudio.github.io/distill>.
+
 

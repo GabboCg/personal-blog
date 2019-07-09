@@ -1,3 +1,7 @@
+body {
+  text-align: justify;
+}
+
 d-article {
   font-weight: 300;
 }
@@ -74,20 +78,6 @@ d-article {
     }
 }
 
-
-/* subscribe button */
-.sbt {
-  color: black;
-  background-color: #e7e7e7;
-  border: 2px solid #e7e7e7;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  border-radius: 2px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",    Arial, sans-serif;
-  padding: 0px;
-}
-
  @media screen and (min-width: 1000px) {
     .distill-site-header .logo img {
       display: inline-block;
@@ -107,10 +97,12 @@ d-article {
       text-transform: uppercase;
     }
   }
+
   
 .distill-site-footer {
-   position:absolute;
-   bottom:0;
-   width:100%;
-   height:100px; 
+   clear: both;
+   position: relative;
+   bottom: 0;
+   width: 100%;
+   height: 100px;
 }

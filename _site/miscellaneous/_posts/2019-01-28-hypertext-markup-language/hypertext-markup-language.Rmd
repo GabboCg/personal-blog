@@ -6,7 +6,8 @@ author: "Gabriel Cabrera"
 # preview: "https://bbvaopen4u.com/sites/default/files/styles/big-image/public/img/new/115a8_html_strong.jpg?itok=MTQgur3d"
 date: 01-28-2019
 output:
-  radix::radix_article:
+  distill::distill_article:
+    css: style.css
     self_contained: false
 ...
 
@@ -16,7 +17,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Hypertex Markup Language (HTML) es usado para estructurar contenido en el
 buscador (web browser). Un HTML es almacenado en archivos *plain-text* con 
-sufijo *.html*. Un documento simple HTML sería por ejemplo:
+sufijo *.html*. Un documento simple HTML sería por ejemplo: 
 
 ```{html, echo = TRUE, eval = FALSE}
 <!DOCTYPE html>
@@ -35,4 +36,3 @@ HTML es un lenguaje con una historia extensa. Este post solo se enfocará en la
 actual "versión", HTML5 y en lo básico.
 
 # Contenido más estructura 
-
