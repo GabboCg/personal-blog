@@ -1,20 +1,42 @@
 name: "Python"
 title: "Gabriel Cabrera"
 description: |
-  Python
+  Miscellaneous
 output_dir: "_site"
 navbar:
   right:
+    - text: "NOTES"
+      menu:
+        - text: "R"
+          href: https://gcabrerag.rbind.io/
+        - text: "D3.js"
+          href: https://technotes.netlify.com/ruby/_site/
+        - text: "Ruby"
+          href: https://technotes.netlify.com/ruby/_site/
+        - text: "Julia"
+          href:  julia/_site/index.html
+        - text: "Python"
+          href:  https://technotes.netlify.com/python/_site/
+        - text: "PostgreSQL"
+        - text: "Statistical Learning"
+        - text: "Command Line (Linux)"
+        - text: "Javascript"
+        - text: "---"
+        - text: "Miscellaneous"
+          href:  https://technotes.netlify.com/miscellaneous/_site/
+    - text: "ABOUT"
+      menu:
+        - text: "About Gabriel"
+          href: about.html
+        - text: "---"
+        - text: "Contributors"
+          href: about.html
     - icon: fa fa-home 
-      href: "https://technotes.netlify.com"
+      href: index.html
     - icon: fab fa-github
       href: "https://github.com/GaboCg"
     - icon: face fa-twitter
       href: "https://twitter.com/GaboC_g"
-
-collections:
-  posts:
-    feed_items_max: 50
 output: 
   distill::distill_article:
     css: style.css
