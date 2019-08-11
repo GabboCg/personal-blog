@@ -1,7 +1,7 @@
-name: "Scala"
+name: "Miscellaneous"
 title: "Gabriel Cabrera"
 description: |
-  Python
+  Miscellaneous
 output_dir: "_site"
 navbar:
   right:

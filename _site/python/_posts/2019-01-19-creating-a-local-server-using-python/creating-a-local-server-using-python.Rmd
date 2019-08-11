@@ -7,8 +7,9 @@ author:
   - name: Gabriel Cabrera 
 date: 01-19-2019
 output:
-  radix::radix_article:
-    self_contained: true
+  distill::distill_article:
+    css: style.css
+    self_contained: false
 ---
 
 ```{r setup, include=FALSE}
