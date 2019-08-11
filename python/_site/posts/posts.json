@@ -1,5 +1,65 @@
 [
   {
+    "path": "posts/2019-08-10-elementos-basicos-de-python/",
+    "title": "Elementos Básicos de Python",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-10T21:52:47-04:00"
+  },
+  {
+    "path": "posts/2019-08-10-introduccion-a-numpy/",
+    "title": "Introduccion a Numpy",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-10T21:52:34-04:00"
+  },
+  {
+    "path": "posts/2019-08-10-introduccion-a-pandas/",
+    "title": "Introduccion a Pandas",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-10T21:52:51-04:00"
+  },
+  {
+    "path": "posts/2019-08-10-regresion-lineal/",
+    "title": "Regresión Lineal",
+    "description": "Regresión lineal.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-10T21:52:40-04:00"
+  },
+  {
     "path": "posts/2019-01-19-creating-a-local-server-using-python/",
     "title": "Setting Up a Web Server",
     "description": "Deploying a local server when some HTML restrictions exist.",
@@ -12,6 +72,6 @@
     "date": "2019-01-19",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-10T19:36:24-04:00"
+    "last_modified": "2019-08-10T21:21:33-04:00"
   }
 ]
