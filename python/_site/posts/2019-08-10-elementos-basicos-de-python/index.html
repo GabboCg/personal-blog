@@ -45,7 +45,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Elementos Básicos de Python"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Elementos Básicos de Python"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["css","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["style.css"]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1370,17 +1370,20 @@ d-article {
       text-transform: uppercase;
     }
   }
-  
+
+/*
 .distill-site-footer {
-   position:absolute;
+   position:fixed;
    bottom:0;
    width:100%;
    height:100px; 
+   text-align: center;
 }
-
+*/
 </style>
 <!--/radix_placeholder_site_in_header-->
 
+  <link rel="stylesheet" href="style.css" type="text/css"/>
 
 </head>
 
@@ -1461,8 +1464,624 @@ ABOUT
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<h2 id="todo-es-un-objeto">Todo es un objeto</h2>
+<p>Una característica de Python como lenguaje de programción es su orentación a los objetos. Un objeto debe verse como un “caja” que puede contener números, <em>string</em>, funciones, clases, modulos, etc. Cada objeto está asociado a un tipo (<em>type</em>) y datos internos. Lo anterior hace que python sea un lenguaje muy flexible.</p>
+<h2 id="comentarios">Comentarios</h2>
+<p>Cualquier texto que es precedido por el símbolo (#) es ignorado por el interpretador de Python. Esto se suele usar para comentarios.</p>
+<pre class="python"><code>
+# esto es un comentario sobre la linea 
+print(&quot;Hola Mundo&quot;)</code></pre>
+<p>Algunos programadores agregan el comentario en la linea del código.</p>
+<pre class="python"><code>
+print(&quot;Hola Mundo&quot;) # esto es un comentario en la linea</code></pre>
+<p>Lo bueno es que Python permite usar <em>Multi-line (block) comments</em> utilizando (’’’ o &quot;&quot;&quot;).</p>
+<pre class="python"><code>
+&#39;&#39;&#39;
+esto es un 
+multi-line
+(block)
+comment
+&#39;&#39;&#39;
+print(&quot;Hola Mundo&quot;) </code></pre>
+<h2 id="atributos-y-metodos">Atributos y Métodos</h2>
+<p>Los objetos en Python tienen atributos y métodos.</p>
+<ul>
+<li>Atributos: Objetos de Python almacenados “adentro” del objeto.</li>
+<li>Métodos: Funciones asociada a un objeto que tiene acceso a los datos almacenados en el objeto.</li>
+</ul>
+<p>Si creamos el objeto <code>a</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+a = &#39;foo&#39;</code></pre>
+</div>
+<p>Luego agregamos (.) y con Tab veremos los atributos, entre ellos <code>capitalize</code>, <code>center</code>, <code>isupper</code>, etc.</p>
+<h2 id="librerias">Librerias</h2>
+<p>En python un módulo (<em>module</em>) es un archivo con extensión <em>.py</em> que contiene códigos, imaginemos que creamos el archivo <em>modulo_ejemplo.py</em> con lo siguiente:</p>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<p>Si queremos acceder a las variables y funciones definida en <em>modulo_ejemplo.py</em>, desde otro archivo <em>.py</em> que se encuentra en el mismo directorio, debemos escribir:</p>
+<pre class="python"><code>
+import modulo_ejemplo
+
+result = modulo_ejemplo.f(5)
+pi = modulo_ejemplo.PI</code></pre>
+<p>Es equivalente con usar:</p>
+<pre class="python"><code>
+from modulo_ejemplo import f, g, PI
+result = g(5, PI)</code></pre>
+<p>Se puede usar la palabra <code>as</code> para importar el módulo o funciones con otros nombre para abreviar o convención:</p>
+<pre class="python"><code>
+import ejemplo_modulo as em
+from ejemplo_modulo import PI as pi, g as gf
+
+r1 = sm.f(pi)
+r2 = gf(6, pi)</code></pre>
+<p>Lo anterior resume la lógica de usar librerías ubicadas en repositorios centralizados tales como <code>pandas</code> (pd), <code>numpy</code> (np), <code>statsmodels</code> (sm), <code>matplotlib</code> (plt), etc.</p>
+<h3 id="instalar-librerias">Instalar librerías</h3>
+<p>Para instalar librerías, es necesario saber que versión de Python se está utilizando, luego ir a la terminal (linea de comandos) del sistema operativo e instalar utilizando</p>
+<pre class="batch"><code>
+pip install nombre_de_la_librería</code></pre>
+<p>Si se está utilizando el ambiente de Anaconda, deben abrir la terminal (linea de comandos) correspondiente a este ambiente e instalar la librería.</p>
+<h2 id="expresiones-matematicas">Expresiones Matemáticas</h2>
+<table>
+<caption>Operadores Matemáticos</caption>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Operacion</th>
+<th>Ejemplo</th>
+<th>Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>**</td>
+<td>Exponente</td>
+<td>2 ** 3</td>
+<td>8</td>
+</tr>
+<tr class="even">
+<td>%</td>
+<td>Modulo</td>
+<td>22 % 8</td>
+<td>6</td>
+</tr>
+<tr class="odd">
+<td>//</td>
+<td>Division de integer</td>
+<td>22 // 8</td>
+<td>2</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Division</td>
+<td>22 / 8</td>
+<td>2.75</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Multiplicación</td>
+<td>3 * 5</td>
+<td>15</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Resta o sustración</td>
+<td>5 - 2</td>
+<td>3</td>
+</tr>
+<tr class="odd">
+<td>+</td>
+<td>Adición o suma</td>
+<td>2 + 2</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>En Python el operador ** es evaluado primero, *, /, // y % son evaluado después. de izquierda a derecha; los operadores + y - son evalueados últimos (también de izquierda a derecha). Por ejemplo, si deseamos calcular: <span class="math display">\[
+(5 - 1) * ((7 + 1) / (3 - 1))
+\]</span> Escribimos en el script:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+(5 - 1) * ((7 + 1) / (3 - 1))</code></pre>
+<pre><code>
+16.0</code></pre>
+</div>
+<p>La lógica es la siguiente:</p>
+<p><span class="math display">\[
+\begin{align}
+(5 - 1) &amp; * ((7 + 1) / (3 - 1)) \\
+4 &amp; * ((7 + 1) / (3 - 1)) \\
+4 &amp; * (8 / (3 - 1)) \\
+4 &amp; * (8 / 2) \\
+4 &amp; * 4.0 \\
+&amp; 16.0  
+\end{align}
+\]</span></p>
+<h2 id="operadores-logicos">Operadores Lógicos</h2>
+<table>
+<thead>
+<tr class="header">
+<th>Operador</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>a &amp; b</code></td>
+<td>Verdadero si tanto a y b son verdadero, para <em>integers</em>, responde a Y</td>
+</tr>
+<tr class="even">
+<td><code>a | b</code></td>
+<td>Verdadero si a o b es verdadero, para <em>integers</em>, responde a O</td>
+</tr>
+<tr class="odd">
+<td><code>a == b</code></td>
+<td>Verdadero si a es igual a b</td>
+</tr>
+<tr class="even">
+<td><code>a != b</code></td>
+<td>Verdadero si a no es igual a b</td>
+</tr>
+<tr class="odd">
+<td><code>a &lt;= b, a &lt; b</code></td>
+<td>Verdadero si a es menor (menor o igual) a b</td>
+</tr>
+<tr class="even">
+<td><code>a &gt; b, a &gt;= b</code></td>
+<td>Verdadero si a es mayor (mayor o igual) a b</td>
+</tr>
+<tr class="odd">
+<td><code>a is b</code></td>
+<td>Verdadero si a y b se refieren al mismo objeto de Python</td>
+</tr>
+<tr class="even">
+<td><code>a is not b</code></td>
+<td>Verdadero si a y b se refieren a diferente objeto de Python</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tipos-de-datos-scalars">Tipos de Datos (<em>scalars</em>)</h2>
+<table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 60%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Tipos de Datos</th>
+<th>Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Integers (int)</td>
+<td>-2 , -1 , 0 , 1 , 2 , 3 , 4 , 5</td>
+</tr>
+<tr class="even">
+<td>Floating-point numbers (float)</td>
+<td>-1.25 , -1.0 , ‐ -0.5 , 0.0 , 0.5 , 1.0 , 1.25</td>
+</tr>
+<tr class="odd">
+<td>Strings (str)</td>
+<td>‘a’ , ‘aa’ , ‘aaa’ , ‘Holaa!’ , ‘11 gatos’</td>
+</tr>
+<tr class="even">
+<td>Boolean (bool)</td>
+<td>Verdadero (TRUE) o False (FALSE)</td>
+</tr>
+<tr class="odd">
+<td>None</td>
+<td>El valor “null” de Python</td>
+</tr>
+</tbody>
+</table>
+<h3 id="tipos-numericos">Tipos númericos</h3>
+<p>Los tipos númericos primarios para Python son los <code>int</code> y <code>float</code>. los <code>int</code> pueden almacenar arbitrariamente grandes números.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+num_int = 12312551
+
+# lo elevo al cuadrado
+num_int**2</code></pre>
+<pre><code>
+151598912127601</code></pre>
+</div>
+<p>En el caso del tipo <code>float</code>, son valores de doble-precision (64-bit), que pueden ser expresados en notación cientifica.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+float_num = 7.231
+float_numscien = 6.78e-5</code></pre>
+</div>
+<p>La división de dos <code>int</code> será un <code>float</code> (en Python 3.x).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+type(5)</code></pre>
+<pre><code>
+&lt;class &#39;int&#39;&gt;</code></pre>
+<pre class="python"><code>
+type(5/2)</code></pre>
+<pre><code>
+&lt;class &#39;float&#39;&gt;</code></pre>
+</div>
+<h3 id="strings">Strings</h3>
+<p>Para escribir un <em>string</em>, basta con usar (&quot;&quot;) o (’’):</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+b = &quot;no todos lo que brilla es oro&quot;</code></pre>
+</div>
+<p>Es importate saber que los <em>string</em> son inmutables (no se pueden modificar). Muchos objetos de Python se pueden convertir a <em>string</em> usando la función <code>str</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+aa = 5.6
+s = str(aa)
+
+print(s)</code></pre>
+<pre><code>
+5.6</code></pre>
+<pre class="python"><code>
+type(s)</code></pre>
+<pre><code>
+&lt;class &#39;str&#39;&gt;</code></pre>
+</div>
+<p>Son tan flexibles que podemos crear dos objetos del tipo <em>string</em> y “sumarlos”.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+parte_a = &quot;Where&#39;s the money Lebowski?, &quot;
+parte_b = &quot;glugluglug...&quot;
+
+parte_a + parte_b</code></pre>
+<pre><code>
+&quot;Where&#39;s the money Lebowski?, glugluglug...&quot;</code></pre>
+</div>
+<h3 id="booleans">Booleans</h3>
+<p>Los dos valores que pueden tener los <em>boolean</em> en Python son <code>True</code> y <code>False</code></p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+True and True</code></pre>
+<pre><code>
+True</code></pre>
+<pre class="python"><code>
+False or True</code></pre>
+<pre><code>
+True</code></pre>
+</div>
+<h3 id="funciones-str-bool-int-y-float">Funciones <code>str</code>, <code>bool</code>, <code>int</code> y <code>float</code></h3>
+<p>Los tipos <code>str</code>, <code>bool</code>, <code>int</code> y <code>float</code> son también funciones en Python.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+s = &#39;3.14159&#39;
+fval = float(s)
+
+type(fval)</code></pre>
+<pre><code>
+&lt;class &#39;float&#39;&gt;</code></pre>
+<pre class="python"><code>
+int(fval)</code></pre>
+<pre><code>
+3</code></pre>
+<pre class="python"><code>
+bool(fval) # todo número distinto a cero sera verdadero, es como si fuera 1</code></pre>
+<pre><code>
+True</code></pre>
+<pre class="python"><code>
+bool(0) # cero será falso</code></pre>
+<pre><code>
+False</code></pre>
+</div>
+<h2 id="formato-fecha">Formato Fecha</h2>
+<p>En construcción…</p>
+<h2 id="condicionales-loops-y-otros-control-flow">Condicionales, Loops y otros <em>control flow</em></h2>
+<h3 id="if-elif-and-else">if, elif, and else</h3>
+<p>El <em>statement</em> <code>for</code> verifica si la condición es verdadera (<code>True</code>), entonces evalua el código que viene a continuación</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+x = 0
+
+if x &lt; 0:
+  print(&#39;Es negativo&#39;)</code></pre>
+</div>
+<p>A un <code>if</code> puede seguir un <code>elif</code> y finalmente un <code>else</code> si todas las condiciones anteriores son falsas (<code>False</code>).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+x = 0
+
+if x &lt; 0:
+  print(&#39;Es negativo&#39;)
+elif x == 0:
+  print(&#39;Igual a cero&#39;)
+elif 0 &lt; x &lt; 5:
+  print(&#39;Positivo pero menor a 5&#39;)
+else:
+  print(&#39;Positivo y mayor o igual a 5&#39;)</code></pre>
+<pre><code>
+Igual a cero</code></pre>
+</div>
+<p>Si en el ejemplo <code>x</code> fuese negativo, ninguna <code>elif</code> será “alcanzado”. También se puede usar <code>and</code> y <code>or</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+a = 5; b = 7
+c = 8; d = 4
+
+if a &lt; b or c &gt; d:
+  print(&#39;logrado&#39;)</code></pre>
+<pre><code>
+logrado</code></pre>
+</div>
+<h3 id="for-loops"><code>for</code> loops</h3>
+<p>los <code>for</code> loops realizan un iteración sobre una colección como una lista o tupla (en la siguiente sección se presentan), la sintaxis es:</p>
+<pre class="python"><code>
+for value in collection:
+  # realiza algo sobre los valores</code></pre>
+<p>A continuación vamos a construir una lista que contendrá 5 valores, de los cuales, dos serán <code>None</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+secuencia = [1, 2, None, 4, None, 5]</code></pre>
+</div>
+<p>Luego un objeto que tendrá el valor 0:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+total = 0</code></pre>
+</div>
+<p>Ahora se sumara los valores del objeto <code>secuencia</code> que no contengan <code>None</code>, para esto se utilizará un <code>for</code> loop y la opción <code>continue</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+for val in secuencia:
+  if val is None:
+      continue
+  total += val</code></pre>
+</div>
+<p>Se debería obtener el valor de 12 en el objeto <code>total</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+total</code></pre>
+<pre><code>
+12</code></pre>
+</div>
+<p>Ahora se construirá una nueva secuencia donde se buscará su suma, pero hasta el valor 5:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+secuencia_2 = [1, 2, 0, 4, 6, 5, 2, 1]
+total_hasta_5 = 0
+
+for val in secuencia_2:
+  if val == 5:
+      break
+  total_hasta_5 += val</code></pre>
+</div>
+<p>A partir del objeto <code>secuencia_2</code>, si sumamos los valores hasta que sea igual a 5, deberíamos obtener el número 13.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+total_hasta_5</code></pre>
+<pre><code>
+13</code></pre>
+</div>
+<p>Se debe tener en consideración que el uso de <code>break</code>, funcionara sobre el <code>for</code> más cercano, por ejemplo:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+for i in range(4):
+  for j in range(4):
+      if j &gt; i:
+          break
+      print((i, j))</code></pre>
+<pre><code>
+(0, 0)
+(1, 0)
+(1, 1)
+(2, 0)
+(2, 1)
+(2, 2)
+(3, 0)
+(3, 1)
+(3, 2)
+(3, 3)</code></pre>
+</div>
+<h3 id="while-loops">while loops</h3>
+<p>Un <code>while</code> loop espcifica un condición que se cumplirá hasta que está sea falsa o bien cuando el loop especifique termine usando un <code>break</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+x = 256
+total = 0
+
+while x &gt; 0:
+  if total &gt; 500:
+    break
+  total += x
+  x = x // 2
+  
+  print (total, x)
+  </code></pre>
+<pre><code>
+256 128
+384 64
+448 32
+480 16
+496 8
+504 4</code></pre>
+</div>
+<h3 id="range">range</h3>
+<p>La función <code>range</code>, permite generar un interador tal como:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+range(10)</code></pre>
+<pre><code>
+range(0, 10)</code></pre>
+<pre class="python"><code>
+list(range(10))</code></pre>
+<pre><code>
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</code></pre>
+</div>
+<p>Si quiero un iterador que parte vaya de 0 hasta 20 de 2 en 2, se puede usar:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+list(range(0, 20, 2))</code></pre>
+<pre><code>
+[0, 2, 4, 6, 8, 10, 12, 14, 16, 18]</code></pre>
+</div>
+<p>Es importante notar que el valor final no es incluido.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+seq = [1, 2, 3, 4]
+for i in range(len(seq)):
+  print(seq[i])</code></pre>
+<pre><code>
+1
+2
+3
+4</code></pre>
+</div>
+<h2 id="estructura-de-datos">Estructura de Datos</h2>
+<p>Python presenta cuatros estructuras de datos: tuplas (<em>tuples</em>), listas (<em>list</em>), diccionarios (<em>dict</em>) y conjuntos (<em>sets</em>).</p>
+<h3 id="tupla">Tupla</h3>
+<ul>
+<li>Longitud fija (<em>fixed-length</em>), no se puede modificar el tamaño.</li>
+<li>No se puede manipular (<em>immutable</em>)</li>
+<li>La manera más fácil de crear una es separlo por comas (<em>comma-separated</em>).</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+tup = 4, 5, 6
+
+tupla_anidada = (4, 5, 6), (7, 8)</code></pre>
+</div>
+<p>Podemos transformar un iterador por medio de la <code>tuple</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+tuple([4, 0, 2])</code></pre>
+<pre><code>
+(4, 0, 2)</code></pre>
+</div>
+<p>Inclusive un string:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+tup_string = tuple(&#39;string&#39;)
+tup_string</code></pre>
+<pre><code>
+(&#39;s&#39;, &#39;t&#39;, &#39;r&#39;, &#39;i&#39;, &#39;n&#39;, &#39;g&#39;)</code></pre>
+</div>
+<p>Se puede acceder a los elementos de un objeto usando los <em>brackets</em> ([ ]), como C++ o Java, el índice parte del 0.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+tup_string[0]</code></pre>
+<pre><code>
+&#39;s&#39;</code></pre>
+</div>
+<p>Si bien una tupla no puede ser modificada, si está se compone por ejemplo de una lista, esta si se puede modificar:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+tupla_muchos = tuple([1, &#39;hola&#39;, [1, 2], True])
+tupla_muchos[2].append(3)
+tupla_muchos</code></pre>
+<pre><code>
+(1, &#39;hola&#39;, [1, 2, 3], True)</code></pre>
+</div>
+<p>También se pueden sumar o multiplicar:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+(4, None, &#39;hola&#39;) + (6, 0) + (&#39;mundo&#39;,)</code></pre>
+<pre><code>
+(4, None, &#39;hola&#39;, 6, 0, &#39;mundo&#39;)</code></pre>
+<pre class="python"><code>
+(&#39;hola&#39;, &#39;mundo&#39;)*4</code></pre>
+<pre><code>
+(&#39;hola&#39;, &#39;mundo&#39;, &#39;hola&#39;, &#39;mundo&#39;, &#39;hola&#39;, &#39;mundo&#39;, &#39;hola&#39;, &#39;mundo&#39;)</code></pre>
+</div>
+<h3 id="lista">Lista</h3>
+<ul>
+<li>Longitud variable (<em>fixed-length</em>), se puede modificar el tamaño (agregar elementos).</li>
+<li>Se puede manipular (<em>mutable</em>)</li>
+<li>Se puede definir utilizando los <em>brackets</em> ([ ]) o usando la función <code>list</code>.</li>
+</ul>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+una_list = [2, 3, 7, None]
+una_tupla = (&#39;hola&#39;, &#39;mundo&#39;, None)
+
+tupla_a_lista = list(una_tupla)
+tupla_a_lista </code></pre>
+<pre><code>
+[&#39;hola&#39;, &#39;mundo&#39;, None]</code></pre>
+</div>
+<p>Ahora como <code>tupla_a_lista</code> es una lista, podemos modificarla</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+tupla_a_lista[1] = &#39;se cambio&#39;
+tupla_a_lista</code></pre>
+<pre><code>
+[&#39;hola&#39;, &#39;se cambio&#39;, None]</code></pre>
+<pre class="python"><code>
+tupla_a_lista.append([1, 2, None])
+tupla_a_lista</code></pre>
+<pre><code>
+[&#39;hola&#39;, &#39;se cambio&#39;, None, [1, 2, None]]</code></pre>
+</div>
+<h3 id="diccionarios-dict">Diccionarios (dict)</h3>
+<p>Es una colección flexible de llave-valor (<em>key-value</em>), donde la llave son objetos de python. Para crearlos se utiliza <em>curly braces</em> ({ }).</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+dict_vacio = {}
+
+dict_1 = {&#39;a&#39;: &#39;algun valor&#39;, &#39;b&#39;: [1, 2, 3, 4]}
+dict_1</code></pre>
+<pre><code>
+{&#39;a&#39;: &#39;algun valor&#39;, &#39;b&#39;: [1, 2, 3, 4]}</code></pre>
+<pre class="python"><code>
+dict_1[7] = &#39;un int&#39;
+dict_1</code></pre>
+<pre><code>
+{&#39;a&#39;: &#39;algun valor&#39;, &#39;b&#39;: [1, 2, 3, 4], 7: &#39;un int&#39;}</code></pre>
+<pre class="python"><code>
+dict_1[&#39;b&#39;]</code></pre>
+<pre><code>
+[1, 2, 3, 4]</code></pre>
+</div>
+<p>Para verificar si un diccionario contiene cierta llave (<em>key</em>), se usa lo mismo que para un lista o tupla:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+&#39;b&#39; in dict_1</code></pre>
+<pre><code>
+True</code></pre>
+</div>
+<h3 id="conjuntos">Conjuntos</h3>
+<p>Los conjuntos es una colección sin orden de elementos únicos. Se puede pensar como un diccionario pero solo con llaves y no con valores. Se pueden crear usando la función <code>set</code> o <em>curly braces</em> ({ })</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+set([2, 2, 2, 1, 3, 3])</code></pre>
+<pre><code>
+{1, 2, 3}</code></pre>
+<pre class="python"><code>
+{2, 2, 2, 1, 3, 3}</code></pre>
+<pre><code>
+{1, 2, 3}</code></pre>
+</div>
+<p>Los conjuntos soportan operaciones de conjuntos como unión, intesección, diferencia, etc. consideremos estos dos conjuntos:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+a = {1, 2, 3, 4, 5}
+b = {3, 4, 5, 6, 7, 8}
+
+a.union(b)</code></pre>
+<pre><code>
+{1, 2, 3, 4, 5, 6, 7, 8}</code></pre>
+<pre class="python"><code>
+a | b # alternativamente</code></pre>
+<pre><code>
+{1, 2, 3, 4, 5, 6, 7, 8}</code></pre>
+<pre class="python"><code>
+a.intersection(b)</code></pre>
+<pre><code>
+{3, 4, 5}</code></pre>
+<pre class="python"><code>
+a &amp; b # alternativamente</code></pre>
+<pre><code>
+{3, 4, 5}</code></pre>
+</div>
+<h2 id="funciones">Funciones</h2>
+<h2 id="ejercicios">Ejercicios</h2>
+<h3 id="basicos">Básicos</h3>
+<h3 id="intermedio">Intermedio</h3>
+<h3 id="avanzado">Avanzado</h3>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1470,6 +2089,15 @@ ABOUT
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->

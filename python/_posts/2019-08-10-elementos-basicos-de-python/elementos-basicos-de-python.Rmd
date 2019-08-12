@@ -8,14 +8,565 @@ author:
 date: 08-10-2019
 output:
   distill::distill_article:
+    css: style.css
     self_contained: false
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+
+# cambia la version de python a usar por medio del motor de python 
+# reticulate::py_config() para ver las versiones en nuestro computador.
+reticulate::use_python("/usr/bin/python3", required = T)
+knitr::knit_engines$set(python = reticulate::eng_python)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+## Todo es un objeto
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+Una característica de Python como lenguaje de programción es su orentación a los 
+objetos. Un objeto debe verse como un "caja" que puede contener números, *string*,
+funciones, clases, modulos, etc. Cada objeto está asociado a un tipo (*type*) y 
+datos internos. Lo anterior hace que python sea un lenguaje muy flexible.
 
+## Comentarios
+
+Cualquier texto que es precedido por el símbolo (#) es ignorado por el interpretador
+de Python. Esto se suele usar para comentarios.
+
+```python
+# esto es un comentario sobre la linea 
+print("Hola Mundo")
+```
+
+Algunos programadores agregan el comentario en la linea del código.
+
+```python
+print("Hola Mundo") # esto es un comentario en la linea
+```
+
+Lo bueno es que Python permite usar *Multi-line (block) comments* utilizando (''' o """).
+
+```python
+'''
+esto es un 
+multi-line
+(block)
+comment
+'''
+print("Hola Mundo") 
+```
+
+## Atributos y Métodos
+
+Los objetos en Python tienen atributos y métodos.
+
+* Atributos: Objetos de Python almacenados "adentro" del objeto.
+* Métodos: Funciones asociada a un objeto que tiene acceso a los datos almacenados en el objeto.
+
+Si creamos el objeto `a`:
+
+```{python, echo=TRUE}
+a = 'foo'
+```
+
+Luego agregamos (.) y con Tab veremos los atributos, entre ellos `capitalize`,
+`center`, `isupper`, etc.
+
+## Librerias
+
+En python un módulo (*module*) es un archivo con extensión *.py* que contiene 
+códigos, imaginemos que creamos el archivo *modulo_ejemplo.py* con lo siguiente:
+
+```{python}
+# códigos en el archivo modulo_ejemplo.py
+PI = 3.14159
+
+def f(x):
+  return x + 2 
+  
+def g(a, b):
+  return a + b
+```
+
+Si queremos acceder a las variables y funciones definida en *modulo_ejemplo.py*,
+desde otro archivo *.py* que se encuentra en el mismo directorio, debemos escribir:
+
+```python
+import modulo_ejemplo
+
+result = modulo_ejemplo.f(5)
+pi = modulo_ejemplo.PI
+```
+
+Es equivalente con usar:
+
+```python
+from modulo_ejemplo import f, g, PI
+result = g(5, PI)
+```
+
+Se puede usar la palabra `as` para importar el módulo o funciones con otros nombre 
+para abreviar o convención:
+
+```python
+import ejemplo_modulo as em
+from ejemplo_modulo import PI as pi, g as gf
+
+r1 = sm.f(pi)
+r2 = gf(6, pi)
+```
+Lo anterior resume la lógica de usar librerías ubicadas en repositorios centralizados
+tales como `pandas` (pd), `numpy` (np), `statsmodels` (sm), `matplotlib` (plt), etc.
+
+### Instalar librerías 
+
+Para instalar librerías, es necesario saber que versión de Python se está utilizando,
+luego ir a la terminal (linea de comandos) del sistema operativo e instalar utilizando
+
+```batch
+pip install nombre_de_la_librería
+```
+
+Si se está utilizando el ambiente de Anaconda, deben abrir la terminal (linea de comandos)
+correspondiente a este ambiente e instalar la librería.
+
+## Expresiones Matemáticas
+
+Table: Operadores Matemáticos
+
+| Operador | Operacion           | Ejemplo | Resultado |
+|----------|---------------------|---------|-----------|
+| **       | Exponente           | 2 ** 3  | 8         |
+| %        | Modulo              | 22 % 8  | 6         |
+| //       | Division de integer | 22 // 8 | 2         |
+| /        | Division            | 22 / 8  | 2.75      |
+| *        | Multiplicación      | 3 * 5   | 15        |
+| -        | Resta o sustración  | 5 - 2   | 3         |
+| +        | Adición o suma      | 2 + 2   | 4         |
+
+En Python el operador ** es evaluado primero, *, /, // y % son evaluado después.
+de izquierda a derecha; los operadores + y - son evalueados últimos (también de
+izquierda a derecha). Por ejemplo, si deseamos calcular:
+$$
+(5 - 1) * ((7 + 1) / (3 - 1))
+$$
+Escribimos en el script:
+
+```{python matex, echo=TRUE}
+(5 - 1) * ((7 + 1) / (3 - 1))
+```
+
+La lógica es la siguiente:
+
+$$
+\begin{align}
+(5 - 1) & * ((7 + 1) / (3 - 1)) \\
+4 & * ((7 + 1) / (3 - 1)) \\
+4 & * (8 / (3 - 1)) \\
+4 & * (8 / 2) \\
+4 & * 4.0 \\
+& 16.0  
+\end{align}
+$$
+
+## Operadores Lógicos
+
+| Operador        | Descripción                                                           |
+|-----------------|-----------------------------------------------------------------------|
+| `a & b`         | Verdadero si tanto a y b son verdadero, para *integers*, responde a Y |
+| `a | b`         | Verdadero si a o b es verdadero, para *integers*, responde a O        |
+| `a == b`        | Verdadero si a es igual a b                                           |
+| `a != b`        | Verdadero si a no es igual a b                                        |
+| `a <= b, a < b` | Verdadero si a es menor (menor o igual) a b                           |
+| `a > b, a >= b` | Verdadero si a es mayor (mayor o igual) a b                           |
+| `a is b`        | Verdadero si a y b se refieren al mismo objeto de Python              |
+| `a is not b`    | Verdadero si a y b se refieren a diferente objeto de Python           |
+
+## Tipos de Datos (*scalars*)
+
+| Tipos de Datos                 | Ejemplo                                        |
+|--------------------------------|------------------------------------------------|
+| Integers (int)                 | -2 , -1 , 0 , 1 , 2 , 3 , 4 , 5                |
+| Floating-point numbers (float) | -1.25 , -1.0 , ‐ -0.5 , 0.0 , 0.5 , 1.0 , 1.25 |
+| Strings (str)                  | 'a' , 'aa' , 'aaa' , 'Holaa!' , '11 gatos'     |
+| Boolean (bool)                 | Verdadero (TRUE) o False (FALSE)               |
+| None                           | El valor "null" de Python                      |
+
+
+### Tipos númericos
+
+Los tipos númericos primarios para Python son los `int` y `float`. los `int`
+pueden almacenar arbitrariamente grandes números.
+
+```{python, echo=TRUE}
+num_int = 12312551
+
+# lo elevo al cuadrado
+num_int**2
+```
+
+En el caso del tipo `float`, son valores de doble-precision (64-bit), que pueden
+ser expresados en notación cientifica.
+
+```{python, echo=TRUE}
+float_num = 7.231
+float_numscien = 6.78e-5
+```
+
+La división de dos `int` será un `float` (en Python 3.x).
+
+```{python, echo=TRUE}
+type(5)
+
+type(5/2)
+```
+
+### Strings
+
+Para escribir un *string*, basta con usar ("") o (''):
+
+```{python, echo=TRUE}
+b = "no todos lo que brilla es oro"
+```
+
+Es importate saber que los *string* son inmutables (no se pueden modificar).
+Muchos objetos de Python se pueden convertir a *string* usando la función `str`.
+
+```{python, echo=TRUE}
+aa = 5.6
+s = str(aa)
+
+print(s)
+
+type(s)
+```
+
+Son tan flexibles que podemos crear dos objetos del tipo *string* y "sumarlos".
+
+```{python, echo=TRUE}
+parte_a = "Where's the money Lebowski?, "
+parte_b = "glugluglug..."
+
+parte_a + parte_b
+```
+
+### Booleans
+
+Los dos valores que pueden tener los *boolean* en Python son `True` y `False`
+
+```{python, echo=TRUE}
+True and True
+False or True
+```
+
+
+### Funciones `str`, `bool`, `int` y `float`
+
+Los tipos `str`, `bool`, `int` y `float` son también funciones en Python.
+
+```{python, echo=TRUE}
+s = '3.14159'
+fval = float(s)
+
+type(fval)
+
+int(fval)
+
+bool(fval) # todo número distinto a cero sera verdadero, es como si fuera 1
+bool(0) # cero será falso
+```
+
+
+## Formato Fecha
+
+En construcción...
+
+## Condicionales, Loops y otros *control flow*
+
+### if, elif, and else
+
+El *statement* `for` verifica si la condición es verdadera (`True`), entonces
+evalua el código que viene a continuación
+
+```{python, echo=TRUE}
+x = 0
+
+if x < 0:
+  print('Es negativo')
+```
+
+A un `if` puede seguir un `elif` y finalmente un `else` si todas las condiciones
+anteriores son falsas (`False`).
+
+```{python, echo=TRUE, eval=TRUE}
+x = 0
+
+if x < 0:
+  print('Es negativo')
+elif x == 0:
+  print('Igual a cero')
+elif 0 < x < 5:
+  print('Positivo pero menor a 5')
+else:
+  print('Positivo y mayor o igual a 5')
+```
+
+Si en el ejemplo `x` fuese negativo, ninguna `elif` será "alcanzado". También se 
+puede usar `and` y `or`:
+
+```{python, echo=TRUE}
+a = 5; b = 7
+c = 8; d = 4
+
+if a < b or c > d:
+  print('logrado')
+```
+
+### `for` loops
+
+los `for` loops realizan un iteración sobre una colección como una lista o tupla 
+(en la siguiente sección se presentan), la sintaxis es:
+
+```python
+for value in collection:
+  # realiza algo sobre los valores
+```
+
+A continuación vamos a construir una lista que contendrá 5 valores, de los cuales,
+dos serán `None`:
+
+```{python, echo=TRUE}
+secuencia = [1, 2, None, 4, None, 5]
+```
+
+Luego un objeto que tendrá el valor 0:
+
+```{python, echo=TRUE}
+total = 0
+```
+
+Ahora se sumara los valores del objeto `secuencia` que no contengan `None`, para 
+esto se utilizará un `for` loop y la opción `continue`:
+
+```{python, echo=TRUE}
+for val in secuencia:
+  if val is None:
+      continue
+  total += val
+```
+
+Se debería obtener el valor de 12 en el objeto `total`:
+
+```{python, echo=TRUE}
+total
+```
+
+Ahora se construirá una nueva secuencia donde se buscará su suma, pero hasta 
+el valor 5:
+
+```{python, echo=TRUE}
+secuencia_2 = [1, 2, 0, 4, 6, 5, 2, 1]
+total_hasta_5 = 0
+
+for val in secuencia_2:
+  if val == 5:
+      break
+  total_hasta_5 += val
+```
+
+A partir del objeto `secuencia_2`, si sumamos los valores hasta que sea igual a 
+5, deberíamos obtener el número 13.
+
+```{python, echo=TRUE}
+total_hasta_5
+```
+
+Se debe tener en consideración que el uso de `break`, funcionara sobre el `for`
+más cercano, por ejemplo:
+
+```{python, echo=TRUE}
+for i in range(4):
+  for j in range(4):
+      if j > i:
+          break
+      print((i, j))
+```
+
+### while loops
+
+Un `while` loop espcifica un condición que se cumplirá hasta que está sea falsa o
+bien cuando el loop especifique termine usando un `break`.
+
+```{python, echo=TRUE}
+x = 256
+total = 0
+
+while x > 0:
+  if total > 500:
+    break
+  total += x
+  x = x // 2
+  
+  print (total, x)
+  
+```
+
+### range
+
+La función `range`, permite generar un interador tal como:
+
+```{python, echo=TRUE}
+range(10)
+list(range(10))
+```
+
+Si quiero un iterador que parte vaya de 0 hasta 20 de 2 en 2, se puede usar:
+
+```{python, echo=TRUE}
+list(range(0, 20, 2))
+```
+
+Es importante notar que el valor final no es incluido.
+
+```{python, echo=TRUE}
+seq = [1, 2, 3, 4]
+for i in range(len(seq)):
+  print(seq[i])
+```
+
+## Estructura de Datos
+
+Python presenta cuatros estructuras de datos: tuplas (*tuples*), listas (*list*),
+diccionarios (*dict*) y conjuntos (*sets*).
+
+### Tupla
+
++ Longitud fija (*fixed-length*), no se puede modificar el tamaño.
++ No se puede manipular (*immutable*)
++ La manera más fácil de crear una es separlo por comas (*comma-separated*).
+
+```{python, echo=TRUE}
+tup = 4, 5, 6
+
+tupla_anidada = (4, 5, 6), (7, 8)
+```
+
+Podemos transformar un iterador por medio de la `tuple`:
+
+```{python, echo=TRUE}
+tuple([4, 0, 2])
+```
+
+Inclusive un string:
+
+```{python, echo=TRUE}
+tup_string = tuple('string')
+tup_string
+```
+
+Se puede acceder a los elementos de un objeto usando los *brackets* ([ ]), como 
+C++ o Java, el índice parte del 0.
+
+```{python, echo=TRUE}
+tup_string[0]
+```
+
+Si bien una tupla no puede ser modificada, si está se compone por ejemplo de una lista,
+esta si se puede modificar:
+
+```{python, echo=TRUE}
+tupla_muchos = tuple([1, 'hola', [1, 2], True])
+tupla_muchos[2].append(3)
+tupla_muchos
+```
+
+También se pueden sumar o multiplicar:
+
+```{python, echo=TRUE}
+(4, None, 'hola') + (6, 0) + ('mundo',)
+('hola', 'mundo')*4
+```
+
+### Lista
+
++ Longitud variable (*fixed-length*), se puede modificar el tamaño (agregar elementos).
++ Se puede manipular (*mutable*)
++ Se puede definir utilizando los *brackets* ([ ]) o usando la función `list`.  
+
+```{python, echo=TRUE}
+una_list = [2, 3, 7, None]
+una_tupla = ('hola', 'mundo', None)
+
+tupla_a_lista = list(una_tupla)
+tupla_a_lista 
+```
+
+Ahora como `tupla_a_lista` es una lista, podemos modificarla
+
+```{python, echo=TRUE}
+tupla_a_lista[1] = 'se cambio'
+tupla_a_lista
+
+tupla_a_lista.append([1, 2, None])
+tupla_a_lista
+```
+
+### Diccionarios (dict)
+
+Es una colección flexible de llave-valor (*key-value*), donde la llave son objetos
+de python. Para crearlos se utiliza *curly braces* ({ }).
+
+```{python, echo=TRUE}
+dict_vacio = {}
+
+dict_1 = {'a': 'algun valor', 'b': [1, 2, 3, 4]}
+dict_1
+
+dict_1[7] = 'un int'
+dict_1
+
+dict_1['b']
+```
+
+Para verificar si un diccionario contiene cierta llave (*key*), se usa lo mismo
+que para un lista o tupla:
+
+```{python, echo=TRUE}
+'b' in dict_1
+```
+
+### Conjuntos
+
+Los conjuntos es una colección sin orden de elementos únicos. Se puede pensar
+como un diccionario pero solo con llaves y no con valores. Se pueden crear usando
+la función `set` o *curly braces* ({ })
+
+```{python, echo=TRUE}
+set([2, 2, 2, 1, 3, 3])
+
+{2, 2, 2, 1, 3, 3}
+```
+
+Los conjuntos soportan operaciones de conjuntos como unión, intesección, diferencia, etc.
+consideremos estos dos conjuntos:
+
+```{python, echo=TRUE}
+a = {1, 2, 3, 4, 5}
+b = {3, 4, 5, 6, 7, 8}
+
+a.union(b)
+a | b # alternativamente
+
+a.intersection(b)
+a & b # alternativamente
+```
+
+## Funciones 
+
+## Ejercicios
+
+### Básicos
+
+### Intermedio
+
+### Avanzado
