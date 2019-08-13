@@ -565,8 +565,99 @@ a & b # alternativamente
 
 ## Ejercicios
 
-### Básicos
+1. Construya la siguiente secuencia de números incluyendo los None: *1, 2, None, 4, 5, 6, None*. Luego utilizando un loop sume los elemenos que son númericos (no considerar None).
 
-### Intermedio
+2. Construya la siguiente secuencia de números: *1, 2, 3, 4, 5, 6, 7*. Luego utilizando un loop sume los elemenos menores al número 5.
 
-### Avanzado
+3. Sume todo los números desde 0 hasta 99.999 que sean múltiplos de 3 o 5.   
+
+4. Construya una función que para un número n entregue como output la suma de los cuadrados de $1^2 + 2^2 + 3^2 + 4^2 + ... + n^2$.
+
+5. Contruya una función que entregue como output si un número es o no divisible por 2.
+
+6. Construya una función que entregue la media aritmética o media geométrica de un conjunto de datos.
+ 
+7. Genere la siguiente matriz:
+
+    $$
+    A = \begin{pmatrix}
+    3 & 0 & 2 \\
+    2 & 0 & 2 \\
+    0 & 1 & 1
+    \end{pmatrix}
+    $$
+
+8. Encuentre la transpuesta de la matriz A.
+
+9. Encuentre la matriz inversa de A.
+  
+10. Genere las siguientes matrices:
+    
+    $$
+    B = \begin{pmatrix}
+    2 & 4 \\
+    5 & -6
+    \end{pmatrix}
+    \hskip 1em 
+    \text{y}
+    \hskip 1em 
+    C = \begin{pmatrix}
+    9 & -3 \\
+    3 & 6
+    \end{pmatrix}
+    $$
+    
+    a. Obtenga la suma de B + C.
+    
+    b. Obtenga el producto punto entre B y C.
+
+11. Utilizando un loop, genera una lista que almacene los valores de la tercera columna de la matriz A. 
+
+12. Use matrices para resolver los siguientes sistemas de ecuaciones:
+
+    a. 
+    $$
+    \begin{aligned}
+    a + b + c & = 6   \\
+    3a - 2b + c & = 2 \\
+    2a + b - c & = 1  
+    \end{aligned}
+    $$
+    
+    b.
+    $$
+    \begin{aligned}
+    3a + 4b - 5c + d & = 10 \\
+    2a + 2b + 2c - d & = 5  \\
+    a - b + 5c - 5d & = 7   \\
+    5a + d & = 4           
+    \end{aligned}
+    $$
+
+13. El estimador MCO minimiza la suma de los errores de predicción al cuadrado,
+$\sum^{n}_{i=1}(Y_{i} - \beta_{0}X_{1i} - ... - \beta_{k}X_{ki})^2$. La fórmula del estimador MCO se obtiene tomando
+la derivada de la suma de los errores de predicción al cuadrado respecto de cada elemento del vector de
+coeficientes, igualando estas derivadas a cero y resolviendo para el estimador $\hat{\beta}$, se obtiene:
+
+$$
+\mathbf{\hat{\beta}} = (\mathbf{X'X})^{-1}\mathbf{X'Y}
+$$
+
+
+a. Utilizando la librería Pandas, importe la base de datos \dataset{Advertising.xlsx}, la que Consiste en el presupuesto gastado en publicidad (*TV*, *radio*, *newspaper*) de 200 productos. 
+
+b. Utilizando Numpy obtenga $\mathbf{\hat{\beta}}$ de la siguiente regresión:
+
+    $$
+    Sales_{i} = \beta_{0} + \beta_{1}TV_{i} + \varepsilon_{i}
+    $$
+    
+## Enlaces 
+
+```{r, echo=FALSE, eval=TRUE}
+library(fontawesome)
+```
+
++ `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)  
++ `r fa("python", fill = "green")` [jupyter notebook](exercise/A1.pdf)  
++ `r fa("book", fill = "orange")` [Python script]()
