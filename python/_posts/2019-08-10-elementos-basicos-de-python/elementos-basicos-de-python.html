@@ -1633,11 +1633,11 @@ a - b + 5c - 5d &amp; = 7   \\
 \end{aligned}
 \]</span></p></li>
 </ol></li>
-<li><p>El estimador MCO minimiza la suma de los errores de predicción al cuadrado, <span class="math inline">\(\sum^{n}_{i=1}(Y_{i} - \beta_{0}X_{1i} - ... - \beta_{k}X_{ki})^2\)</span>. La fórmula del estimador MCO se obtiene tomando la derivada de la suma de los errores de predicción al cuadrado respecto de cada elemento del vector de coeficientes, igualando estas derivadas a cero y resolviendo para el estimador <span class="math inline">\(\hat{\beta}\)</span>, se obtiene:</p></li>
-</ol>
+<li><p>El estimador MCO minimiza la suma de los errores de predicción al cuadrado, <span class="math inline">\(\sum^{n}_{i=1}(Y_{i} - \beta_{0}X_{1i} - ... - \beta_{k}X_{ki})^2\)</span>. La fórmula del estimador MCO se obtiene tomando la derivada de la suma de los errores de predicción al cuadrado respecto de cada elemento del vector de coeficientes, igualando estas derivadas a cero y resolviendo para el estimador <span class="math inline">\(\hat{\beta}\)</span>, se obtiene:</p>
 <p><span class="math display">\[
 \mathbf{\hat{\beta}} = (\mathbf{X&#39;X})^{-1}\mathbf{X&#39;Y}
-\]</span></p>
+\]</span></p></li>
+</ol>
 <ol type="a">
 <li><p>Utilizando la librería Pandas, importe la base de datos , la que Consiste en el presupuesto gastado en publicidad (<em>TV</em>, <em>radio</em>, <em>newspaper</em>) de 200 productos.</p></li>
 <li><p>Utilizando Numpy obtenga <span class="math inline">\(\mathbf{\hat{\beta}}\)</span> de la siguiente regresión:</p>

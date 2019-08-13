@@ -638,12 +638,11 @@ a & b # alternativamente
 $\sum^{n}_{i=1}(Y_{i} - \beta_{0}X_{1i} - ... - \beta_{k}X_{ki})^2$. La fórmula del estimador MCO se obtiene tomando
 la derivada de la suma de los errores de predicción al cuadrado respecto de cada elemento del vector de
 coeficientes, igualando estas derivadas a cero y resolviendo para el estimador $\hat{\beta}$, se obtiene:
-
-$$
-\mathbf{\hat{\beta}} = (\mathbf{X'X})^{-1}\mathbf{X'Y}
-$$
-
-
+    
+    $$
+    \mathbf{\hat{\beta}} = (\mathbf{X'X})^{-1}\mathbf{X'Y}
+    $$
+    
 a. Utilizando la librería Pandas, importe la base de datos \dataset{Advertising.xlsx}, la que Consiste en el presupuesto gastado en publicidad (*TV*, *radio*, *newspaper*) de 200 productos. 
 
 b. Utilizando Numpy obtenga $\mathbf{\hat{\beta}}$ de la siguiente regresión:
