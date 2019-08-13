@@ -49,7 +49,7 @@
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["elementos-basicos-de-python_files/bowser-1.9.3/bowser.min.js","elementos-basicos-de-python_files/distill-2.2.21/template.v2.js","elementos-basicos-de-python_files/jquery-1.11.3/jquery.min.js","elementos-basicos-de-python_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["elementos-basicos-de-python_files/bowser-1.9.3/bowser.min.js","elementos-basicos-de-python_files/distill-2.2.21/template.v2.js","elementos-basicos-de-python_files/jquery-1.11.3/jquery.min.js","elementos-basicos-de-python_files/webcomponents-2.0.0/webcomponents.js","exercise/A1.pdf","jupyter_notebooks/A1.ipynb"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1579,9 +1579,95 @@ a &amp; b # alternativamente</code></pre>
 </div>
 <h2 id="funciones">Funciones</h2>
 <h2 id="ejercicios">Ejercicios</h2>
-<h3 id="basicos">Básicos</h3>
-<h3 id="intermedio">Intermedio</h3>
-<h3 id="avanzado">Avanzado</h3>
+<ol type="1">
+<li><p>Construya la siguiente secuencia de números incluyendo los None: <em>1, 2, None, 4, 5, 6, None</em>. Luego utilizando un loop sume los elemenos que son númericos (no considerar None).</p></li>
+<li><p>Construya la siguiente secuencia de números: <em>1, 2, 3, 4, 5, 6, 7</em>. Luego utilizando un loop sume los elemenos menores al número 5.</p></li>
+<li><p>Sume todo los números desde 0 hasta 99.999 que sean múltiplos de 3 o 5.</p></li>
+<li><p>Construya una función que para un número n entregue como output la suma de los cuadrados de <span class="math inline">\(1^2 + 2^2 + 3^2 + 4^2 + ... + n^2\)</span>.</p></li>
+<li><p>Contruya una función que entregue como output si un número es o no divisible por 2.</p></li>
+<li><p>Construya una función que entregue la media aritmética o media geométrica de un conjunto de datos.</p></li>
+<li><p>Genere la siguiente matriz:</p>
+<p><span class="math display">\[
+ A = \begin{pmatrix}
+ 3 &amp; 0 &amp; 2 \\
+ 2 &amp; 0 &amp; 2 \\
+ 0 &amp; 1 &amp; 1
+ \end{pmatrix}
+ \]</span></p></li>
+<li><p>Encuentre la transpuesta de la matriz A.</p></li>
+<li><p>Encuentre la matriz inversa de A.</p></li>
+<li><p>Genere las siguientes matrices:</p>
+<p><span class="math display">\[
+B = \begin{pmatrix}
+2 &amp; 4 \\
+5 &amp; -6
+\end{pmatrix}
+\hskip 1em 
+\text{y}
+\hskip 1em 
+C = \begin{pmatrix}
+9 &amp; -3 \\
+3 &amp; 6
+\end{pmatrix}
+\]</span></p>
+<ol type="a">
+<li><p>Obtenga la suma de B + C.</p></li>
+<li><p>Obtenga el producto punto entre B y C.</p></li>
+</ol></li>
+<li><p>Utilizando un loop, genera una lista que almacene los valores de la tercera columna de la matriz A.</p></li>
+<li><p>Use matrices para resolver los siguientes sistemas de ecuaciones:</p>
+<ol type="a">
+<li><p><span class="math display">\[
+\begin{aligned}
+a + b + c &amp; = 6   \\
+3a - 2b + c &amp; = 2 \\
+2a + b - c &amp; = 1  
+\end{aligned}
+\]</span></p></li>
+<li><p><span class="math display">\[
+\begin{aligned}
+3a + 4b - 5c + d &amp; = 10 \\
+2a + 2b + 2c - d &amp; = 5  \\
+a - b + 5c - 5d &amp; = 7   \\
+5a + d &amp; = 4           
+\end{aligned}
+\]</span></p></li>
+</ol></li>
+<li><p>El estimador MCO minimiza la suma de los errores de predicción al cuadrado, <span class="math inline">\(\sum^{n}_{i=1}(Y_{i} - \beta_{0}X_{1i} - ... - \beta_{k}X_{ki})^2\)</span>. La fórmula del estimador MCO se obtiene tomando la derivada de la suma de los errores de predicción al cuadrado respecto de cada elemento del vector de coeficientes, igualando estas derivadas a cero y resolviendo para el estimador <span class="math inline">\(\hat{\beta}\)</span>, se obtiene:</p></li>
+</ol>
+<p><span class="math display">\[
+\mathbf{\hat{\beta}} = (\mathbf{X&#39;X})^{-1}\mathbf{X&#39;Y}
+\]</span></p>
+<ol type="a">
+<li><p>Utilizando la librería Pandas, importe la base de datos , la que Consiste en el presupuesto gastado en publicidad (<em>TV</em>, <em>radio</em>, <em>newspaper</em>) de 200 productos.</p></li>
+<li><p>Utilizando Numpy obtenga <span class="math inline">\(\mathbf{\hat{\beta}}\)</span> de la siguiente regresión:</p>
+<p><span class="math display">\[
+ Sales_{i} = \beta_{0} + \beta_{1}TV_{i} + \varepsilon_{i}
+ \]</span></p></li>
+</ol>
+<h2 id="enlaces">Enlaces</h2>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<ul>
+<li><svg style="height:0.8em;top:.04em;position:relative;fill:#ee5863;" viewBox="0 0 512 512">
+<path d="M216 0h80c13.3 0 24 10.7 24 24v168h87.7c17.8 0 26.7 21.5 14.1 34.1L269.7 378.3c-7.5 7.5-19.8 7.5-27.3 0L90.1 226.1c-12.6-12.6-3.7-34.1 14.1-34.1H192V24c0-13.3 10.7-24 24-24zm296 376v112c0 13.3-10.7 24-24 24H24c-13.3 0-24-10.7-24-24V376c0-13.3 10.7-24 24-24h146.7l49 49c20.1 20.1 52.5 20.1 72.6 0l49-49H488c13.3 0 24 10.7 24 24zm-124 88c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20zm64 0c0-11-9-20-20-20s-20 9-20 20 9 20 20 20 20-9 20-20z"/>
+</svg>
+<a href="exercise/A1.pdf">Ayudantia</a><br />
+</li>
+<li><svg style="height:0.8em;top:.04em;position:relative;fill:green;" viewBox="0 0 448 512">
+<path d="M167.8 36.4c-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1zm-6.7 28.4c11 0 20.1 9.2 20.1 20.4s-9 20.3-20.1 20.3c-11.1 0-20.1-9.1-20.1-20.3.1-11.3 9-20.4 20.1-20.4zm185.2 81.4v47.5c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6-7.7-30.9-22.3-54.2-53.4-54.2h-40.1zM286.2 404c11.1 0 20.1 9.1 20.1 20.3 0 11.3-9 20.4-20.1 20.4-11 0-20.1-9.2-20.1-20.4.1-11.3 9.1-20.3 20.1-20.3z"/>
+</svg>
+<a href="data:application/zip;base64,UEsDBBQAAgAIAAeJDU/z3DxnJgYAANERAAAaAAAAanVweXRlcl9ub3RlYm9va3MvQTEuaXB5bmK1V0tvGzcQvvtXDBQhdVR5a0mWUxvwwTbioEBeQB5IUCUCtTuWWXPJLcl1rAj6MT320FNuufqPdYa7klb2yk7SxoDWuzPD4Ty+GQ6nG9CIUSnX2IffNwCm9CsoQz/JkKiNVNjzxHzUjXbgpehFIrwg1nRWkJzJbYylBvq+B4eTPBHaX/0joAODcik0lm+t1lMxls6jBdRwIrXQn4RrtdYIH+be2FZrH1qPxchKVHBM/9EKgMdRq37NCcZngtd0upAgHI6N84beFHS3O3sNFntPj+DD/+T2sdGJjKXRQqFrwxNjMgcTMN4aBy3i0ouCE2U+1trciViD8zafCFACnBznErVHcBjnqGMp2BN99SVF1ih1rPIJ6sSAos9nRiNFqNOGbjt8tGGnDf027BafrQie5Dg2kHup5CfB63JNS00GLk8xKEGFKWp6+TOnbY0ud5MxkTa1gZgMlAlF3gadD6I6R7rf5sjC6F7F4offZi4/LToQaq4W+rW29SJ4yau9KcO2CGeCjozahjPhvIC9vWhvb68IAwoN6dUX5WWmgiD0gPWzvh+Bo5NcM4rQ3YmSXAs4ZemrzzrYmgnL1EUQNNWXtzgmVmxSAyb3We5DUvI0ZIE9inORWJEUvjU7H7rwM3TDsxeeO+EZRRE99Ydu85asr7Gr1gonq6ZS9sheKlF5IZ0cKXLGWOiuy+ItQVhsRm6mmBDahJU+vfrby1jQJgVtjIZJlmnkNllC4P4j16FLACXJuMrePybTv3FLSPK4sF3AszzNJrVN8N49ePQH2pj7i4Ojq78c1+QagDxGjRZXSy8V5Oqn/boV/Gg2V78P4QAGgxGOpZ5mYe3lbFWiB/epWu5Dl+Tob4XXvYXH9A7/VsmDAXWyNVtVjVsB3CPN/cQXvnortMty5PJNiuQHn+FwHYZWlpfCUl+gdUFDdR1UsrJTibBbhtgVKmJ0+9dcuzXSR3dGmqO5UxPJPtG3dr8+jIPBmTuXGXQwhescj5d+OvnqBcd3Gr3HxvVqrGbc7H5f7m8GU0TwfORRj0W1px1RnzqObls3Wq6jiSALRUiFn4XyLyBxREf3cXR3LVINo+WWsrYcX984wdrUfTTaoncpyYjlxiVUKmJihKZ8IVQ40goo0x4xL4iNylN9A+CwpkBeO1ygsjgcSKVRBPGwRwW7jsexVIT96JQWxQm0tl+I6A5Yz9EhlBxrTK5lVVCGRvSLCQwHsBvkbwBFwBZ0l1K1jaZQtFWKdADqkFVvw+3IGkX/xb8e27XDhvVjeksK67bXeRC87MYkXkj26+LB4WC5Psv1C8GHtZHri8WeO7D8+77QrMP94QUP7Uk96h8pOs+9TIlv4enxc0illikVwfXRA62dozyzVETzo1AthpL2UmtzMKC1H6Z6NpzKg85s8x39n1E0OBleDKfbs7fDaSeQeFpZMs6ZcS5nD3h6gSc0MFx9tmmuRLgRrJpKJWNGXnIdepNy2S4tCAusvKCjvSzBb3OGyy/DuJgxYtZSjLDl1eSCWZZelzvGBk8p4KFI20D1KlToJHzMuYUxNPlCzFPUpCxwGe4FoeJXHKQQngk/LeIya7Yr3tbW+goSBtRKzkan0xUdM0LZ5oL19qe3FOTpVmdWIb2brVG4eBMrXVJxU+QLHt8gXxBJsOspzYM+xHwkyOr5kEY55jnLoZ8eJtTYPE2PehxdKnc5a7M0d1aeFrnB8XUzNHx0eRgVDIx53ueAamr/I0WxTkQCm61Xb1ptaFHSpOEXjR9dJjK0rQe8dXd7e3FsuPr2O1rxqRjtTHnoNNfEsjlH1WJuo0mWjGUc3Zmfl3zvDBVxUKkIagXzj87s1ZvAZ9KFsJg5qYxmUlUjrFxsNuA9cVbmWSI3ztFqVAzmkgKNRLpMiclQizRMxC8m/oyukL1yIibcEnrHgZUFVsmYyxfEXmM+ZC9WDKU+NYttYpNgKrnUhim9zulLPbKqHRo8z9FhRpweE8ph/FQqHNLQg7pkNqJsMp/dJXlbjvU8GP1yuXWLwXPiiO4PjD/SGpBqb4hkkzHXuhsqvCzYcu5zIbA0lcbT3ejXRpEANpn0nxpLoCHmTvV7SK3VsLLuxmzjX1BLAQIeAxQAAgAIAAeJDU/z3DxnJgYAANERAAAaAAAAAAAAAAEAAACkgQAAAABqdXB5dGVyX25vdGVib29rcy9BMS5pcHluYlBLBQYAAAAAAQABAEgAAABeBgAAAAA=" download="A1.zip">Jupyter Notebook</a></li>
+<li><svg style="height:0.8em;top:.04em;position:relative;fill:blue;" viewBox="0 0 512 512">
+<path d="M339 314.9L175.4 32h161.2l163.6 282.9H339zm-137.5 23.6L120.9 480h310.5L512 338.5H201.5zM154.1 67.4L0 338.5 80.6 480 237 208.8 154.1 67.4z"/>
+</svg>
+<a href="">Ver en Google Colab</a></li>
+<li><svg style="height:0.8em;top:.04em;position:relative;fill:orange;" viewBox="0 0 448 512">
+<path d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"/>
+</svg>
+<a href="">Python script</a></li>
+</ul>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
