@@ -659,5 +659,6 @@ library(fontawesome)
 ```
 
 + `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)  
-+ `r fa("python", fill = "green")` [jupyter notebook](exercise/A1.pdf)  
++ `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A1.ipynb", text = "Jupyter Notebook")`
++ `r fa("google-drive", fill = "blue")` [Ver en Google Colab]()
 + `r fa("book", fill = "orange")` [Python script]()
