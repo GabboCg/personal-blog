@@ -2,7 +2,7 @@
   {
     "path": "posts/2019-08-10-elementos-basicos-de-python/",
     "title": "Elementos Básicos de Python",
-    "description": "A short description of the post.",
+    "description": "El post abarca los básico para trabajar con estructura de datos del tipo tuplas, \nlistas, diccionarios y conjuntos, a su vez construcción de loops (*comprehensions*) y funciones.",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -12,7 +12,7 @@
     "date": "2019-08-10",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-17T14:31:29-04:00"
+    "last_modified": "2019-08-17T15:48:54-04:00"
   },
   {
     "path": "posts/2019-08-10-introduccion-a-numpy/",
@@ -32,7 +32,7 @@
   {
     "path": "posts/2019-08-10-introduccion-a-pandas/",
     "title": "Introducción a Pandas",
-    "description": "A short description of the post.",
+    "description": "El post introduce la librería Pandas para la construcción y manipulación de estructuras\nde datos basados en Series y DataFrame.",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -42,7 +42,7 @@
     "date": "2019-08-10",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-16T16:43:14-04:00"
+    "last_modified": "2019-08-17T15:49:51-04:00"
   },
   {
     "path": "posts/2019-08-10-regresion-lineal/",

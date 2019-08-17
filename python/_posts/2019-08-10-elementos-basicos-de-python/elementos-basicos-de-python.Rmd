@@ -1,7 +1,8 @@
 ---
 title: "Elementos Básicos de Python"
 description: |
-  A short description of the post.
+  El post abarca los básico para trabajar con estructura de datos del tipo tuplas, 
+  listas, diccionarios y conjuntos, a su vez construcción de loops (*comprehensions*) y funciones.
 author:
   - name: Gabriel Cabrera
     url: {}
@@ -16,9 +17,15 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 # cambia la version de python a usar por medio del motor de python 
 # reticulate::py_config() para ver las versiones en nuestro computador.
-#::use_python("/usr/bin/python3", required = T)
+reticulate::use_python("/usr/bin/python3", required = T)
 knitr::knit_engines$set(python = reticulate::eng_python)
 ```
+
+> **Disclaimer A**: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.
+
+> **Disclaimer B**: Este post está basado en mis propios resumenes a partir de los capítulos del libro *Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython*, de Wes McKinney. La mayoría de los ejemplos provienen de momento del libro.
+
+> **Advertencia**: La página es un complemento a la cátedra y por nada la sustituye.
 
 ## Todo es un objeto
 
@@ -797,5 +804,5 @@ library(fontawesome)
 
 + `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)
 + `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A1.ipynb", text = "Jupyter Notebook")`
-+ `r fa("google-drive", fill = "blue")` [Ver en Google Colab]()
-+ `r fa("book", fill = "orange")` [Python script]()
++ `r fa("google-drive", fill = "blue")` [Ver en Google Colab](https://colab.research.google.com/drive/1VXhBZP3OYcTNxnpmtzoaNj-lisGrpeie)
++ `r fa("book", fill = "orange")` `r xfun::embed_files("scripts/A1_S.py", text = "Python Script")`
