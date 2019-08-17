@@ -14,10 +14,9 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
-
 # cambia la version de python a usar por medio del motor de python 
 # reticulate::py_config() para ver las versiones en nuestro computador.
-reticulate::use_python("/usr/bin/python3", required = T)
+#::use_python("/usr/bin/python3", required = T)
 knitr::knit_engines$set(python = reticulate::eng_python)
 ```
 
@@ -561,7 +560,146 @@ a.intersection(b)
 a & b # alternativamente
 ```
 
+## Listas (*list*), Conjuntos (*sets*) y Diccionarios (*Dict*) *Comprehensions*
+
+Una *list comprehensions* es una característica muy útil de Python, debido que 
+permite resumir lineas de código (loops) en una linea (*one liner*). Estas se
+pueden aplicar a listas, conjuntos y diccionarios.
+
+### listas
+
+En una lista: 
+
+```python
+[expr for val in collection if condition]
+```
+
+Si quisieramos obtener el cuadrado desde 1 hasta 50, usando loops debería ser:
+
+```{python, echo=TRUE}
+squares = []
+for i in range(1, 51):
+  squares.append(i**2)
+
+print(squares)
+```
+
+usando una *list comprehensions*:
+
+```{python, echo=TRUE}
+squares2 = [i**2 for i in range(1, 51)]
+
+print(squares2)
+```
+
+Otro ejemplo es obtener el producto cartesiano.
+
+> Si A y B son conjunto (*sets*), entonces el producto cartesiano es el conjunto
+de pares (a, b), donde 'a' está en A y 'b' está en B.
+
+$$
+A \times B = \{\ (a, b) \ |\ a \in A, \ b \in B \}
+$$
+
+```{python, echo=TRUE}
+A = [1, 3, 5, 7]
+B = [2, 4, 6, 8]
+
+producto_cartesiano = [(a, b) for a in A for b in B]
+print(producto_cartesiano)
+```
+
+### Conjuntos 
+
+En un conjunto: 
+
+```python
+set_comp = {expr for value in collection if condition}
+```
+
+Por ejemplo:
+
+```{python, echo=TRUE}
+strings = ['a', 'as', 'bat', 'car', 'dove', 'python']
+unique_lengths = {len(x) for x in strings}
+
+unique_lengths
+```
+
+
+## Diccionario
+
+En un diccionario:
+
+```python
+dict_comp = {key-expr : value-expr for value in collection if condition}
+```
+
+Construimos una diccionario:
+
+```{python, echo=TRUE}
+dictA = {
+  'platano' : 23,
+  'manzana' : 56,
+  'naranja' : 78,
+  'ciruela': 46
+}
+```
+
+Luego se va a construir una lista pero con en mayúscula la primera letra:
+
+```{python, echo=TRUE}
+dict_vacia = {}
+
+for nombre, numero in dictA.items():
+    dict_vacia[nombre.capitalize()] = numero
+    
+dict_vacia
+```
+
+Usando una *dict comprehensions*
+
+```{python, echo=TRUE}
+{nombre.capitalize(): numero for nombre, numero in dictA.items()}
+```
+
 ## Funciones 
+
+Una función es un grupo de condiciones relacionadas que cumplen con una tarea específica.
+La sintaxis es:
+
+```python
+def function_name(parameters):
+	"""docstring"""
+	statement(s)
+```
+
+Para obtener $n^2$ de cualquier número:
+
+```{python, echo=TRUE}
+def elevado(n):
+    return n**2
+    
+elevado(1)
+elevado(2)
+elevado(4)
+```
+
+
+### Funciones (Lambda) Anónimas
+
+Básicamente una función anónima, es una función que nunca se define (`def`) y 
+basta para utilizar una vez y no sistemáticamente:
+
+```{python, echo=TRUE}
+seqC = [1, 2, 4]
+
+def apply_a_una_lista(lista, f):
+    return [f(x) for x in lista]
+
+apply_a_una_lista(seqC, lambda x: x ** 2)
+```
+
 
 ## Ejercicios
 
@@ -657,7 +795,7 @@ b. Utilizando Numpy obtenga $\mathbf{\hat{\beta}}$ de la siguiente regresión:
 library(fontawesome)
 ```
 
-+ `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)  
++ `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)
 + `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A1.ipynb", text = "Jupyter Notebook")`
 + `r fa("google-drive", fill = "blue")` [Ver en Google Colab]()
 + `r fa("book", fill = "orange")` [Python script]()

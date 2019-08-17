@@ -1,0 +1,17 @@
+[
+  {
+    "path": "posts/2019-01-19-creating-a-local-server-using-python/",
+    "title": "Setting Up a Web Server",
+    "description": "Deploying a local server when some HTML restrictions exist.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-01-19",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-01-19T20:15:15-03:00"
+  }
+]

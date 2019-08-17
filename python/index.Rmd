@@ -1,6 +1,6 @@
 ---
 title: "Python"
-site: radix::radix_website
+site: distill::distill_website
 listing: 
   posts:
     - 2019-08-10-introduccion-a-numpy

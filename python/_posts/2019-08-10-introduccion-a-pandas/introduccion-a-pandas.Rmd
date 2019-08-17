@@ -1,5 +1,5 @@
 ---
-title: "Introduccion a Pandas"
+title: "Introducción a Pandas"
 description: |
   A short description of the post.
 author:
@@ -8,14 +8,394 @@ author:
 date: 08-10-2019
 output:
   distill::distill_article:
+    css: style.css
     self_contained: false
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+# cambia la version de python a usar por medio del motor de python 
+# reticulate::py_config() para ver las versiones en nuestro computador.
+# reticulate::use_python("/usr/bin/python3", required = T)
+knitr::knit_engines$set(python = reticulate::eng_python)
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+Pandas adopta mucha "terminología" desde NumPy, pero la diferencia principal es que está diseñado para trabajar con datos tabulados o heterogeneos. NumPy, por el contrario, trabaja con datos homogeneos, números en *arrays*.
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+Por convención se utiliza:
 
+```{python, echo=TRUE}
+import pandas as pd
+```
+
+Cuando veamos `pd.` en el código, se estará haciendo referencia a pandas. Es recomendable importar `Series` y `DataFrame` al *workspace* local, debido que son usados con frecuencia:
+
+```{python, echo=TRUE}
+from pandas import Series, DataFrame
+```
+
+
+## Estructura de datos
+
+En `pandas` existen dos estructura de datos principales:
+
+1. Series: es un *array* de una dimensión (*one-dimensional array*) con una secuancia de valores y asociado una etiqueta (*label*) denominada *index*. 
+
+2. DataFrame: representa datos rectangulares que contiene colecciones de columnas que puede contener
+valores del tipo, numerico (*numeric*), *string*, *boolean*, etc. Contiene dos *index*, fila y columna. Se puede ver como un diccionarios de Series que comparten un *index* en común.
+
+### Series
+
+Si queremos crear la secuencia de números del 1 al 8:
+
+```{python, echo=TRUE}
+# también se podría haber construido con range(8)
+obj_series = pd.Series([1, 2, 3, 4, 5, 6, 7])
+obj_series
+```
+
+Del *output* vemos que al ser del tipo *Series*, nos muestra el tipo de datos que contiene, en este caso, `dtype: int64`, es decir, *integers* de 64 bits.
+
+Si queremos ver sus componentes, valores e índices:
+
+```{python, echo=TRUE}
+# valores
+obj_series.values
+```
+
+```{python, echo=TRUE}
+# index, como range(8)
+obj_series.index
+```
+
+Tener en consideración que al no especificar un *index* a nuestros datos, por *default* nos mostrará del `0` hasta `n-1`. Para un *index* en especifico se usa:
+
+```{python, echo=TRUE}
+obj_series_2 = pd.Series([1, 2, 3, 4, 5, 6, 7], index = ['a', 'b', 'c', 'd', 'e', 'f', 'g'])
+obj_series_2.index
+```
+
+Comparado con los arrays de Numpy, se puede usar las etiquetas del *index*:
+
+```{python, echo=TRUE}
+obj_series_2['a']
+obj_series_2['h'] = 8 # se agrega un nuevo elemento a la Series con el index h
+obj_series_2[['a', 'b', 'c']]
+obj_series_2[['a', 'd', 'e', 'f', 'h']]
+```
+
+A partir de un diccionario podemos crear una `Series`:
+
+```{python, echo=TRUE}
+comunas_stgo = {'Santiago': 50000, 'Providencia': 65000, 'Huechuraba': 32000, 'Quilicura': 76000}
+obj_series_3 = pd.Series(comunas_stgo)
+obj_series_3
+```
+
+Cada llave del diccionario será ahora el *index* de la *Series*. 
+
+```{python, echo=TRUE}
+nuevas_comunas = ['Santiago', 'Providencia', 'Huechuraba', 'San Miguel']
+obj_series_4 = pd.Series(comunas_stgo, index = nuevas_comunas)
+obj_series_4
+```
+
+El objeto `obj_series_4` contiene 4 cuatro valores, pero como no existía el *index*
+San Miguel, Python agrega un `NaN` (*not a number*), que es como considera los valores *missing* (NA). Como Quilicura no estaba incluido en `nuevas_comunas`, es excluido. Para detectar los *missing*, se puede usar `isnull` o `notnull`.
+
+```{python, echo=TRUE}
+pd.isnull(obj_series_4)
+pd.notnull(obj_series_4)
+```
+
+También se puede sumar los DataFrames:
+
+```{python, echo=TRUE}
+obj_series_3 + obj_series_4 
+```
+
+O aplicar operadores matemáticos:
+
+```{python, echo=TRUE}
+obj_series_4 * 2
+obj_series_4 + 10000
+obj_series_4 - 10000
+obj_series_4[obj_series_4 > 50000]
+```
+
+## DataFrame
+
+Existen muchas maneras de construir un DataFrame, siguiendo el ejemplo del libro
+*Python for Data Analysis de Wez Mckinney*:
+
+```{python, echo=TRUE}
+data = {'estado': ['Ohio', 'Ohio', 'Ohio', 'Nevada', 'Nevada', 'Nevada'],
+        'año': [2000, 2001, 2002, 2001, 2002, 2003],
+        'pop': [1.5, 1.7, 3.6, 2.4, 2.9, 3.2]}
+frame = pd.DataFrame(data)
+frame
+```
+
+Para "llamar" una variable, se puede obtener utilizando la lógica de Series o por atributo:
+
+```{python, echo=TRUE}
+frame['estado'] # como Series
+frame.estado # como atributo
+```
+
+Utilizar "como Series" funciona para cualquier nombre de la columna, pero "como atributo" funciona cuando el nombre de la columna tiene el atributo `name`.
+
+Si se quiere construir una nueva variable:
+
+```{python}
+import numpy as np
+```
+
+```{python, echo=TRUE}
+frame['deuda'] = 20.0
+frame
+
+frame['deuda'] = np.arange(6.0)
+```
+
+Para eliminar una columna:
+
+```{python, echo=TRUE}
+del frame['deuda']
+frame.columns
+```
+
+## Funcionalidades Esenciales
+
+### *Reindexing*
+
+Pandas posee un método denominado `reindex`, que permite reordenar el *index*
+de un objeto de pandas.
+
+```{python, echo=TRUE}
+obj_para_reindex = pd.Series(range(4), index = ['d', 'c', 'b', 'a'])
+obj_para_reindex
+
+obj_para_reindex.reindex(['a', 'b', 'c', 'd'])
+```
+
+Si se agrega un *index* más, la Series tendrá un `NaN`. Para realizar una 
+interpolación o *filling*
+
+```{python, echo=TRUE}
+obj_fill = pd.Series(['azul', 'morado', 'amarillo'], index = [0, 2, 5])
+obj_fill
+obj_fill.reindex(range(7), method='ffill')
+```
+
+En un DataFrame, `reindex` puede alterar el *index* de filas, columnas o ambas. 
+
+```{python, echo=TRUE}
+frame_para_reindex = pd.DataFrame(np.arange(9).reshape((3, 3)),
+                                  index=['a', 'c', 'd'],
+                                  columns=['ciudad_a', 'ciudad_c', 'ciudad_d'])
+frame_para_reindex
+frame_para_reindex.reindex(['a', 'b' , 'c', 'd'])
+
+ciudades = ['ciudad_a', 'ciudad_b', 'ciudad_c', 'ciudad_d']
+frame_para_reindex.reindex(columns=ciudades)
+```
+
+### Eliminar Valores desde el Eje (*Axis*)
+
+En Series:
+
+```{python, echo=TRUE}
+obj = pd.Series(np.arange(5.), index=['a', 'b', 'c', 'd', 'e'])
+obj.drop('c')
+obj.drop(['c', 'd'])
+```
+
+En un DataFrame:
+
+```{python, echo=TRUE}
+frame_DF = pd.DataFrame(np.arange(9).reshape((3, 3)),
+                        index=['a', 'c', 'd'],
+                        columns=['ciudad_a', 'ciudad_c', 'ciudad_d'])
+frame_DF.drop('a', axis=0) # por default es axis=0, por fila
+frame_DF.drop(['a', 'c'], axis=0)
+frame_DF.drop('ciudad_c', axis=1) # también funciona axis='columns'
+frame_DF.drop(['ciudad_c', 'ciudad_d'], axis=1)
+```
+
+### Indexar, Seleccinar, y Filtrar 
+
+En Series:
+
+```{python, echo=TRUE}
+obj = pd.Series(np.arange(5.), index=['a', 'b', 'c', 'd', 'e'])
+obj
+obj['a']
+obj[0]
+obj[['a', 'b', 'c']]
+obj[0:3]
+obj[[0,1,2]]
+obj[obj < 2]
+obj['a':'c']
+```
+
+En un DataFrame:
+
+```{python, echo=TRUE}
+frame_DF = pd.DataFrame(np.arange(9).reshape((3, 3)),
+                        index=['a', 'c', 'd'],
+                        columns=['ciudad_a', 'ciudad_c', 'ciudad_d'])
+frame_DF
+frame_DF['ciudad_a']
+frame_DF[['ciudad_d','ciudad_a']]
+frame_DF[:2]
+frame_DF[frame_DF['ciudad_c']>2]
+frame_DF > 4
+frame_DF[frame_DF > 4] = 0
+```
+
+### Seleccionar con `loc` e `iloc`
+
+Pandas posee un operador especial, `loc` (*label*/etiqueta) e `iloc`(*integers*).
+
+```{python, echo=TRUE}
+frame_DF.loc['a', ['ciudad_a', 'ciudad_c']]
+```
+
+```{python, echo=TRUE}
+frame_DF.iloc[0, [0, 1]]
+```
+
+```{python, echo=TRUE}
+frame_DF.iloc[2]
+```
+
+```{python, echo=TRUE}
+frame_DF.iloc[[0, 1], [2, 0, 1]]
+```
+
+```{python, echo=TRUE}
+frame_DF.iloc[:, :2][frame_DF.ciudad_a > 2]
+```
+
+### Operatorias matemáticas y llenado de `NAs`
+
+Se define dos objetos:
+
+```{python, echo=TRUE}
+df_a = pd.DataFrame(np.arange(12.).reshape(3, 4), columns=list('abcd'))
+df_a
+df_b = pd.DataFrame(np.arange(20.).reshape(4, 5), columns=list('abcde'))
+df_b
+```
+
+Generamos una "celda" con `nan`
+
+```{python, echo=TRUE}
+df_b.loc[1,'b'] = np.nan
+df_b
+```
+
+Si sumamos el objeto `df_a` y `df_b`:
+
+```{python, echo=TRUE}
+df_a + df_b
+```
+
+Otros ejemplos:
+
+```{python, echo=TRUE}
+df_a - df_b
+df_a*df_b
+df_a/2
+```
+
+Exiten métodos para realizar operaciones mátematica:
+
+| métodos            | Operacion                        |
+|--------------------|----------------------------------|
+| add, radd          | Método para la adición (+)       |
+| sub, rsub          | Método para la sustracción (-)   |
+| div, rdiv          | Método para la división (/)      |
+| floordiv, rfloordiv| Método para la división (//)     |
+| mul, rmul          | Método para la multiplicación (*)|
+| pow, rpow          | Método para el exponente (**)    |
+
+
+En el caso de la adición:
+
+```{python, echo=TRUE}
+df_a.add(df_b, fill_value = 0)
+```
+
+Es importante notar que los `NaN` son reemplazados por el valor correspondiente 
+según el orden de los datos.
+
+### Aplicación de Funciones y *Mapping*
+
+Se crea un DataFrame:
+
+```{python, echo=TRUE}
+data_df = pd.DataFrame(np.random.randn(4, 3), columns=list('abc'), index=['Santiago', 'Coquimbo', 'Valparaiso', 'Chillan'])
+
+data_df
+
+np.abs(data_df) # método para el valor absoluto
+```
+
+Creamos una **función anónima**:
+
+```{python, echo=TRUE}
+funcion_anonima = lambda x: x.mean()
+```
+
+Luego la aplicamos al DataFrame (hay que tener cuidado con el axis):
+
+```{python, echo=TRUE}
+data_df.apply(funcion_anonima, axis= 0) # por columna
+data_df.apply(funcion_anonima, axis= 1) # por fila
+```
+
+Si se construye una función que retorne una Series apartir de DataFrame: 
+
+```{python, echo=TRUE}
+def f_min_max_mean(x):
+    return pd.Series([x.mean(), x.min(), x.max()], index=['mean', 'max', 'min'])
+
+data_df.apply(f_min_max_mean)
+```
+
+Cuando se usa una función a un DataFrame, que va por fila y por columna (se aplica a todo el DataFrame), hay que usar `.applymap()`:
+
+```{python, echo=TRUE}
+formato = lambda x: '%.2f' % x
+data_df.applymap(formato)
+```
+
+La versión de `.applymap()` para Series, es `.map()`:
+
+```{python, echo=TRUE}
+data_df['a'].map(formato)
+```
+
+## Estadística Descriptiva 
+
+Para realizar estadística descriptiva usando Pandas, se puede utilizar los métodos (`axis=0` por filas, `axis=1` por columnas) incluidos en los objetos de pandas:
+
+```{python, echo=TRUE}
+data_df.sum()
+data_df.cumsum()
+data_df.mean()
+data_df.max()
+data_df.min()
+```
+
+O utilizar el métodos `describe()`:
+
+```{python, echo=TRUE}
+data_df.describe()
+```
+
+## Ejercicios
+
+## Enlaces
