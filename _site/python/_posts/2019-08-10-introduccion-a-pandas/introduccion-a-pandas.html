@@ -1609,18 +1609,18 @@ data_df = pd.DataFrame(np.random.randn(4, 3), columns=list(&#39;abc&#39;), index
 data_df</code></pre>
 <pre><code>
                    a         b         c
-Santiago   -1.320285  0.571989  0.850877
-Coquimbo   -1.587824  0.402820 -0.815463
-Valparaiso  0.893201 -0.200723 -0.072822
-Chillan     0.661470  1.173368  0.451504</code></pre>
+Santiago    0.929049 -0.477357  1.060463
+Coquimbo    1.227695  0.368239  0.391218
+Valparaiso  0.501925  0.314351  0.565202
+Chillan    -0.828200  1.310408 -0.707628</code></pre>
 <pre class="python"><code>
 np.abs(data_df) # método para el valor absoluto</code></pre>
 <pre><code>
                    a         b         c
-Santiago    1.320285  0.571989  0.850877
-Coquimbo    1.587824  0.402820  0.815463
-Valparaiso  0.893201  0.200723  0.072822
-Chillan     0.661470  1.173368  0.451504</code></pre>
+Santiago    0.929049  0.477357  1.060463
+Coquimbo    1.227695  0.368239  0.391218
+Valparaiso  0.501925  0.314351  0.565202
+Chillan     0.828200  1.310408  0.707628</code></pre>
 </div>
 <p>Creamos una <strong>función anónima</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1632,17 +1632,17 @@ funcion_anonima = lambda x: x.mean()</code></pre>
 <pre class="python"><code>
 data_df.apply(funcion_anonima, axis= 0) # por columna</code></pre>
 <pre><code>
-a   -0.338359
-b    0.486864
-c    0.103524
+a    0.457617
+b    0.378910
+c    0.327314
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.apply(funcion_anonima, axis= 1) # por fila</code></pre>
 <pre><code>
-Santiago      0.034194
-Coquimbo     -0.666822
-Valparaiso    0.206552
-Chillan       0.762114
+Santiago      0.504052
+Coquimbo      0.662384
+Valparaiso    0.460493
+Chillan      -0.075140
 dtype: float64</code></pre>
 </div>
 <p>Si se construye una función que retorne una Series apartir de DataFrame:</p>
@@ -1654,9 +1654,9 @@ def f_min_max_mean(x):
 data_df.apply(f_min_max_mean)</code></pre>
 <pre><code>
              a         b         c
-mean -0.338359  0.486864  0.103524
-max  -1.587824 -0.200723 -0.815463
-min   0.893201  1.173368  0.850877</code></pre>
+mean  0.457617  0.378910  0.327314
+max  -0.828200 -0.477357 -0.707628
+min   1.227695  1.310408  1.060463</code></pre>
 </div>
 <p>Cuando se usa una función a un DataFrame, que va por fila y por columna (se aplica a todo el DataFrame), hay que usar <code>.applymap()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1665,20 +1665,20 @@ formato = lambda x: &#39;%.2f&#39; % x
 data_df.applymap(formato)</code></pre>
 <pre><code>
                 a      b      c
-Santiago    -1.32   0.57   0.85
-Coquimbo    -1.59   0.40  -0.82
-Valparaiso   0.89  -0.20  -0.07
-Chillan      0.66   1.17   0.45</code></pre>
+Santiago     0.93  -0.48   1.06
+Coquimbo     1.23   0.37   0.39
+Valparaiso   0.50   0.31   0.57
+Chillan     -0.83   1.31  -0.71</code></pre>
 </div>
 <p>La versión de <code>.applymap()</code> para Series, es <code>.map()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="python"><code>
 data_df[&#39;a&#39;].map(formato)</code></pre>
 <pre><code>
-Santiago      -1.32
-Coquimbo      -1.59
-Valparaiso     0.89
-Chillan        0.66
+Santiago       0.93
+Coquimbo       1.23
+Valparaiso     0.50
+Chillan       -0.83
 Name: a, dtype: object</code></pre>
 </div>
 <h2 id="estadistica-descriptiva">Estadística Descriptiva</h2>
@@ -1687,38 +1687,38 @@ Name: a, dtype: object</code></pre>
 <pre class="python"><code>
 data_df.sum()</code></pre>
 <pre><code>
-a   -1.353437
-b    1.947455
-c    0.414096
+a    1.830468
+b    1.515641
+c    1.309255
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.cumsum()</code></pre>
 <pre><code>
                    a         b         c
-Santiago   -1.320285  0.571989  0.850877
-Coquimbo   -2.908108  0.974809  0.035414
-Valparaiso -2.014907  0.774087 -0.037408
-Chillan    -1.353437  1.947455  0.414096</code></pre>
+Santiago    0.929049 -0.477357  1.060463
+Coquimbo    2.156743 -0.109118  1.451681
+Valparaiso  2.658668  0.205234  2.016883
+Chillan     1.830468  1.515641  1.309255</code></pre>
 <pre class="python"><code>
 data_df.mean()</code></pre>
 <pre><code>
-a   -0.338359
-b    0.486864
-c    0.103524
+a    0.457617
+b    0.378910
+c    0.327314
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.max()</code></pre>
 <pre><code>
-a    0.893201
-b    1.173368
-c    0.850877
+a    1.227695
+b    1.310408
+c    1.060463
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.min()</code></pre>
 <pre><code>
-a   -1.587824
-b   -0.200723
-c   -0.815463
+a   -0.828200
+b   -0.477357
+c   -0.707628
 dtype: float64</code></pre>
 </div>
 <p>O utilizar el métodos <code>describe()</code>:</p>
@@ -1728,17 +1728,15 @@ data_df.describe()</code></pre>
 <pre><code>
               a         b         c
 count  4.000000  4.000000  4.000000
-mean  -0.338359  0.486864  0.103524
-std    1.296372  0.565206  0.720014
-min   -1.587824 -0.200723 -0.815463
-25%   -1.387169  0.251935 -0.258482
-50%   -0.329407  0.487405  0.189341
-75%    0.719403  0.722334  0.551347
-max    0.893201  1.173368  0.850877</code></pre>
+mean   0.457617  0.378910  0.327314
+std    0.907479  0.731474  0.745942
+min   -0.828200 -0.477357 -0.707628
+25%    0.169394  0.116424  0.116506
+50%    0.715487  0.341295  0.478210
+75%    1.003710  0.603781  0.689017
+max    1.227695  1.310408  1.060463</code></pre>
 </div>
 <h2 id="ejercicios">Ejercicios</h2>
-<h1 id="generando-datos">Generando Datos</h1>
-<h2 id="series-1">Series</h2>
 <ol type="1">
 <li><p>Utilizando NumPy genere un Pandas con estructura Series con 10 datos aleatorios.</p></li>
 <li><p>Cambie el <em>index</em> de la Series por letras.</p></li>
@@ -1746,10 +1744,7 @@ max    0.893201  1.173368  0.850877</code></pre>
 <li><p>Genere una Series a partir del siguiente diccionario:</p>
 <p><code>{'Santiago': 404495, 'Providencia': 142079, 'Huechuraba': 98671, 'Quilicura': 210410}</code></p></li>
 <li><p>Genere otra series con el diccionario anterior pero que el index sea: <em>Santiago</em>, <em>Providencia</em>, <em>Huechuraba</em>, <em>San Miguel</em>. ¿Que se observa?</p></li>
-</ol>
-<h2 id="dataframe-1">DataFrame</h2>
-<ol type="1">
-<li>Utilizando Pandas genere los siguientes DataFrames:</li>
+<li><p>Utilizando Pandas genere los siguientes DataFrames:</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -1829,7 +1824,7 @@ max    0.893201  1.173368  0.850877</code></pre>
 </tbody>
 </table>
 </div>
-<ol start="2" type="1">
+<ol start="7" type="1">
 <li><p>Para cada DataFrame creado en (1):</p>
 <ol type="a">
 <li><p>Seleccione la primera fila de cada columna.</p></li>

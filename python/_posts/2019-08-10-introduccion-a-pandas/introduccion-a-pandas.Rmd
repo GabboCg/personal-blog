@@ -406,10 +406,6 @@ data_df.describe()
 
 ## Ejercicios
 
-# Generando Datos
-
-## Series
-
 1. Utilizando NumPy genere un Pandas con estructura Series con 10 datos aleatorios.
 
 2. Cambie el *index* de la Series por letras.
@@ -423,9 +419,7 @@ data_df.describe()
 5. Genere otra series con el diccionario anterior pero que el index sea:
 *Santiago*, *Providencia*, *Huechuraba*, *San Miguel*. ¿Que se observa?
 
-## DataFrame
-
-1. Utilizando Pandas genere los siguientes DataFrames:
+6. Utilizando Pandas genere los siguientes DataFrames:
 
 ```{python, echo=FALSE, eval=TRUE}
 import pandas as pd
@@ -440,7 +434,7 @@ knitr::kable(py$df_a, align = 'c', caption = 'DataFrame A')
 knitr::kable(py$df_b, align = 'c', caption = 'DataFrame B')
 ```
 
-2. Para cada DataFrame creado en (1):
+7. Para cada DataFrame creado en (1):
 
     a. Seleccione la primera fila de cada columna.
     
@@ -448,11 +442,11 @@ knitr::kable(py$df_b, align = 'c', caption = 'DataFrame B')
     
     c. Seleccione la columna a y b, luego filtre los valores menores a 5 de la columna a.
     
-3. Sume los dos DataFrames.
+8. Sume los dos DataFrames.
 
-4. A partir de la pregunta anterior, reemplace por cero aquellos valores con `NaN`.
+9. A partir de la pregunta anterior, reemplace por cero aquellos valores con `NaN`.
 
-5. Utilizando NumPy genere un DataFrame que contenga 4 filas y 3 columnas, los datos deben ser aleatorios y aceptar negativos.
+10. Utilizando NumPy genere un DataFrame que contenga 4 filas y 3 columnas, los datos deben ser aleatorios y aceptar negativos.
 
     a. Obtenga el valor absoluto de cada observación.
     
@@ -460,13 +454,13 @@ knitr::kable(py$df_b, align = 'c', caption = 'DataFrame B')
     
     c. Construya una función que permite calcular el promedio, el valor mínimo y máximo de cada columna. 
     
-6. Importe la base de datos *credits.csv*.
+11. Importe la base de datos *credits.csv*.
 
-7. Realice la estadística descriptiva.
+12. Realice la estadística descriptiva.
 
-8. Seleccione aquellas observaciones que sean del género ('Gender') femenino ('Female').
+13. Seleccione aquellas observaciones que sean del género ('Gender') femenino ('Female').
 
-9. Muestre los individuos que: 
+14. Muestre los individuos que: 
 
     a. Posean una renta mensual mayor a 1000.
     
