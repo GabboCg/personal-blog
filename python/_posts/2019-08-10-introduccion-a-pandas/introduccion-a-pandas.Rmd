@@ -17,8 +17,9 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 # cambia la version de python a usar por medio del motor de python 
 # reticulate::py_config() para ver las versiones en nuestro computador.
-# reticulate::use_python("/usr/bin/python3", required = T)
+reticulate::use_python("/usr/bin/python3", required = T)
 knitr::knit_engines$set(python = reticulate::eng_python)
+library(reticulate)
 ```
 
 > **Disclaimer A**: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.
@@ -405,13 +406,83 @@ data_df.describe()
 
 ## Ejercicios
 
+# Generando Datos
+
+## Series
+
+1. Utilizando NumPy genere un Pandas con estructura Series con 10 datos aleatorios.
+
+2. Cambie el *index* de la Series por letras.
+
+3. Agregue dos nuevos números con su respectivo *index*.
+
+4. Genere una Series a partir del siguiente diccionario: 
+
+    `{'Santiago': 404495, 'Providencia': 142079, 'Huechuraba': 98671, 'Quilicura': 210410}`
+
+5. Genere otra series con el diccionario anterior pero que el index sea:
+*Santiago*, *Providencia*, *Huechuraba*, *San Miguel*. ¿Que se observa?
+
+## DataFrame
+
+1. Utilizando Pandas genere los siguientes DataFrames:
+
+```{python, echo=FALSE, eval=TRUE}
+import pandas as pd
+import numpy as np
+
+df_a = pd.DataFrame(np.arange(12.).reshape(3, 4), columns=list('abcd'))
+df_b = pd.DataFrame(np.arange(20.).reshape(4, 5), columns=list('abcde'))
+```
+
+```{r, echo=FALSE, eval=TRUE, results='asis'}
+knitr::kable(py$df_a, align = 'c', caption = 'DataFrame A')
+knitr::kable(py$df_b, align = 'c', caption = 'DataFrame B')
+```
+
+2. Para cada DataFrame creado en (1):
+
+    a. Seleccione la primera fila de cada columna.
+    
+    b. Seleccione la columna c y d. 
+    
+    c. Seleccione la columna a y b, luego filtre los valores menores a 5 de la columna a.
+    
+3. Sume los dos DataFrames.
+
+4. A partir de la pregunta anterior, reemplace por cero aquellos valores con `NaN`.
+
+5. Utilizando NumPy genere un DataFrame que contenga 4 filas y 3 columnas, los datos deben ser aleatorios y aceptar negativos.
+
+    a. Obtenga el valor absoluto de cada observación.
+    
+    b. Utilizando una función anónima calcule el promedio de cada columna.
+    
+    c. Construya una función que permite calcular el promedio, el valor mínimo y máximo de cada columna. 
+    
+6. Importe la base de datos *credits.csv*.
+
+7. Realice la estadística descriptiva.
+
+8. Seleccione aquellas observaciones que sean del género ('Gender') femenino ('Female').
+
+9. Muestre los individuos que: 
+
+    a. Posean una renta mensual mayor a 1000.
+    
+    b. Posean una renta mensual mayor a 1000 y que sean del género femenino.
+    
+    c. Posean una renta mensual mayor a 1000 o que sean del género femenino.
+    
+    d. Ordene los datos de mayor a menor según ingresos, muestre las 10 primeras observaciones. 
+
 ## Enlaces
 
 ```{r, echo=FALSE, eval=TRUE}
 library(fontawesome)
 ```
 
-+ `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)
-+ `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A1.ipynb", text = "Jupyter Notebook")`
-+ `r fa("google-drive", fill = "blue")` [Ver en Google Colab](https://colab.research.google.com/drive/1VXhBZP3OYcTNxnpmtzoaNj-lisGrpeie)
-+ `r fa("book", fill = "orange")` `r xfun::embed_files("scripts/A1_S.py", text = "Python Script")`
++ `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A2.pdf)
++ `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A2.ipynb", text = "Jupyter Notebook")`
++ `r fa("google-drive", fill = "blue")` [Ver en Google Colab](https://colab.research.google.com/drive/1hmkFd50q2VOJuVTUsLDQIbJR2Sc0qm5i)
++ `r fa("book", fill = "orange")` `r xfun::embed_files("scripts/A2_S.py", text = "Python Script")`
