@@ -804,5 +804,5 @@ library(fontawesome)
 
 + `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A1.pdf)
 + `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A1.ipynb", text = "Jupyter Notebook")`
-+ `r fa("google-drive", fill = "blue")` [Ver en Google Colab](https://gist.github.com/GaboCg/8b8829a724006dab70985afbec1bd68b)
++ `r fa("google-drive", fill = "blue")` [Ver en Google Colab](https://colab.research.google.com/drive/1VXhBZP3OYcTNxnpmtzoaNj-lisGrpeie)
 + `r fa("book", fill = "orange")` `r xfun::embed_files("scripts/A1_S.py", text = "Python Script")`

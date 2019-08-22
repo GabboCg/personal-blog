@@ -7,4 +7,8 @@ listing:
     - 2019-08-10-introduccion-a-numpy
     - 2019-08-10-elementos-basicos-de-python
     - 2019-08-10-regresion-lineal
+output:
+  distill::distill_article:
+    css: style.css
+    self_contained: false
 ---

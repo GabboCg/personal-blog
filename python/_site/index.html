@@ -38,7 +38,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing"]}},"value":[{"type":"character","attributes":{},"value":["Python"]},{"type":"character","attributes":{},"value":["radix::radix_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"character","attributes":{},"value":["2019-08-10-introduccion-a-numpy","2019-08-10-introduccion-a-pandas","2019-08-10-elementos-basicos-de-python","2019-08-10-regresion-lineal"]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","site","listing","output"]}},"value":[{"type":"character","attributes":{},"value":["Python"]},{"type":"character","attributes":{},"value":["distill::distill_website"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["posts"]}},"value":[{"type":"character","attributes":{},"value":["2019-08-10-introduccion-a-pandas","2019-08-10-introduccion-a-numpy","2019-08-10-elementos-basicos-de-python","2019-08-10-regresion-lineal"]}]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["css","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["style.css"]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -1359,14 +1359,16 @@
         text-transform: uppercase;
       }
     }
-    
+  
+  /*
   .distill-site-footer {
-     position:absolute;
+     position:fixed;
      bottom:0;
      width:100%;
      height:100px; 
+     text-align: center;
   }
-  
+  */
   </style>
   <!--/radix_placeholder_site_in_header-->
 
@@ -1422,7 +1424,7 @@ ABOUT
 <a href="about.html">Contributors</a>
 </div>
 </div>
-<a href="index.html">
+<a href="https://technotes.netlify.com/">
 <i class="fa fa-home"></i>
 </a>
 <a href="https://github.com/GaboCg">
@@ -1758,6 +1760,20 @@ function init_posts_list() {
 <div class="posts-container posts-apply-limit l-page">
 <div class="posts-list">
 <h1 class="posts-list-caption">Python</h1>
+<a href="posts/2019-08-10-introduccion-a-pandas/" class="post-preview">
+<script class="post-metadata" type="text/json">{"categories":[]}</script>
+<div class="metadata">
+<div class="publishedDate">Aug. 10, 2019</div>
+</div>
+<div class="thumbnail">
+<img/>
+</div>
+<div class="description">
+<h2>Introducción a Pandas</h2>
+<p>El post introduce la librería Pandas para la construcción y manipulación de estructuras
+de datos basados en Series y DataFrame.</p>
+</div>
+</a>
 <a href="posts/2019-08-10-introduccion-a-numpy/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
@@ -1771,19 +1787,6 @@ function init_posts_list() {
 <p>A short description of the post.</p>
 </div>
 </a>
-<a href="posts/2019-08-10-introduccion-a-pandas/" class="post-preview">
-<script class="post-metadata" type="text/json">{"categories":[]}</script>
-<div class="metadata">
-<div class="publishedDate">Aug. 10, 2019</div>
-</div>
-<div class="thumbnail">
-<img/>
-</div>
-<div class="description">
-<h2>Introduccion a Pandas</h2>
-<p>A short description of the post.</p>
-</div>
-</a>
 <a href="posts/2019-08-10-elementos-basicos-de-python/" class="post-preview">
 <script class="post-metadata" type="text/json">{"categories":[]}</script>
 <div class="metadata">
@@ -1794,7 +1797,8 @@ function init_posts_list() {
 </div>
 <div class="description">
 <h2>Elementos Básicos de Python</h2>
-<p>A short description of the post.</p>
+<p>El post abarca los básico para trabajar con estructura de datos del tipo tuplas, 
+listas, diccionarios y conjuntos, a su vez construcción de loops (*comprehensions*) y funciones.</p>
 </div>
 </a>
 <a href="posts/2019-08-10-regresion-lineal/" class="post-preview">

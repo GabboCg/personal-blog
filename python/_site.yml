@@ -32,7 +32,7 @@ navbar:
         - text: "Contributors"
           href: about.html
     - icon: fa fa-home 
-      href: index.html
+      href: "https://technotes.netlify.com/"
     - icon: fab fa-github
       href: "https://github.com/GaboCg"
     - icon: face fa-twitter
