@@ -2109,18 +2109,18 @@ data_df = pd.DataFrame(np.random.randn(4, 3), columns=list(&#39;abc&#39;), index
 data_df</code></pre>
 <pre><code>
                    a         b         c
-Santiago    0.929049 -0.477357  1.060463
-Coquimbo    1.227695  0.368239  0.391218
-Valparaiso  0.501925  0.314351  0.565202
-Chillan    -0.828200  1.310408 -0.707628</code></pre>
+Santiago    0.266902  0.468435 -2.602475
+Coquimbo    1.023972 -0.762003 -0.964718
+Valparaiso -1.385880 -0.478567  0.232252
+Chillan    -1.170795 -0.149182 -0.529684</code></pre>
 <pre class="python"><code>
 np.abs(data_df) # método para el valor absoluto</code></pre>
 <pre><code>
                    a         b         c
-Santiago    0.929049  0.477357  1.060463
-Coquimbo    1.227695  0.368239  0.391218
-Valparaiso  0.501925  0.314351  0.565202
-Chillan     0.828200  1.310408  0.707628</code></pre>
+Santiago    0.266902  0.468435  2.602475
+Coquimbo    1.023972  0.762003  0.964718
+Valparaiso  1.385880  0.478567  0.232252
+Chillan     1.170795  0.149182  0.529684</code></pre>
 </div>
 <p>Creamos una <strong>función anónima</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2132,17 +2132,17 @@ funcion_anonima = lambda x: x.mean()</code></pre>
 <pre class="python"><code>
 data_df.apply(funcion_anonima, axis= 0) # por columna</code></pre>
 <pre><code>
-a    0.457617
-b    0.378910
-c    0.327314
+a   -0.316450
+b   -0.230329
+c   -0.966157
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.apply(funcion_anonima, axis= 1) # por fila</code></pre>
 <pre><code>
-Santiago      0.504052
-Coquimbo      0.662384
-Valparaiso    0.460493
-Chillan      -0.075140
+Santiago     -0.622379
+Coquimbo     -0.234250
+Valparaiso   -0.544065
+Chillan      -0.616554
 dtype: float64</code></pre>
 </div>
 <p>Si se construye una función que retorne una Series apartir de DataFrame:</p>
@@ -2154,9 +2154,9 @@ def f_min_max_mean(x):
 data_df.apply(f_min_max_mean)</code></pre>
 <pre><code>
              a         b         c
-mean  0.457617  0.378910  0.327314
-max  -0.828200 -0.477357 -0.707628
-min   1.227695  1.310408  1.060463</code></pre>
+mean -0.316450 -0.230329 -0.966157
+max  -1.385880 -0.762003 -2.602475
+min   1.023972  0.468435  0.232252</code></pre>
 </div>
 <p>Cuando se usa una función a un DataFrame, que va por fila y por columna (se aplica a todo el DataFrame), hay que usar <code>.applymap()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2165,20 +2165,20 @@ formato = lambda x: &#39;%.2f&#39; % x
 data_df.applymap(formato)</code></pre>
 <pre><code>
                 a      b      c
-Santiago     0.93  -0.48   1.06
-Coquimbo     1.23   0.37   0.39
-Valparaiso   0.50   0.31   0.57
-Chillan     -0.83   1.31  -0.71</code></pre>
+Santiago     0.27   0.47  -2.60
+Coquimbo     1.02  -0.76  -0.96
+Valparaiso  -1.39  -0.48   0.23
+Chillan     -1.17  -0.15  -0.53</code></pre>
 </div>
 <p>La versión de <code>.applymap()</code> para Series, es <code>.map()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="python"><code>
 data_df[&#39;a&#39;].map(formato)</code></pre>
 <pre><code>
-Santiago       0.93
-Coquimbo       1.23
-Valparaiso     0.50
-Chillan       -0.83
+Santiago       0.27
+Coquimbo       1.02
+Valparaiso    -1.39
+Chillan       -1.17
 Name: a, dtype: object</code></pre>
 </div>
 <h2 id="estadistica-descriptiva">Estadística Descriptiva</h2>
@@ -2187,38 +2187,38 @@ Name: a, dtype: object</code></pre>
 <pre class="python"><code>
 data_df.sum()</code></pre>
 <pre><code>
-a    1.830468
-b    1.515641
-c    1.309255
+a   -1.265802
+b   -0.921316
+c   -3.864627
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.cumsum()</code></pre>
 <pre><code>
                    a         b         c
-Santiago    0.929049 -0.477357  1.060463
-Coquimbo    2.156743 -0.109118  1.451681
-Valparaiso  2.658668  0.205234  2.016883
-Chillan     1.830468  1.515641  1.309255</code></pre>
+Santiago    0.266902  0.468435 -2.602475
+Coquimbo    1.290874 -0.293568 -3.567194
+Valparaiso -0.095006 -0.772135 -3.334942
+Chillan    -1.265802 -0.921316 -3.864627</code></pre>
 <pre class="python"><code>
 data_df.mean()</code></pre>
 <pre><code>
-a    0.457617
-b    0.378910
-c    0.327314
+a   -0.316450
+b   -0.230329
+c   -0.966157
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.max()</code></pre>
 <pre><code>
-a    1.227695
-b    1.310408
-c    1.060463
+a    1.023972
+b    0.468435
+c    0.232252
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.min()</code></pre>
 <pre><code>
-a   -0.828200
-b   -0.477357
-c   -0.707628
+a   -1.385880
+b   -0.762003
+c   -2.602475
 dtype: float64</code></pre>
 </div>
 <p>O utilizar el métodos <code>describe()</code>:</p>
@@ -2228,13 +2228,13 @@ data_df.describe()</code></pre>
 <pre><code>
               a         b         c
 count  4.000000  4.000000  4.000000
-mean   0.457617  0.378910  0.327314
-std    0.907479  0.731474  0.745942
-min   -0.828200 -0.477357 -0.707628
-25%    0.169394  0.116424  0.116506
-50%    0.715487  0.341295  0.478210
-75%    1.003710  0.603781  0.689017
-max    1.227695  1.310408  1.060463</code></pre>
+mean  -0.316450 -0.230329 -0.966157
+std    1.156232  0.528884  1.197808
+min   -1.385880 -0.762003 -2.602475
+25%   -1.224567 -0.549426 -1.374158
+50%   -0.451947 -0.313874 -0.747201
+75%    0.456170  0.005223 -0.339200
+max    1.023972  0.468435  0.232252</code></pre>
 </div>
 <h2 id="ejercicios">Ejercicios</h2>
 <ol type="1">
@@ -2366,7 +2366,7 @@ max    1.227695  1.310408  1.060463</code></pre>
 <li><svg style="height:0.8em;top:.04em;position:relative;fill:blue;" viewBox="0 0 512 512">
 <path d="M339 314.9L175.4 32h161.2l163.6 282.9H339zm-137.5 23.6L120.9 480h310.5L512 338.5H201.5zM154.1 67.4L0 338.5 80.6 480 237 208.8 154.1 67.4z"/>
 </svg>
-<a href="https://colab.research.google.com/drive/1hmkFd50q2VOJuVTUsLDQIbJR2Sc0qm5i">Ver en Google Colab</a></li>
+<a href="https://gist.github.com/GaboCg/6b9f81fdb7b09e8ac51e25218ea888f0">Ver en Google Colab</a></li>
 <li><svg style="height:0.8em;top:.04em;position:relative;fill:orange;" viewBox="0 0 448 512">
 <path d="M448 360V24c0-13.3-10.7-24-24-24H96C43 0 0 43 0 96v320c0 53 43 96 96 96h328c13.3 0 24-10.7 24-24v-16c0-7.5-3.5-14.3-8.9-18.7-4.2-15.4-4.2-59.3 0-74.7 5.4-4.3 8.9-11.1 8.9-18.6zM128 134c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm0 64c0-3.3 2.7-6 6-6h212c3.3 0 6 2.7 6 6v20c0 3.3-2.7 6-6 6H134c-3.3 0-6-2.7-6-6v-20zm253.4 250H96c-17.7 0-32-14.3-32-32 0-17.6 14.4-32 32-32h285.4c-1.9 17.1-1.9 46.9 0 64z"/>
 </svg>
