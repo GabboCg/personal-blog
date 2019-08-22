@@ -1,5 +1,35 @@
 [
   {
+    "path": "posts/2019-08-22-complejidad-computacional/",
+    "title": "Complejidad Computacional",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-22",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-22T09:39:55-04:00"
+  },
+  {
+    "path": "posts/2019-08-22-gradiente-descendente/",
+    "title": "Gradiente Descendente",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-22",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-22T09:40:00-04:00"
+  },
+  {
     "path": "posts/2019-08-10-elementos-basicos-de-python/",
     "title": "Elementos Básicos de Python",
     "description": "El post abarca los básico para trabajar con estructura de datos del tipo tuplas, \nlistas, diccionarios y conjuntos, a su vez construcción de loops (*comprehensions*) y funciones.",
