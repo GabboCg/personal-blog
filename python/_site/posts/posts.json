@@ -1,5 +1,20 @@
 [
   {
+    "path": "posts/2019-08-26-pandas-avanzado/",
+    "title": "Pandas Avanzado",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-08-26",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-08-26T19:46:16-04:00"
+  },
+  {
     "path": "posts/2019-08-22-complejidad-computacional/",
     "title": "Complejidad Computacional",
     "description": "A short description of the post.",
