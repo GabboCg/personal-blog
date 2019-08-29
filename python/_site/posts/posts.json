@@ -1,7 +1,7 @@
 [
   {
     "path": "posts/2019-08-26-pandas-avanzado/",
-    "title": "Pandas Avanzado",
+    "title": "Join & Merge en Pandas",
     "description": "A short description of the post.",
     "author": [
       {
@@ -12,7 +12,7 @@
     "date": "2019-08-26",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-26T19:46:16-04:00"
+    "last_modified": "2019-08-28T23:07:39-04:00"
   },
   {
     "path": "posts/2019-08-22-complejidad-computacional/",
