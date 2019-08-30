@@ -5,6 +5,7 @@ listing:
   posts:
     - 2019-08-22-gradiente-descendente
     - 2019-08-22-complejidad-computacional
+    - 2019-08-26-pandas-avanzado
     - 2019-08-10-introduccion-a-pandas
     - 2019-08-10-introduccion-a-numpy
     - 2019-08-10-elementos-basicos-de-python
