@@ -1,5 +1,5 @@
 ---
-title: "Join & Merge en Pandas"
+title: 'Join & Merge en Pandas'
 description: |
   A short description of the post.
 author:
@@ -13,5 +13,223 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+library("reticulate")
 ```
 
+> **Disclaimer A**: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.
+
+> **Disclaimer B**: Este post está basado en mis propios resumenes a partir de los capítulos del libro *Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython*, de Wes McKinney. La mayoría de los ejemplos provienen de momento del libro.
+
+> **Advertencia**: La página es un complemento a la cátedra y por nada la sustituye.
+
+Pandas posee funciones capaces de unir y/o cruzar bases (Series o DataFrame) de datos basados en un conjunto lógico a nivel de columna o índice (*index*), estos son `concat()` y `merge()`.
+Para efecto de las aplicaciones se construirán tres DataFrames con nombres de actores y actrices de hollywood:
+
+```{python}
+import pandas as pd
+```
+
+```{python, echo=TRUE}
+raw_data_a = {
+        'id': ['1', '2', '3', '4', '5'],
+        'nombre': ['Tom', 'Will', 'Tom', 'Jennifer', 'Charlize'], 
+        'apellido': ['Cruise', 'Smith', 'Hanks', 'Aniston', 'Theron']}
+df_a = pd.DataFrame(raw_data_a, columns = ['id', 'nombre', 'apellido'])
+df_a
+
+raw_data_b = {
+        'id': ['4', '5', '6', '7', '8'],
+        'nombre': ['Julia', 'Nicole', 'Emma', 'George', 'Al'], 
+        'apellido': ['Roberts', 'Kidman', 'Watson', 'Clooney', 'Pacino']}
+df_b = pd.DataFrame(raw_data_b, columns = ['id', 'nombre', 'apellido'])
+df_b
+
+raw_data_c = {
+        'id': ['1', '2', '3', '4', '5', '7', '8', '9', '10', '11'],
+        'test_id': [51, 15, 15, 61, 16, 14, 15, 1, 61, 16]}
+df_n = pd.DataFrame(raw_data_c, columns = ['id','test_id'])
+df_n
+```
+
+> **Recordatorio**: Se puede crear un DataFrame a partir de un diccionario, en donde el nombre 
+> de la columna del DataFrame debe existir como llave en el diccionario. Caso contrario 
+> un `NaN` aparecerá. 
+
+## Concatenar 
+
+Concatenar tiene el objetivo de unir bases de datos por columna o filas. La sintaxis con los valores por defecto es:
+
+```python
+pd.concat(objs, axis=0, join='outer', ignore_index=False, keys=None,
+          levels=None, names=None, verify_integrity=False, copy=True)
+```
+
+Considerando los DataFrames `df_a` y `df_b`, si se quiere unir por columnas:
+
+```{python, echo=TRUE}
+pd.concat([df_a, df_b], axis=1)
+```
+
+Para el caso de querer unir por filas:
+
+```{python, echo=TRUE}
+pd.concat([df_a, df_b], axis=0)
+```
+
+Si bien cumple, hay que tener las siguientes consideraciones:
+
+1. Si se concatena por columnas, va a existir nombres de columnas repetidas (en este caso), pero
+igual nombre/número de índice, al menos que el segundo DataFrame posean otro nombre:
+
+    ```{python}
+    raw_data_A = {
+            'id': ['1', '2', '3', '4', '5'],
+            'nombre': ['Tom', 'Will', 'Tom', 'Jennifer', 'Charlize'], 
+            'apellido': ['Cruise', 'Smith', 'Hanks', 'Aniston', 'Theron']}
+    df_A = pd.DataFrame(raw_data_A, columns = ['id', 'nombre', 'apellido'])
+    
+    raw_data_B = {
+            'Id': ['4', '5', '6', '7', '8'],
+            'Nombre': ['Julia', 'Nicole', 'Emma', 'George', 'Al'], 
+            'Apellido': ['Roberts', 'Kidman', 'Watson', 'Clooney', 'Pacino']}
+    df_B = pd.DataFrame(raw_data_B, columns = ['Id', 'Nombre', 'Apellido'])
+    
+    pd.concat([df_A, df_B], axis=1)
+    ```
+    
+    Python es **case sensitive**.
+    
+2. Si se concatena por filas, no va a existir nombres de columnas repetidas (en este caso), pero 
+va a existir nombre/número de índice repetido. Con `ignore_index=True` se soluciona:
+
+    ```{python, echo=TRUE}
+    pd.concat([df_a, df_b], axis=0, ignore_index=True)
+    ```
+
+3. No es necesario que posean la misma cantidad de filas, pero `NaNs` aparecerán
+con `axis=1`:
+
+    ```{python, warning=TRUE, message=TRUE}
+    raw_data_A = {
+            'id': ['1', '2', '3', '4'],
+            'nombre': ['Tom', 'Will', 'Tom', 'Jennifer'], 
+            'apellido': ['Cruise', 'Smith', 'Hanks', 'Aniston']}
+    df_A = pd.DataFrame(raw_data_A, columns = ['id', 'nombre', 'apellido'])
+    
+    raw_data_B = {
+            'id': ['4', '5', '6', '7', '8'],
+            'nombre': ['Julia', 'Nicole', 'Emma', 'George', 'Al'], 
+            'apellido': ['Roberts', 'Kidman', 'Watson', 'Clooney', 'Pacino']}
+    df_B = pd.DataFrame(raw_data_B, columns = ['id', 'nombre', 'apellido'])
+    
+    pd.concat([df_A, df_B], axis=1)
+    ```
+
+
+Para mayor información [visitar]("https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html").
+
+## *Merge*
+
+El método `pd.merge()` realiza operaciones para bases de datos relacionales parecidos 
+a SQL. La sintaxis es la siguiente:
+
+```python
+pd.merge(left, right, how='inner', on=None, left_on=None, right_on=None,
+         left_index=False, right_index=False, sort=True,
+         suffixes=('_x', '_y'), copy=True, indicator=False,
+         validate=None)
+```
+Cuando se trabaja con bases de datos relacionales, es importante entender:
+
+1. **uno-a-uno**: Cuando se unen dos Objetos DataFrame considerando los índeces. 
+2. **mucho-a-uno**: Cuando se unen un índice a una o más columna en un Dataframe 
+diferente.
+3. **muchos-a-muchos**: Unir columnas en columnas.
+
+> Curiosidad: `pd.merge()` tiene un desempeño mayor a su función gemela en R base (base::merge.data.frame), sin embargo, R posee actualmente la librería `dplyr` cuyo espiritu nace a partir de SQL.
+
+Para explicar el uso de `pd.merge()`, se va a utilizar concatenación entre el DataFrame `df_a` y `df_b`:
+
+```{python, echo=TRUE}
+df_nueva = pd.concat([df_a, df_b], axis=0)
+```
+
+## Argumento `on`:
+
+Si se quisiera unir el objeto DataFrame `df_nueva` con `df_n` bajo la lógica de **muchos-a-muchos**:
+
+```{python, echo=TRUE}
+pd.merge(df_nueva, df_n, on='id')
+```
+
+La opción `on` permite seleccionar la llave única en ambos DataFrame por la que se va a unir. Para más de una llave, solo es necesario agregarlo en a un lista es decir, `on=['llave_1', 'llave_2']`.
+
+Si se desea tener obtener el mismo resultado anterior, se puede replicar usando las mismas llaves en las opciones `left_on` y `right_on`. 
+
+```{python, echo=TRUE}
+pd.merge(df_nueva, df_n, left_on='id', right_on='id')
+```
+
+## Argumento `how`:
+
+El argumento `how` determina que llave serán incluidas en la tabla resultante. Si una combinación de llaves no aparece tanto en la tabla de la izquierda (*left*) o derecha (*right*), el valor será `NA`.
+
+```{python, echo=TRUE}
+pd.merge(df_a, df_b, on='id', how='right')
+pd.merge(df_a, df_b, on='id', how='left')
+```
+
+La opción 'outer' unirá (unión) considerando todas las llaves seleccionadas:
+
+```{python, echo=TRUE}
+pd.merge(df_a, df_b, on='id', how='outer')
+```
+
+La opción 'inner' unirá (intersección) considerando solo las llaves seleccionadas que se repitan en ambas bases:
+
+```{python, echo=TRUE}
+pd.merge(df_a, df_b, on='id', how='inner')
+```
+
+## Argumento `suffixes`:
+
+Cuando las columnas posean el mismo nombre, al aplicar `pd.merge()` por defecto Pandas 
+agregará al nombre un x e y. Con `suffixes` se puede agregar un nombre a elección:
+
+```{python, echo=TRUE}
+pd.merge(df_a, df_b, on='id', how='left', suffixes=('_left', '_right'))
+```
+
+Con `right_index` y `left_index` se obtiene algo parecido a `pd.concat([df_a, df_b], axis=1)`, sin embargo, como la lógica de `pd.merge()` es otra se agrega en este caso la columna *id* pero le agrega los sufijo explicados antes.
+
+```{python, echo=TRUE}
+pd.merge(df_a, df_b, right_index=True, left_index=True)
+```
+
+Para mayor información [visitar]("https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html").
+
+## Ejercicios
+
+1. Construya los tres DataFrames utilizados en el post.
+
+2. Utilizando la función `pd.concat()`, concatene los DataFrames `df_a` y `df_b` por columna. Denomine a este nuevo objeto `df_nueva`.
+
+3. Utilizando la función `pd.merge()`, fusione los DataFrames `df_nueva` y `df_n`.
+
+4. Encuentre:
+
+    a. La intersección entre `df_a` y `df_b`.
+    
+    b. La union entre`df_a` y `df_b`.
+
+5. Fusione los DataFrames `df_a` y `df_b`:
+
+    a. Por la derecha.
+    
+    b. Por la izquierda 
+
+6. Cambie el nombre de las columnas generadas en (5.b) usando sufijos.
+
+7. Fusiene los DataFrames `df_a` y `df_b`, a través de los índices (*index*).
+
+## Enlaces

@@ -963,7 +963,292 @@
 </div>
 
 <div class="d-article">
+<blockquote>
+<p><strong>Disclaimer A</strong>: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.</p>
+</blockquote>
+<blockquote>
+<p><strong>Disclaimer B</strong>: Este post está basado en mis propios resumenes a partir de los capítulos del libro <em>Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython</em>, de Wes McKinney. La mayoría de los ejemplos provienen de momento del libro.</p>
+</blockquote>
+<blockquote>
+<p><strong>Advertencia</strong>: La página es un complemento a la cátedra y por nada la sustituye.</p>
+</blockquote>
+<p>Pandas posee funciones capaces de unir y/o cruzar bases (Series o DataFrame) de datos basados en un conjunto lógico a nivel de columna o índice (<em>index</em>), estos son <code>concat()</code> y <code>merge()</code>. Para efecto de las aplicaciones se construirán tres DataFrames con nombres de actores y actrices de hollywood:</p>
+<div class="layout-chunk" data-layout="l-body">
 
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+raw_data_a = {
+        &#39;id&#39;: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;],
+        &#39;nombre&#39;: [&#39;Tom&#39;, &#39;Will&#39;, &#39;Tom&#39;, &#39;Jennifer&#39;, &#39;Charlize&#39;], 
+        &#39;apellido&#39;: [&#39;Cruise&#39;, &#39;Smith&#39;, &#39;Hanks&#39;, &#39;Aniston&#39;, &#39;Theron&#39;]}
+df_a = pd.DataFrame(raw_data_a, columns = [&#39;id&#39;, &#39;nombre&#39;, &#39;apellido&#39;])
+df_a</code></pre>
+<pre><code>
+  id    nombre apellido
+0  1       Tom   Cruise
+1  2      Will    Smith
+2  3       Tom    Hanks
+3  4  Jennifer  Aniston
+4  5  Charlize   Theron</code></pre>
+<pre class="python"><code>
+raw_data_b = {
+        &#39;id&#39;: [&#39;4&#39;, &#39;5&#39;, &#39;6&#39;, &#39;7&#39;, &#39;8&#39;],
+        &#39;nombre&#39;: [&#39;Julia&#39;, &#39;Nicole&#39;, &#39;Emma&#39;, &#39;George&#39;, &#39;Al&#39;], 
+        &#39;apellido&#39;: [&#39;Roberts&#39;, &#39;Kidman&#39;, &#39;Watson&#39;, &#39;Clooney&#39;, &#39;Pacino&#39;]}
+df_b = pd.DataFrame(raw_data_b, columns = [&#39;id&#39;, &#39;nombre&#39;, &#39;apellido&#39;])
+df_b</code></pre>
+<pre><code>
+  id  nombre apellido
+0  4   Julia  Roberts
+1  5  Nicole   Kidman
+2  6    Emma   Watson
+3  7  George  Clooney
+4  8      Al   Pacino</code></pre>
+<pre class="python"><code>
+raw_data_c = {
+        &#39;id&#39;: [&#39;1&#39;, &#39;2&#39;, &#39;3&#39;, &#39;4&#39;, &#39;5&#39;, &#39;7&#39;, &#39;8&#39;, &#39;9&#39;, &#39;10&#39;, &#39;11&#39;],
+        &#39;test_id&#39;: [51, 15, 15, 61, 16, 14, 15, 1, 61, 16]}
+df_n = pd.DataFrame(raw_data_c, columns = [&#39;id&#39;,&#39;test_id&#39;])
+df_n</code></pre>
+<pre><code>
+   id  test_id
+0   1       51
+1   2       15
+2   3       15
+3   4       61
+4   5       16
+5   7       14
+6   8       15
+7   9        1
+8  10       61
+9  11       16</code></pre>
+</div>
+<blockquote>
+<p><strong>Recordatorio</strong>: Se puede crear un DataFrame a partir de un diccionario, en donde el nombre de la columna del DataFrame debe existir como llave en el diccionario. Caso contrario un <code>NaN</code> aparecerá.</p>
+</blockquote>
+<h2 id="concatenar">Concatenar</h2>
+<p>Concatenar tiene el objetivo de unir bases de datos por columna o filas. La sintaxis con los valores por defecto es:</p>
+<pre class="python"><code>
+pd.concat(objs, axis=0, join=&#39;outer&#39;, ignore_index=False, keys=None,
+          levels=None, names=None, verify_integrity=False, copy=True)</code></pre>
+<p>Considerando los DataFrames <code>df_a</code> y <code>df_b</code>, si se quiere unir por columnas:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.concat([df_a, df_b], axis=1)</code></pre>
+<pre><code>
+  id    nombre apellido id  nombre apellido
+0  1       Tom   Cruise  4   Julia  Roberts
+1  2      Will    Smith  5  Nicole   Kidman
+2  3       Tom    Hanks  6    Emma   Watson
+3  4  Jennifer  Aniston  7  George  Clooney
+4  5  Charlize   Theron  8      Al   Pacino</code></pre>
+</div>
+<p>Para el caso de querer unir por filas:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.concat([df_a, df_b], axis=0)</code></pre>
+<pre><code>
+  id    nombre apellido
+0  1       Tom   Cruise
+1  2      Will    Smith
+2  3       Tom    Hanks
+3  4  Jennifer  Aniston
+4  5  Charlize   Theron
+0  4     Julia  Roberts
+1  5    Nicole   Kidman
+2  6      Emma   Watson
+3  7    George  Clooney
+4  8        Al   Pacino</code></pre>
+</div>
+<p>Si bien cumple, hay que tener las siguientes consideraciones:</p>
+<ol type="1">
+<li><p>Si se concatena por columnas, va a existir nombres de columnas repetidas (en este caso), pero igual nombre/número de índice, al menos que el segundo DataFrame posean otro nombre:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+  id    nombre apellido Id  Nombre Apellido
+0  1       Tom   Cruise  4   Julia  Roberts
+1  2      Will    Smith  5  Nicole   Kidman
+2  3       Tom    Hanks  6    Emma   Watson
+3  4  Jennifer  Aniston  7  George  Clooney
+4  5  Charlize   Theron  8      Al   Pacino</code></pre>
+</div>
+<p>Python es <strong>case sensitive</strong>.</p></li>
+<li><p>Si se concatena por filas, no va a existir nombres de columnas repetidas (en este caso), pero va a existir nombre/número de índice repetido. Con <code>ignore_index=True</code> se soluciona:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.concat([df_a, df_b], axis=0, ignore_index=True)</code></pre>
+<pre><code>
+  id    nombre apellido
+0  1       Tom   Cruise
+1  2      Will    Smith
+2  3       Tom    Hanks
+3  4  Jennifer  Aniston
+4  5  Charlize   Theron
+5  4     Julia  Roberts
+6  5    Nicole   Kidman
+7  6      Emma   Watson
+8  7    George  Clooney
+9  8        Al   Pacino</code></pre>
+</div></li>
+<li><p>No es necesario que posean la misma cantidad de filas, pero <code>NaNs</code> aparecerán con <code>axis=1</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+    id    nombre apellido id  nombre apellido
+0    1       Tom   Cruise  4   Julia  Roberts
+1    2      Will    Smith  5  Nicole   Kidman
+2    3       Tom    Hanks  6    Emma   Watson
+3    4  Jennifer  Aniston  7  George  Clooney
+4  NaN       NaN      NaN  8      Al   Pacino</code></pre>
+</div></li>
+</ol>
+<p>Para mayor información <a href="%22https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html%22">visitar</a>.</p>
+<h2 id="merge"><em>Merge</em></h2>
+<p>El método <code>pd.merge()</code> realiza operaciones para bases de datos relacionales parecidos a SQL. La sintaxis es la siguiente:</p>
+<pre class="python"><code>
+pd.merge(left, right, how=&#39;inner&#39;, on=None, left_on=None, right_on=None,
+         left_index=False, right_index=False, sort=True,
+         suffixes=(&#39;_x&#39;, &#39;_y&#39;), copy=True, indicator=False,
+         validate=None)</code></pre>
+<p>Cuando se trabaja con bases de datos relacionales, es importante entender:</p>
+<ol type="1">
+<li><strong>uno-a-uno</strong>: Cuando se unen dos Objetos DataFrame considerando los índeces.</li>
+<li><strong>mucho-a-uno</strong>: Cuando se unen un índice a una o más columna en un Dataframe diferente.</li>
+<li><strong>muchos-a-muchos</strong>: Unir columnas en columnas.</li>
+</ol>
+<blockquote>
+<p>Curiosidad: <code>pd.merge()</code> tiene un desempeño mayor a su función gemela en R base (base::merge.data.frame), sin embargo, R posee actualmente la librería <code>dplyr</code> cuyo espiritu nace a partir de SQL.</p>
+</blockquote>
+<p>Para explicar el uso de <code>pd.merge()</code>, se va a utilizar concatenación entre el DataFrame <code>df_a</code> y <code>df_b</code>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+df_nueva = pd.concat([df_a, df_b], axis=0)</code></pre>
+</div>
+<h2 id="argumento-on">Argumento <code>on</code>:</h2>
+<p>Si se quisiera unir el objeto DataFrame <code>df_nueva</code> con <code>df_n</code> bajo la lógica de <strong>muchos-a-muchos</strong>:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_nueva, df_n, on=&#39;id&#39;)</code></pre>
+<pre><code>
+  id    nombre apellido  test_id
+0  1       Tom   Cruise       51
+1  2      Will    Smith       15
+2  3       Tom    Hanks       15
+3  4  Jennifer  Aniston       61
+4  4     Julia  Roberts       61
+5  5  Charlize   Theron       16
+6  5    Nicole   Kidman       16
+7  7    George  Clooney       14
+8  8        Al   Pacino       15</code></pre>
+</div>
+<p>La opción <code>on</code> permite seleccionar la llave única en ambos DataFrame por la que se va a unir. Para más de una llave, solo es necesario agregarlo en a un lista es decir, <code>on=['llave_1', 'llave_2']</code>.</p>
+<p>Si se desea tener obtener el mismo resultado anterior, se puede replicar usando las mismas llaves en las opciones <code>left_on</code> y <code>right_on</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_nueva, df_n, left_on=&#39;id&#39;, right_on=&#39;id&#39;)</code></pre>
+<pre><code>
+  id    nombre apellido  test_id
+0  1       Tom   Cruise       51
+1  2      Will    Smith       15
+2  3       Tom    Hanks       15
+3  4  Jennifer  Aniston       61
+4  4     Julia  Roberts       61
+5  5  Charlize   Theron       16
+6  5    Nicole   Kidman       16
+7  7    George  Clooney       14
+8  8        Al   Pacino       15</code></pre>
+</div>
+<h2 id="argumento-how">Argumento <code>how</code>:</h2>
+<p>El argumento <code>how</code> determina que llave serán incluidas en la tabla resultante. Si una combinación de llaves no aparece tanto en la tabla de la izquierda (<em>left</em>) o derecha (<em>right</em>), el valor será <code>NA</code>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_a, df_b, on=&#39;id&#39;, how=&#39;right&#39;)</code></pre>
+<pre><code>
+  id  nombre_x apellido_x nombre_y apellido_y
+0  4  Jennifer    Aniston    Julia    Roberts
+1  5  Charlize     Theron   Nicole     Kidman
+2  6       NaN        NaN     Emma     Watson
+3  7       NaN        NaN   George    Clooney
+4  8       NaN        NaN       Al     Pacino</code></pre>
+<pre class="python"><code>
+pd.merge(df_a, df_b, on=&#39;id&#39;, how=&#39;left&#39;)</code></pre>
+<pre><code>
+  id  nombre_x apellido_x nombre_y apellido_y
+0  1       Tom     Cruise      NaN        NaN
+1  2      Will      Smith      NaN        NaN
+2  3       Tom      Hanks      NaN        NaN
+3  4  Jennifer    Aniston    Julia    Roberts
+4  5  Charlize     Theron   Nicole     Kidman</code></pre>
+</div>
+<p>La opción ‘outer’ unirá (unión) considerando todas las llaves seleccionadas:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_a, df_b, on=&#39;id&#39;, how=&#39;outer&#39;)</code></pre>
+<pre><code>
+  id  nombre_x apellido_x nombre_y apellido_y
+0  1       Tom     Cruise      NaN        NaN
+1  2      Will      Smith      NaN        NaN
+2  3       Tom      Hanks      NaN        NaN
+3  4  Jennifer    Aniston    Julia    Roberts
+4  5  Charlize     Theron   Nicole     Kidman
+5  6       NaN        NaN     Emma     Watson
+6  7       NaN        NaN   George    Clooney
+7  8       NaN        NaN       Al     Pacino</code></pre>
+</div>
+<p>La opción ‘inner’ unirá (intersección) considerando solo las llaves seleccionadas que se repitan en ambas bases:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_a, df_b, on=&#39;id&#39;, how=&#39;inner&#39;)</code></pre>
+<pre><code>
+  id  nombre_x apellido_x nombre_y apellido_y
+0  4  Jennifer    Aniston    Julia    Roberts
+1  5  Charlize     Theron   Nicole     Kidman</code></pre>
+</div>
+<h2 id="argumento-suffixes">Argumento <code>suffixes</code>:</h2>
+<p>Cuando las columnas posean el mismo nombre, al aplicar <code>pd.merge()</code> por defecto Pandas agregará al nombre un x e y. Con <code>suffixes</code> se puede agregar un nombre a elección:</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_a, df_b, on=&#39;id&#39;, how=&#39;left&#39;, suffixes=(&#39;_left&#39;, &#39;_right&#39;))</code></pre>
+<pre><code>
+  id nombre_left apellido_left nombre_right apellido_right
+0  1         Tom        Cruise          NaN            NaN
+1  2        Will         Smith          NaN            NaN
+2  3         Tom         Hanks          NaN            NaN
+3  4    Jennifer       Aniston        Julia        Roberts
+4  5    Charlize        Theron       Nicole         Kidman</code></pre>
+</div>
+<p>Con <code>right_index</code> y <code>left_index</code> se obtiene algo parecido a <code>pd.concat([df_a, df_b], axis=1)</code>, sin embargo, como la lógica de <code>pd.merge()</code> es otra se agrega en este caso la columna <em>id</em> pero le agrega los sufijo explicados antes.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+pd.merge(df_a, df_b, right_index=True, left_index=True)</code></pre>
+<pre><code>
+  id_x  nombre_x apellido_x id_y nombre_y apellido_y
+0    1       Tom     Cruise    4    Julia    Roberts
+1    2      Will      Smith    5   Nicole     Kidman
+2    3       Tom      Hanks    6     Emma     Watson
+3    4  Jennifer    Aniston    7   George    Clooney
+4    5  Charlize     Theron    8       Al     Pacino</code></pre>
+</div>
+<p>Para mayor información <a href="%22https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html%22">visitar</a>.</p>
+<h2 id="ejercicios">Ejercicios</h2>
+<ol type="1">
+<li><p>Construya los tres DataFrames utilizados en el post.</p></li>
+<li><p>Utilizando la función <code>pd.concat()</code>, concatene los DataFrames <code>df_a</code> y <code>df_b</code> por columna. Denomine a este nuevo objeto <code>df_nueva</code>.</p></li>
+<li><p>Utilizando la función <code>pd.merge()</code>, fusione los DataFrames <code>df_nueva</code> y <code>df_n</code>.</p></li>
+<li><p>Encuentre:</p>
+<ol type="a">
+<li><p>La intersección entre <code>df_a</code> y <code>df_b</code>.</p></li>
+<li><p>La union entre<code>df_a</code> y <code>df_b</code>.</p></li>
+</ol></li>
+<li><p>Fusione los DataFrames <code>df_a</code> y <code>df_b</code>:</p>
+<ol type="a">
+<li><p>Por la derecha.</p></li>
+<li><p>Por la izquierda</p></li>
+</ol></li>
+<li><p>Cambie el nombre de las columnas generadas en (5.b) usando sufijos.</p></li>
+<li><p>Fusiene los DataFrames <code>df_a</code> y <code>df_b</code>, a través de los índices (<em>index</em>).</p></li>
+</ol>
+<h2 id="enlaces">Enlaces</h2>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
