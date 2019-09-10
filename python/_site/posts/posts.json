@@ -1,5 +1,65 @@
 [
   {
+    "path": "posts/2019-09-10-logistica/",
+    "title": "Regresión Logística",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-09-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-09-10T07:29:54-03:00"
+  },
+  {
+    "path": "posts/2019-09-10-polinomial/",
+    "title": "Regresión Polinomial",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-09-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-09-10T07:29:06-03:00"
+  },
+  {
+    "path": "posts/2019-09-10-regularizado/",
+    "title": "Modelos Regularizados",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-09-10",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-09-10T07:28:56-03:00"
+  },
+  {
+    "path": "posts/2019-09-01-trabajando-con-datos-financieros/",
+    "title": "Trabajando con Datos Financieros",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-09-01",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-09-01T17:53:04-04:00"
+  },
+  {
     "path": "posts/2019-08-26-pandas-avanzado/",
     "title": "Join & Merge en Pandas",
     "description": "A short description of the post.",
@@ -12,7 +72,7 @@
     "date": "2019-08-26",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-30T23:14:31-04:00"
+    "last_modified": "2019-08-30T23:14:32-04:00"
   },
   {
     "path": "posts/2019-08-22-complejidad-computacional/",
@@ -26,8 +86,8 @@
     ],
     "date": "2019-08-22",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-08-22T09:39:55-04:00"
+    "preview": "posts/2019-08-22-complejidad-computacional",
+    "last_modified": "2019-09-01T15:42:21-04:00"
   },
   {
     "path": "posts/2019-08-22-gradiente-descendente/",
@@ -72,7 +132,7 @@
     "date": "2019-08-10",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-10T21:52:35-04:00"
+    "last_modified": "2019-08-31T10:24:06-04:00"
   },
   {
     "path": "posts/2019-08-10-introduccion-a-pandas/",
@@ -102,7 +162,7 @@
     "date": "2019-08-10",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-08-10T21:52:40-04:00"
+    "last_modified": "2019-08-31T10:23:56-04:00"
   },
   {
     "path": "posts/2019-01-19-creating-a-local-server-using-python/",

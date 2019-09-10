@@ -1,0 +1,184 @@
+---
+title: "Trabajando con Datos Financieros"
+description: |
+  A short description of the post.
+author:
+  - name: Gabriel Cabrera
+    url: {}
+date: 09-01-2019
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library("reticulate")
+library("tidyverse")
+```
+
+> **Disclaimer A**: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.
+
+> **Disclaimer B**: Este post está basado en mis propios resumenes a partir de los capítulos del libro *Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython*, de Wes McKinney. La mayoría de los ejemplos provienen de momento del libro.
+
+> **Advertencia**: La página es un complemento a la cátedra y por nada la sustituye.
+
+# Descargar Datos Financieros
+
+Exiten diversos *website* donde poder descargar datos financieros (índices accionarios), *Yahoo* o *Google* por nombrar algunos. Al igual que otros lenguajes de programación, Python a través de la librería `pandas_datareader` obtiene datos financieros como DataFrames. Los módulos/librerías a utilizar serán:
+
+```{python, echo=TRUE}
+import pandas as pd 
+import numpy as np
+import pandas_datareader.data as web
+import datetime as dt
+from datetime import datetime
+import matplotlib.pyplot as plt
+```
+
+En este post solo se utilizará *Yahoo Finance* como fuente de datos. Para descargar más de un índice accionario, se debe crear una lista con los *tickers* o nemotécnicos (se encuentran en la página de *Yahoo Finance*) que servirá como iterador en la busqueda. Las empresas seleccionada serán FAANG (Facebook, Amazon, Apple, Netflix y Google):
+
+| Empresa  | Nemotécnico |
+|----------|-------------|
+| Facebook | FB          |
+| Amazon   | AMZN        |
+| Apple    | AAPL        |
+| Netflix  | NFLX        |
+| Google   | GOOG        |
+
+<aside>
+**FAANG** o **FANG** es un acrónimo formado por el nombre comercial de las cinco grandes empresas tecnológicas cotizadas en el mercado del Nasdaq, en Estados Unidos. Inicialmente, fue FANG porque solo incluía a Facebook, Amazon, Netflix y Google, pero más tarde se incluyó Apple y se amplió a FAANG.
+</aside>
+
+```{python, echo=TRUE}
+tickers = ["FB", "AMZN", "AAPL", "NFLX", "GOOG"]
+```
+
+Una vez construida la lista, se debe seleccionar la fecha de inicio y final más la frecuencia. La fecha se puede trabajar usando el módulo/librería `datetime`. Para efecto del ejercicio las fechas será desde el 1 de Enero del 2010 hasta el día de hoy con frecuencia diaria.
+
+```{python, echo=TRUE}
+start_date = dt.datetime(2010, 1, 1)
+end_date = dt.datetime.today()
+```
+
+Una vez definidos los parámetros de la búsqueda se contruye una lista vacía que se irá completando en cada iteración de busqueda.
+
+```{python, echo=TRUE}
+tickers_lista = []
+```
+
+Los pasos del siguiente loop son:
+
+1. Selecciona los tickers secuencialmente.
+2. Mediante la función `web` de `pandas_datareader` descarga el índice con los parámetros del usuario.
+3. Agrega una columna con el nombre del ticker para poder identificarlos.
+4. Finalmente los agrega a la lista `tickers_lista`.
+
+```{python, echo=TRUE}
+for ticker in range(len(tickers)):
+    panel_data = web.DataReader(tickers[ticker], "yahoo", start_date, end_date) 
+    panel_data["Symbol"] = tickers[ticker]
+    tickers_lista.append(panel_data)
+```
+
+Una vez terminado el *loop*, se concatena  mediante las filas cada DataFrame contenido en la lista y luego solo se selecciona solo las variables con el precio al cierre (*Close*) y *Symbol*.
+
+```{python, echo=TRUE}
+stocks_DF = pd.concat(tickers_lista, axis=0)
+stocks_DF = stocks_DF.loc[:,["Close", "Symbol"]]
+```
+
+# Retornos y Retornos Acumulados
+
+$$
+r_t = log(1 + R_t) = log(\frac{P_t}{P_{t-1}}) = p_t - p_{t-1}
+$$
+
+## Solo con un índice
+
+```{python, echo=TRUE}
+amzn_DF = tickers_lista[0]
+amzn_close = amzn_DF.Close
+amzn_lag = amzn_DF.Close.shift(1)
+```
+
+```{python, echo=TRUE}
+amzn_returns = np.log(amzn_close/amzn_lag).dropna()
+amzn_returns = amzn_returns.to_frame()
+amzn_returns.columns = ['returns']
+```
+
+```{python, echo=TRUE}
+# merge basado en el index 
+amzn_merge_outer = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='outer')
+amzn_merge_inner = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='inner')
+amzn_merge_left = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='left')
+amzn_merge_right = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='right')
+```
+
+## Para todos los índices
+
+```{python, echo=TRUE}
+def returns_stocks(x):
+    stock_cierre = x
+    stock_cierre_lag = stock_cierre.shift(1)
+    stock_returns = np.log(stock_cierre/stock_cierre_lag) # no va el dropna()
+    return stock_returns
+```
+
+```python
+stocks_DF['Return'] = stocks_DF.groupby(['Symbol'])['Close'].apply(returns_stocks)
+stocks_DF = stocks_DF.dropna()
+```
+
+```python
+returns_DF = stocks_DF.loc[:,["Symbol", "Return"]]
+returns_DF['Date'] = returns_DF.index
+```
+## Pivot & Melt
+
+```python
+pivot_DF = returns_DF.pivot(index='Date', columns='Symbol', values='Return')
+```
+
+```python
+melt_DF = pd.melt(pivot_DF.reset_index(), id_vars='Date', value_vars=tickers)
+melt_DF.index = melt_DF['Date']
+melt_DF = melt_DF.loc[:,['Symbol', 'value', 'Date']].rename(columns={'value':'Return'})
+melt_DF = melt_DF.drop(columns=['Date'])
+```
+
+## Graficar retornos acumulados
+
+```python
+cumsum_returns = pivot_DF.cumsum()*100
+
+# Tools > preferences > IPython console > Graphics > Graphics backend > Backend: Automatic
+cumsum_returns.plot(color=['cyan', 'magenta', 'green', 'red'])
+plt.title("Retornos Acumulados")
+plt.xlabel('Fecha')
+plt.ylabel('Retorno Acumulado (%)')
+plt.legend(title="Tickers")
+plt.show()
+```
+
+# En Python 2.7x 
+
+
+# Ejercicios
+
+1. Utilizando la librería `pandas_datareader`, construya una función que le permita descargar (la fuente debe ser *Yahoo Finance*) los índices accionarios de Microsoft (**MSFT**), Nvidia (**NVDA**), AMD (**AMD**) y Apple (**AAPL**) con frecuencia, diaria desde 
+el 1 de Enero del 2010 hasta hoy. 
+
+2. Seleccione el precio al cierre (*Close*) y luego construya una función para calcular los retornos de cada índice accionario.
+El retorno logarítmico se define como: 
+
+$$
+r_t = log(1 + R_t) = log(\frac{P_t}{P_{t-1}}) = p_t - p_{t-1}
+$$
+
+3. Utilice la función `pd.pivot()` de manera que cada columna (4) contenga el retorno correspondiente a cada índice accionario. El nombre de las columnas deben corresponder al nombre del nemotécnico del índice.
+
+4. Construya los retornos acumulados y luego gráfique utilizando la librería `matplotlib`. El color de cada serie como las "capas" del gráfico quedan a su elección. 
+
+# Enlaces 

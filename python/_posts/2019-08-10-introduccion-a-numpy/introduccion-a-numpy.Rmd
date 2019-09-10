@@ -1,5 +1,5 @@
 ---
-title: "Introduccion a Numpy"
+title: 'Introduccion a Numpy'
 description: |
   A short description of the post.
 author:

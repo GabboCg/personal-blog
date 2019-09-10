@@ -1,5 +1,5 @@
 ---
-title: "Regresión Lineal"
+title: 'Regresión Lineal'
 description: |
   Regresión lineal.
 author:
