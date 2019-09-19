@@ -3,8 +3,12 @@ title: "Python"
 site: distill::distill_website
 listing: 
   posts:
+    - 2019-09-10-regularizado
+    - 2019-09-10-polinomial
+    - 2019-09-10-logistica
     - 2019-08-22-gradiente-descendente
     - 2019-08-22-complejidad-computacional
+    - 2019-09-01-trabajando-con-datos-financieros
     - 2019-08-26-pandas-avanzado
     - 2019-08-10-introduccion-a-pandas
     - 2019-08-10-introduccion-a-numpy

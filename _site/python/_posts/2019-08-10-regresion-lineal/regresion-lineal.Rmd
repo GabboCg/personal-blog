@@ -1,7 +1,7 @@
 ---
-title: "Regresión Lineal"
+title: 'Regresión Lineal'
 description: |
-  Regresión lineal.
+  En construcción.
 author:
   - name: Gabriel Cabrera
     url: {}
@@ -13,9 +13,108 @@ output:
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+reticulate::use_python("/usr/bin/python3", required = T)
+knitr::knit_engines$set(python = reticulate::eng_python)
+library("reticulate")
+library("tidyverse")
 ```
 
-Distill is a publication format for scientific and technical writing, native to the web.
+```{python}
+import numpy as np
+import pandas as pd 
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import scale
+from mpl_toolkits.mplot3d import axes3d
+import statsmodels.formula.api as smf
 
-Learn more about using Distill at <https://rstudio.github.io/distill>.
+plt.style.use('seaborn-white')
+
+# cargamos los datos
+advertising = pd.read_csv("dataset/Advertising.csv", usecols=[1,2,3,4])
+advertising.info() # información de los datos
+
+# ver las 10 primeras observaciones
+advertising.head(10)
+
+# estadística descriptiva
+advertising.describe()
+
+# centralizamos la variable TV 
+advertising["adv_scale"] = scale(advertising.TV, with_mean=True, with_std=False).reshape(-1,1)
+
+# mco por medio de statsmodels
+mod = smf.ols(formula='sales ~ adv_scale', data=advertising)
+res = mod.fit()
+
+# graficamos
+def plot_with_residuals(x, y, fitted_model):
+    preds = fitted_model.predict()
+    fig, ax = plt.subplots(figsize=(15, 6))
+    fig.suptitle('Regresion Lineal Simple', fontsize=20)
+    plt.figure(figsize=(15,6))
+    x_sorted = np.sort(x)
+    y_sorted = y[np.argsort(x)]
+    preds_sorted = preds[np.argsort(x)]
+    ax.plot(x_sorted, preds_sorted, linewidth=3.0)
+    ax.scatter(x_sorted, y_sorted, c="red")
+    ax.vlines(x_sorted, y_sorted, preds_sorted, linestyles="dashdot")
+    ax.set_xlabel(x.name, fontsize=16)
+    ax.set_ylabel(y.name, fontsize=16)
+    ax.xaxis.set_tick_params(labelsize=14)
+    # fig.savefig('residual.png')
+```
+
+
+```{python}
+# aplicamos la función
+plot_with_residuals(advertising.TV, advertising.sales, res)
+```
+
+```{python}
+# creamos observaciones entorno a los coeficientes
+beta_0 = np.linspace(res.params.Intercept - 2, res.params.Intercept + 2, 50) 
+beta_1 = np.linspace(res.params.adv_scale - 0.02, res.params.adv_scale + 0.02, 50)
+
+# creamos los valores
+xx, yy = np.meshgrid(beta_0, beta_1, indexing = 'xy')
+
+# matrix nxn
+Z = np.zeros((beta_0.size, beta_1.size))
+
+# grilla para los valores
+for (i, j), v in np.ndenumerate(Z):
+    Z[i, j] = ((advertising.sales - (xx[i,j] + advertising.adv_scale.ravel()*yy[i, j]))**2).sum()/1000 
+    
+# obtenemos el RSS
+min_RSS = r'$\beta_0$, $\beta_1$ para minimizar RSS'
+min_rss = np.sum((res.params.Intercept + res.params.adv_scale*advertising.adv_scale - advertising.sales.values)**2)/1000
+min_rss
+
+fig = plt.figure(figsize=(15,6))
+fig.suptitle('RSS - Coeficientes de la Regresión', fontsize=20)
+
+ax1 = fig.add_subplot(121)
+ax2 = fig.add_subplot(122, projection='3d')
+
+# gráfico de la izquierda
+CS = ax1.contour(xx, yy, Z, cmap=plt.cm.Set1, levels=[2.15, 2.2, 2.3, 2.5, 3])
+ax1.scatter(res.params.Intercept, res.params.adv_scale, c='r', label=min_RSS)
+ax1.clabel(CS, inline=True, fontsize=10, fmt='%1.1f')
+
+# gráfico de la derecha
+ax2.plot_surface(xx, yy, Z, rstride=3, cstride=3, alpha=0.3)
+ax2.contour(xx, yy, Z, zdir='z', offset=Z.min(), cmap=plt.cm.Set1,
+            alpha=0.4, levels=[2.15, 2.2, 2.3, 2.5, 3])
+ax2.scatter3D(res.params.Intercept, res.params.adv_scale, min_rss, c='r', label=min_RSS)
+ax2.set_zlabel('RSS')
+ax2.set_zlim(Z.min(),Z.max())
+ax2.set_ylim(0.02,0.07)
+
+# configuración en comun para ambos gráficos
+for ax in fig.axes:
+    ax.set_xlabel(r'$\beta_0$', fontsize=17)
+    ax.set_ylabel(r'$\beta_1$', fontsize=17)
+    ax.set_yticks([0.03,0.04,0.05,0.06])
+    ax.legend()
+```
 

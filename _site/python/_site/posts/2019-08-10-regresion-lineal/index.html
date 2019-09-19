@@ -21,7 +21,7 @@
   <!--radix_placeholder_meta_tags-->
 <title>Gabriel Cabrera: Regresión Lineal</title>
 
-<meta property="description" itemprop="description" content="Regresión lineal."/>
+<meta property="description" itemprop="description" content="En construcción."/>
 
 
 <!--  https://schema.org/Article -->
@@ -32,25 +32,25 @@
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Gabriel Cabrera: Regresión Lineal"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Regresión lineal."/>
+<meta property="og:description" content="En construcción."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Gabriel Cabrera"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Gabriel Cabrera: Regresión Lineal"/>
-<meta property="twitter:description" content="Regresión lineal."/>
+<meta property="twitter:description" content="En construcción."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Regresión Lineal"]},{"type":"character","attributes":{},"value":["Regresión lineal."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Regresión Lineal"]},{"type":"character","attributes":{},"value":["En construcción."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["regresion-lineal_files/bowser-1.9.3/bowser.min.js","regresion-lineal_files/distill-2.2.21/template.v2.js","regresion-lineal_files/jquery-1.11.3/jquery.min.js","regresion-lineal_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["dataset/Advertising.csv","regresion-lineal_files/bowser-1.9.3/bowser.min.js","regresion-lineal_files/distill-2.2.21/template.v2.js","regresion-lineal_files/figure-html5/unnamed-chunk-2-1.png","regresion-lineal_files/figure-html5/unnamed-chunk-3-1.png","regresion-lineal_files/jquery-1.11.3/jquery.min.js","regresion-lineal_files/webcomponents-2.0.0/webcomponents.js","residual.png"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1391,7 +1391,7 @@ d-article {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Regresión Lineal","description":"Regresión lineal.","authors":[{"author":"Gabriel Cabrera","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-10T00:00:00.000-04:00","citationText":"Cabrera, 2019"}
+{"title":"Regresión Lineal","description":"En construcción.","authors":[{"author":"Gabriel Cabrera","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-10T00:00:00.000-04:00","citationText":"Cabrera, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1453,7 +1453,7 @@ ABOUT
 
 <div class="d-title">
 <h1>Regresión Lineal</h1>
-<p>Regresión lineal.</p>
+<p>En construcción.</p>
 </div>
 
 <div class="d-byline">
@@ -1463,8 +1463,56 @@ ABOUT
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 200 entries, 0 to 199
+Data columns (total 4 columns):
+TV           200 non-null float64
+radio        200 non-null float64
+newspaper    200 non-null float64
+sales        200 non-null float64
+dtypes: float64(4)
+memory usage: 6.3 KB</code></pre>
+<pre><code>
+      TV  radio  newspaper  sales
+0  230.1   37.8       69.2   22.1
+1   44.5   39.3       45.1   10.4
+2   17.2   45.9       69.3    9.3
+3  151.5   41.3       58.5   18.5
+4  180.8   10.8       58.4   12.9
+5    8.7   48.9       75.0    7.2
+6   57.5   32.8       23.5   11.8
+7  120.2   19.6       11.6   13.2
+8    8.6    2.1        1.0    4.8
+9  199.8    2.6       21.2   10.6</code></pre>
+<pre><code>
+               TV       radio   newspaper       sales
+count  200.000000  200.000000  200.000000  200.000000
+mean   147.042500   23.264000   30.554000   14.022500
+std     85.854236   14.846809   21.778621    5.217457
+min      0.700000    0.000000    0.300000    1.600000
+25%     74.375000    9.975000   12.750000   10.375000
+50%    149.750000   22.900000   25.750000   12.900000
+75%    218.825000   36.525000   45.100000   17.400000
+max    296.400000   49.600000  114.000000   27.000000</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+2.1025305831313514</code></pre>
+<pre><code>
+&lt;a list of 8 text.Text objects&gt;</code></pre>
+<pre><code>
+&lt;matplotlib.contour.QuadContourSet object at 0x7f16d45aaef0&gt;</code></pre>
+<pre><code>
+(2.103108145651759, 3.489258194631353)</code></pre>
+<pre><code>
+(0.02, 0.07)</code></pre>
+<p><img src="regresion-lineal_files/figure-html5/unnamed-chunk-3-1.png" width="1440" /></p>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1480,7 +1528,7 @@ ABOUT
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-  <p>Â© Copyright 2019 Gabriel Cabrera</p>
+  <p>© Copyright 2019 Gabriel Cabrera</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 
