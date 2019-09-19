@@ -21,7 +21,7 @@
   <!--radix_placeholder_meta_tags-->
 <title>Gabriel Cabrera: Complejidad Computacional</title>
 
-<meta property="description" itemprop="description" content="A short description of the post."/>
+<meta property="description" itemprop="description" content="El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo."/>
 
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/"/>
 
@@ -33,20 +33,20 @@
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
 <meta property="og:title" content="Gabriel Cabrera: Complejidad Computacional"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="A short description of the post."/>
+<meta property="og:description" content="El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Gabriel Cabrera"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
 <meta property="twitter:title" content="Gabriel Cabrera: Complejidad Computacional"/>
-<meta property="twitter:description" content="A short description of the post."/>
+<meta property="twitter:description" content="El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo."/>
 
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","creative_commons","preview"]}},"value":[{"type":"character","attributes":{},"value":["Complejidad Computacional"]},{"type":"character","attributes":{},"value":["A short description of the post."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-22-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":[""]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","creative_commons","preview"]}},"value":[{"type":"character","attributes":{},"value":["Complejidad Computacional"]},{"type":"character","attributes":{},"value":["El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-22-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["CC BY"]},{"type":"character","attributes":{},"value":[""]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -1392,7 +1392,7 @@ d-article {
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Complejidad Computacional","description":"A short description of the post.","authors":[{"author":"Gabriel Cabrera","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-22T00:00:00.000-04:00","citationText":"Cabrera, 2019"}
+{"title":"Complejidad Computacional","description":"El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo.","authors":[{"author":"Gabriel Cabrera","authorURL":{},"affiliation":"&nbsp;","affiliationURL":"#"}],"publishedDate":"2019-08-22T00:00:00.000-04:00","citationText":"Cabrera, 2019"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -1454,7 +1454,7 @@ ABOUT
 
 <div class="d-title">
 <h1>Complejidad Computacional</h1>
-<p><p>A short description of the post.</p></p>
+<p>El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo.</p>
 </div>
 
 <div class="d-byline">
@@ -1467,6 +1467,15 @@ ABOUT
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
+<blockquote>
+<p><strong>Disclaimer A</strong>: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.</p>
+</blockquote>
+<blockquote>
+<p><strong>Disclaimer B</strong>: Este post está basado en mis propios resumenes.</p>
+</blockquote>
+<blockquote>
+<p><strong>Advertencia</strong>: La página es un complemento a la cátedra y por nada la sustituye.</p>
+</blockquote>
 <p>Cuando se realiza ciencias de datos, <em>machine learning</em> y/o <em>deep learning</em> (<em>computer science</em> en general), es importante encontrar el algoritmo más eficiente para resolver ciertos problema. Pero ¿Como podemos reconocerlo? El concepto de complejidad computacional es la solución.</p>
 <p>La complejidad computacional se mide en:</p>
 <ul>
@@ -1515,13 +1524,13 @@ sum_recursiva(5)</code></pre>
 <pre class="python"><code>
 timeit.timeit(lambda: sum_iterativa(5))</code></pre>
 <pre><code>
-0.6385438</code></pre>
+0.4841630458831787</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="python"><code>
 timeit.timeit(lambda: sum_recursiva(5))</code></pre>
 <pre><code>
-0.6619519</code></pre>
+0.5816650390625</code></pre>
 </div>
 <p>A partir de lo anterior se aprecia que así es.</p>
 <h2 id="modulo-timeit">Módulo timeit</h2>
@@ -1729,7 +1738,7 @@ x_n = x_{n-1} + x_{n-2}
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-  <p>Â© Copyright 2019 Gabriel Cabrera</p>
+  <p>© Copyright 2019 Gabriel Cabrera</p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

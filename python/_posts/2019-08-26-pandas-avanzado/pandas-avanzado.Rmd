@@ -1,7 +1,8 @@
 ---
 title: 'Join & Merge en Pandas'
 description: |
-  A short description of the post.
+  El post continua con la librería pandas, introduciendo las capacidades que posee
+  para unir y/o cruzar bases de datos.
 author:
   - name: Gabriel Cabrera
     url: {}

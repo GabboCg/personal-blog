@@ -1,7 +1,7 @@
 ---
 title: 'Introduccion a Numpy'
 description: |
-  A short description of the post.
+  En construcción....
 author:
   - name: Gabriel Cabrera
     url: {}

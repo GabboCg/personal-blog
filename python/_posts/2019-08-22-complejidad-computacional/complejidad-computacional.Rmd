@@ -1,7 +1,7 @@
 ---
 title: "Complejidad Computacional"
 description: |
-  A short description of the post.
+  El post busca explicar el concepto de complejidad computacional utilizando como ejemplos el algorítmo de buscador lineal y la secuencia de fibonacci recursivo.
 author:
   - name: Gabriel Cabrera
     url: {}
@@ -22,12 +22,13 @@ source_python('module/tictoc.py')
 ```{python}
 # soluciona el path para matplotlib
 import os
-os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/Habac/Anaconda3/envs/py37/Library/plugins/platforms'
+# en windows :( 
+# os.environ['QT_QPA_PLATFORM_PLUGIN_PATH'] = 'C:/Users/Habac/Anaconda3/envs/py37/Library/plugins/platforms' 
 ```
 
 > **Disclaimer A**: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.
 
-> **Disclaimer B**: Este post está basado en mis propios resumenes a partir de los capítulos del libro *Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython*, de Wes McKinney. La mayoría de los ejemplos provienen de momento del libro.
+> **Disclaimer B**: Este post está basado en mis propios resumenes.
 
 > **Advertencia**: La página es un complemento a la cátedra y por nada la sustituye.
 

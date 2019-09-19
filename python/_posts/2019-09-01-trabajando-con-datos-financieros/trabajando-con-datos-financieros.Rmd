@@ -1,7 +1,7 @@
 ---
 title: "Trabajando con Datos Financieros"
 description: |
-  A short description of the post.
+  El post enseña como descargar datos financieros (índices accionarios), calcular retornos (acumulados) y graficarlos usando matplotlib. Otras funciones también son presentada.
 author:
   - name: Gabriel Cabrera
     url: {}
@@ -9,23 +9,27 @@ date: 09-01-2019
 output:
   distill::distill_article:
     self_contained: false
+creative_commons: CC BY
+preview: "img/finplot.png"
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
+reticulate::use_python("/usr/bin/python3", required = T)
+knitr::knit_engines$set(python = reticulate::eng_python)
 library("reticulate")
 library("tidyverse")
 ```
 
 > **Disclaimer A**: La información contenida en esta página está bajo una Licencia Creative Commons Atribución-NoComercial-SinDerivadas 4.0 Internacional y fue construida bajo mi rol como ayudante (Teacher Assistant) de la Catedra Business Intelligence para las Finanzas.
 
-> **Disclaimer B**: Este post está basado en mis propios resumenes a partir de los capítulos del libro *Python for Data Analysis: Data Wrangling with Pandas, NumPy, and IPython*, de Wes McKinney. La mayoría de los ejemplos provienen de momento del libro.
+> **Disclaimer B**: Este post está basado en mis propios resumenes.
 
 > **Advertencia**: La página es un complemento a la cátedra y por nada la sustituye.
 
 # Descargar Datos Financieros
 
-Exiten diversos *website* donde poder descargar datos financieros (índices accionarios), *Yahoo* o *Google* por nombrar algunos. Al igual que otros lenguajes de programación, Python a través de la librería `pandas_datareader` obtiene datos financieros como DataFrames. Los módulos/librerías a utilizar serán:
+Exiten diversos *website* donde poder descargar datos financieros (índices accionarios), *Yahoo* o *Google* por nombrar algunos. Al igual que otros lenguajes de programación, Python a través de la librería `pandas_datareader` (python 3.7) obtiene datos financieros como DataFrames. Los módulos/librerías a utilizar serán:
 
 ```{python, echo=TRUE}
 import pandas as pd 
@@ -90,11 +94,22 @@ stocks_DF = stocks_DF.loc[:,["Close", "Symbol"]]
 
 # Retornos y Retornos Acumulados
 
+Cuando se desea calcular el retorno, se tiene dos formas, aritmética y logarítmica. Para obtener el retorno aritmético (neto):
+
+$$
+R_t = \frac{P_t-P_{t-1}}{P_{t-1}} = \frac{P_{t}}{P_{t-1}} - 1
+$$
+El numerador $P_t-P_{t-1}$ es la ganancia entre el periodo $t$ y $t-1$. El denominador, $P_{t-1}$, es la inversión al periodo $t-1$. A partir de lo anterior, el retorno bruto sería $\frac{P_{t}}{P_{t-1}} = 1 + R_t$. Finalmente para el caso del retorno logarítmico, se define como: 
+
 $$
 r_t = log(1 + R_t) = log(\frac{P_t}{P_{t-1}}) = p_t - p_{t-1}
 $$
 
+Donde $p_{t}=log(P_t)$ es el *log price* y $log()$ el logarítmo natural.
+
 ## Solo con un índice
+
+En el caso de solo un índice (Amazon), se selecciona a partir de la lista construida en las secciones anteriores (`tickers_lista[0]`), luego se extrae el precio al cierre (`amzn_DF.Close`) y se construye el primer rezago (*lag*) mediante el uso de la función (`shift(1)`).
 
 ```{python, echo=TRUE}
 amzn_DF = tickers_lista[0]
@@ -102,21 +117,17 @@ amzn_close = amzn_DF.Close
 amzn_lag = amzn_DF.Close.shift(1)
 ```
 
-```{python, echo=TRUE}
-amzn_returns = np.log(amzn_close/amzn_lag).dropna()
-amzn_returns = amzn_returns.to_frame()
-amzn_returns.columns = ['returns']
-```
+Para aplicar el logarítmo natural, basta con usar la función `log` de numpy (`np.log()`). Como no tenemos el valor anterior a la primera observación de la muestra, se generará por construcción un `NA`, que se elimina usando el método (`.dropna()`).
 
 ```{python, echo=TRUE}
-# merge basado en el index 
-amzn_merge_outer = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='outer')
-amzn_merge_inner = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='inner')
-amzn_merge_left = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='left')
-amzn_merge_right = pd.merge(amzn_DF, amzn_returns, left_index=True, right_index=True, how='right')
+amzn_returns = np.log(amzn_close/amzn_lag).dropna()
+amzn_returns = amzn_returns.to_frame() # a dataframe
+amzn_returns.columns = ['returns'] # nombre de la columna
 ```
 
 ## Para todos los índices
+
+Como se está trabajando con más de un índice, es útil construir una función capaz de realizar todo el procedimiento a un conjunto de datos.
 
 ```{python, echo=TRUE}
 def returns_stocks(x):
@@ -126,10 +137,14 @@ def returns_stocks(x):
     return stock_returns
 ```
 
+Una vez construido el retorno logarítmico para cada índice, se agrupa por la variable `symbol`, que contiene el nombre de los tickers o nemotécnicos y luego se aplica por columna la función `returns_stocks`. De no usar `groupby()` estaríamos trabajando los datos como si fuesen solo un índice y no cuatro.
+
 ```python
 stocks_DF['Return'] = stocks_DF.groupby(['Symbol'])['Close'].apply(returns_stocks)
 stocks_DF = stocks_DF.dropna()
 ```
+
+Usando `loc`, seleccionamos por "etiquetas" (*labels*) las variables que contiene el nombre de los tickers o nemotécnicos y los retornos. Como en el índice (*index*) se encuentra la fecha, usando `returns_DF['Date'] = returns_DF.index`, creamos una variables llamada *Date*, que contiene la fecha.
 
 ```python
 returns_DF = stocks_DF.loc[:,["Symbol", "Return"]]
@@ -137,9 +152,13 @@ returns_DF['Date'] = returns_DF.index
 ```
 ## Pivot & Melt
 
+Uno de los objetivos de calcular el retorno, es construir y graficar los retornos acumulados. Una forma es poder pasar los datos a columnas separadas, es decir, tener cinco columnas: una con la fecha y el resto con los retornos acumulados, una forma de realizarlo es aplicar la función `.pivot()`:
+
 ```python
 pivot_DF = returns_DF.pivot(index='Date', columns='Symbol', values='Return')
 ```
+
+Para volver al DataFrame que se tenía se usa `.melt()`, que es la contraparte de `pivot()`:
 
 ```python
 melt_DF = pd.melt(pivot_DF.reset_index(), id_vars='Date', value_vars=tickers)
@@ -150,19 +169,24 @@ melt_DF = melt_DF.drop(columns=['Date'])
 
 ## Graficar retornos acumulados
 
+Para construir el retorno acumulado, se usa la función `.cumsum()` que calcula la suma acumulada (básicamente es lo que se quiere hacer con los retornos) y se multiplica por 100 para tenerlo en porcentaje:
+
 ```python
 cumsum_returns = pivot_DF.cumsum()*100
 
-# Tools > preferences > IPython console > Graphics > Graphics backend > Backend: Automatic
 cumsum_returns.plot(color=['cyan', 'magenta', 'green', 'red'])
 plt.title("Retornos Acumulados")
 plt.xlabel('Fecha')
 plt.ylabel('Retorno Acumulado (%)')
 plt.legend(title="Tickers")
-plt.show()
 ```
 
-# En Python 2.7x 
+> Si se está usando spyder, por defecto no muestra los gráficos en ventanas separadas. Para lograrlo basta con ir a: 
+Tools > preferences > IPython console > Graphics > Graphics backend > Backend: Automatic.
+
+```{r, fig.cap="Retornos acumulados utilizando matplotlib", fig.align='center'}
+knitr::include_graphics("img/finplot.png")
+```
 
 
 # Ejercicios
