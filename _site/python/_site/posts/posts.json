@@ -71,8 +71,8 @@
     ],
     "date": "2019-08-26",
     "categories": [],
-    "preview": "posts/2019-08-26-pandas-avanzado/",
-    "last_modified": "2019-09-19T12:19:42-03:00"
+    "preview": {},
+    "last_modified": "2019-09-19T22:12:51-03:00"
   },
   {
     "path": "posts/2019-08-22-complejidad-computacional/",
@@ -131,8 +131,8 @@
     ],
     "date": "2019-08-10",
     "categories": [],
-    "preview": "posts/2019-08-10-introduccion-a-numpy/",
-    "last_modified": "2019-09-19T17:09:55-03:00"
+    "preview": {},
+    "last_modified": "2019-09-19T22:12:13-03:00"
   },
   {
     "path": "posts/2019-08-10-introduccion-a-pandas/",
@@ -146,8 +146,8 @@
     ],
     "date": "2019-08-10",
     "categories": [],
-    "preview": "posts/2019-08-10-introduccion-a-pandas/",
-    "last_modified": "2019-09-19T12:19:08-03:00"
+    "preview": {},
+    "last_modified": "2019-09-19T22:12:37-03:00"
   },
   {
     "path": "posts/2019-08-10-regresion-lineal/",
