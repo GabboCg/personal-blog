@@ -50,7 +50,7 @@
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["logistica_files/bowser-1.9.3/bowser.min.js","logistica_files/distill-2.2.21/template.v2.js","logistica_files/jquery-1.11.3/jquery.min.js","logistica_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["img/Logistic_Regression_web.png","logistica_files/bowser-1.9.3/bowser.min.js","logistica_files/distill-2.2.21/template.v2.js","logistica_files/figure-html5/unnamed-chunk-2-1.png","logistica_files/jquery-1.11.3/jquery.min.js","logistica_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1463,8 +1463,21 @@ ABOUT
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<div class="layout-chunk" data-layout="l-body">
+<pre class="python"><code>
+from sklearn.linear_model import LogisticRegression
+from sklearn.linear_model import LinearRegression
+
+from sklearn import datasets
+import numpy as np
+
+import matplotlib.pyplot as plt</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<pre><code>
+[-10, 10, -0.1, 1.1]</code></pre>
+<p><img src="logistica_files/figure-html5/unnamed-chunk-2-1.png" width="1440" data-distill-preview=1 /></p>
+</div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

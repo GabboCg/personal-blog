@@ -9,6 +9,7 @@ date: 09-10-2019
 output:
   distill::distill_article:
     self_contained: false
+preview: "img/Regularization_web.png"
 ---
 
 ```{r setup, include=FALSE}

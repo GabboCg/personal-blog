@@ -11,8 +11,8 @@
     ],
     "date": "2019-09-10",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-09-18T23:03:33-03:00"
+    "preview": "posts/2019-09-10-logistica/logistica_files/figure-html5/unnamed-chunk-2-1.png",
+    "last_modified": "2019-09-19T17:12:00-03:00"
   },
   {
     "path": "posts/2019-09-10-polinomial/",
@@ -26,8 +26,8 @@
     ],
     "date": "2019-09-10",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-09-18T23:02:31-03:00"
+    "preview": "posts/2019-09-10-polinomial/img/Polynomial_Regression_web.png",
+    "last_modified": "2019-09-19T11:13:38-03:00"
   },
   {
     "path": "posts/2019-09-10-regularizado/",
@@ -41,8 +41,8 @@
     ],
     "date": "2019-09-10",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-09-18T23:03:14-03:00"
+    "preview": "posts/2019-09-10-regularizado/img/Regularization_web.png",
+    "last_modified": "2019-09-19T11:13:46-03:00"
   },
   {
     "path": "posts/2019-09-01-trabajando-con-datos-financieros/",
@@ -57,7 +57,7 @@
     "date": "2019-09-01",
     "categories": [],
     "preview": "posts/2019-09-01-trabajando-con-datos-financieros/img/finplot.png",
-    "last_modified": "2019-09-18T22:49:41-03:00"
+    "last_modified": "2019-09-19T10:53:18-03:00"
   },
   {
     "path": "posts/2019-08-26-pandas-avanzado/",
@@ -71,8 +71,8 @@
     ],
     "date": "2019-08-26",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-09-18T19:35:14-03:00"
+    "preview": "posts/2019-08-26-pandas-avanzado/",
+    "last_modified": "2019-09-19T12:19:42-03:00"
   },
   {
     "path": "posts/2019-08-22-complejidad-computacional/",
@@ -87,7 +87,7 @@
     "date": "2019-08-22",
     "categories": [],
     "preview": "posts/2019-08-22-complejidad-computacional/img/binarySearch.png",
-    "last_modified": "2019-09-18T23:19:31-03:00"
+    "last_modified": "2019-09-19T10:48:36-03:00"
   },
   {
     "path": "posts/2019-08-22-gradiente-descendente/",
@@ -101,8 +101,8 @@
     ],
     "date": "2019-08-22",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-09-18T23:01:31-03:00"
+    "preview": "posts/2019-08-22-gradiente-descendente/img/predict_ols.png",
+    "last_modified": "2019-09-19T22:00:21-03:00"
   },
   {
     "path": "posts/2019-08-10-elementos-basicos-de-python/",
@@ -131,8 +131,8 @@
     ],
     "date": "2019-08-10",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-09-18T19:36:16-03:00"
+    "preview": "posts/2019-08-10-introduccion-a-numpy/",
+    "last_modified": "2019-09-19T17:09:55-03:00"
   },
   {
     "path": "posts/2019-08-10-introduccion-a-pandas/",
@@ -146,8 +146,8 @@
     ],
     "date": "2019-08-10",
     "categories": [],
-    "preview": {},
-    "last_modified": "2019-08-21T22:18:53-04:00"
+    "preview": "posts/2019-08-10-introduccion-a-pandas/",
+    "last_modified": "2019-09-19T12:19:08-03:00"
   },
   {
     "path": "posts/2019-08-10-regresion-lineal/",
@@ -162,7 +162,7 @@
     "date": "2019-08-10",
     "categories": [],
     "preview": "posts/2019-08-10-regresion-lineal/regresion-lineal_files/figure-html5/unnamed-chunk-3-1.png",
-    "last_modified": "2019-09-18T19:47:56-03:00"
+    "last_modified": "2019-09-19T17:11:53-03:00"
   },
   {
     "path": "posts/2019-01-19-creating-a-local-server-using-python/",
