@@ -92,7 +92,7 @@
   {
     "path": "posts/2019-08-22-gradiente-descendente/",
     "title": "Gradiente Descendiente",
-    "description": "En construcción....",
+    "description": "El post presenta el algorítmo de gradiente descendiente como una alternativa para encontrar la solución óptima a ciertos problemas en machine learning, sobre todo cuando se tiene muchos features en el modelo.",
     "author": [
       {
         "name": "Gabriel Cabrera",
@@ -102,7 +102,7 @@
     "date": "2019-08-22",
     "categories": [],
     "preview": "posts/2019-08-22-gradiente-descendente/img/predict_ols.png",
-    "last_modified": "2019-09-19T22:00:21-03:00"
+    "last_modified": "2019-09-19T22:05:02-03:00"
   },
   {
     "path": "posts/2019-08-10-elementos-basicos-de-python/",
