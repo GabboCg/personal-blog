@@ -205,4 +205,13 @@ $$
 
 4. Construya los retornos acumulados y luego gráfique utilizando la librería `matplotlib`. El color de cada serie como las "capas" del gráfico quedan a su elección. 
 
-# Enlaces 
+## Enlaces
+
+```{r, echo=FALSE, eval=TRUE}
+library(fontawesome)
+```
+
++ `r fa("download", fill = "#ee5863")` [Ayudantia](exercise/A3.pdf)
++ `r fa("python", fill = "green")` `r xfun::embed_files("jupyter_notebooks/A3.ipynb", text = "Jupyter Notebook")`
++ `r fa("google-drive", fill = "blue")` [Ver en Google Colab](https://gist.github.com/GaboCg/2d7bdfe07576a46418a88055e850c019)
++ `r fa("book", fill = "orange")` `r xfun::embed_files("scripts/A3_S.py", text = "Python Script")`
