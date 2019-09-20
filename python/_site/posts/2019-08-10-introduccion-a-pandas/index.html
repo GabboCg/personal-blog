@@ -45,7 +45,7 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Introducción a Pandas"]},{"type":"character","attributes":{},"value":["El post introduce la librería Pandas para la construcción y manipulación de estructuras\nde datos basados en Series y DataFrame."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["css","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["style.css"]},{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":[""]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output"]}},"value":[{"type":"character","attributes":{},"value":["Introducción a Pandas"]},{"type":"character","attributes":{},"value":["El post introduce la librería Pandas para la construcción y manipulación de estructuras\nde datos basados en Series y DataFrame."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["08-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["css","self_contained"]}},"value":[{"type":"character","attributes":{},"value":["style.css"]},{"type":"logical","attributes":{},"value":[false]}]}]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
@@ -2109,18 +2109,18 @@ data_df = pd.DataFrame(np.random.randn(4, 3), columns=list(&#39;abc&#39;), index
 data_df</code></pre>
 <pre><code>
                    a         b         c
-Santiago    0.685891  0.154307  1.663419
-Coquimbo   -1.140443  0.196159  1.927782
-Valparaiso -1.015233  0.362019 -0.393810
-Chillan    -1.816318  0.094823  0.783792</code></pre>
+Santiago    0.369482  0.053679  1.421907
+Coquimbo    0.299947  1.853414  0.549716
+Valparaiso  0.372163 -1.239573 -1.546662
+Chillan     0.920469  0.751526  0.196118</code></pre>
 <pre class="python"><code>
 np.abs(data_df) # método para el valor absoluto</code></pre>
 <pre><code>
                    a         b         c
-Santiago    0.685891  0.154307  1.663419
-Coquimbo    1.140443  0.196159  1.927782
-Valparaiso  1.015233  0.362019  0.393810
-Chillan     1.816318  0.094823  0.783792</code></pre>
+Santiago    0.369482  0.053679  1.421907
+Coquimbo    0.299947  1.853414  0.549716
+Valparaiso  0.372163  1.239573  1.546662
+Chillan     0.920469  0.751526  0.196118</code></pre>
 </div>
 <p>Creamos una <strong>función anónima</strong>:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2132,17 +2132,17 @@ funcion_anonima = lambda x: x.mean()</code></pre>
 <pre class="python"><code>
 data_df.apply(funcion_anonima, axis= 0) # por columna</code></pre>
 <pre><code>
-a   -0.821525
-b    0.201827
-c    0.995296
+a    0.490515
+b    0.354761
+c    0.155270
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.apply(funcion_anonima, axis= 1) # por fila</code></pre>
 <pre><code>
-Santiago      0.834539
-Coquimbo      0.327833
-Valparaiso   -0.349008
-Chillan      -0.312568
+Santiago      0.615023
+Coquimbo      0.901026
+Valparaiso   -0.804691
+Chillan       0.622704
 dtype: float64</code></pre>
 </div>
 <p>Si se construye una función que retorne una Series apartir de DataFrame:</p>
@@ -2154,9 +2154,9 @@ def f_min_max_mean(x):
 data_df.apply(f_min_max_mean)</code></pre>
 <pre><code>
              a         b         c
-mean -0.821525  0.201827  0.995296
-max  -1.816318  0.094823 -0.393810
-min   0.685891  0.362019  1.927782</code></pre>
+mean  0.490515  0.354761  0.155270
+max   0.299947 -1.239573 -1.546662
+min   0.920469  1.853414  1.421907</code></pre>
 </div>
 <p>Cuando se usa una función a un DataFrame, que va por fila y por columna (se aplica a todo el DataFrame), hay que usar <code>.applymap()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -2164,21 +2164,21 @@ min   0.685891  0.362019  1.927782</code></pre>
 formato = lambda x: &#39;%.2f&#39; % x
 data_df.applymap(formato)</code></pre>
 <pre><code>
-                a     b      c
-Santiago     0.69  0.15   1.66
-Coquimbo    -1.14  0.20   1.93
-Valparaiso  -1.02  0.36  -0.39
-Chillan     -1.82  0.09   0.78</code></pre>
+               a      b      c
+Santiago    0.37   0.05   1.42
+Coquimbo    0.30   1.85   0.55
+Valparaiso  0.37  -1.24  -1.55
+Chillan     0.92   0.75   0.20</code></pre>
 </div>
 <p>La versión de <code>.applymap()</code> para Series, es <code>.map()</code>:</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="python"><code>
 data_df[&#39;a&#39;].map(formato)</code></pre>
 <pre><code>
-Santiago       0.69
-Coquimbo      -1.14
-Valparaiso    -1.02
-Chillan       -1.82
+Santiago      0.37
+Coquimbo      0.30
+Valparaiso    0.37
+Chillan       0.92
 Name: a, dtype: object</code></pre>
 </div>
 <h2 id="estadistica-descriptiva">Estadística Descriptiva</h2>
@@ -2187,38 +2187,38 @@ Name: a, dtype: object</code></pre>
 <pre class="python"><code>
 data_df.sum()</code></pre>
 <pre><code>
-a   -3.286102
-b    0.807308
-c    3.981183
+a    1.962060
+b    1.419046
+c    0.621079
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.cumsum()</code></pre>
 <pre><code>
                    a         b         c
-Santiago    0.685891  0.154307  1.663419
-Coquimbo   -0.454551  0.350465  3.591201
-Valparaiso -1.469784  0.712485  3.197391
-Chillan    -3.286102  0.807308  3.981183</code></pre>
+Santiago    0.369482  0.053679  1.421907
+Coquimbo    0.669429  1.907094  1.971624
+Valparaiso  1.041592  0.667520  0.424961
+Chillan     1.962060  1.419046  0.621079</code></pre>
 <pre class="python"><code>
 data_df.mean()</code></pre>
 <pre><code>
-a   -0.821525
-b    0.201827
-c    0.995296
+a    0.490515
+b    0.354761
+c    0.155270
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.max()</code></pre>
 <pre><code>
-a    0.685891
-b    0.362019
-c    1.927782
+a    0.920469
+b    1.853414
+c    1.421907
 dtype: float64</code></pre>
 <pre class="python"><code>
 data_df.min()</code></pre>
 <pre><code>
-a   -1.816318
-b    0.094823
-c   -0.393810
+a    0.299947
+b   -1.239573
+c   -1.546662
 dtype: float64</code></pre>
 </div>
 <p>O utilizar el métodos <code>describe()</code>:</p>
@@ -2228,13 +2228,13 @@ data_df.describe()</code></pre>
 <pre><code>
               a         b         c
 count  4.000000  4.000000  4.000000
-mean  -0.821525  0.201827  0.995296
-std    1.064761  0.114603  1.047261
-min   -1.816318  0.094823 -0.393810
-25%   -1.309411  0.139436  0.489391
-50%   -1.077838  0.175233  1.223605
-75%   -0.589952  0.237624  1.729510
-max    0.685891  0.362019  1.927782</code></pre>
+mean   0.490515  0.354761  0.155270
+std    0.288579  1.295626  1.246087
+min    0.299947 -1.239573 -1.546662
+25%    0.352098 -0.269634 -0.239577
+50%    0.370822  0.402602  0.372917
+75%    0.509239  1.026998  0.767764
+max    0.920469  1.853414  1.421907</code></pre>
 </div>
 <h2 id="ejercicios">Ejercicios</h2>
 <ol type="1">
