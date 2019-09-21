@@ -10,7 +10,7 @@ output:
   distill::distill_article:
     self_contained: false
 creative_commons: CC BY
-preview: "img/binarySearch.png"
+preview: "img/complexity.png"
 ---
 
 ```{r setup, include=FALSE}

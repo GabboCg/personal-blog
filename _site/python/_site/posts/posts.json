@@ -26,8 +26,8 @@
     ],
     "date": "2019-09-10",
     "categories": [],
-    "preview": "posts/2019-09-10-polinomial/img/Polynomial_Regression_web.png",
-    "last_modified": "2019-09-19T11:13:38-03:00"
+    "preview": "posts/2019-09-10-polinomial/img/polinomial.png",
+    "last_modified": "2019-09-20T22:59:59-03:00"
   },
   {
     "path": "posts/2019-09-10-regularizado/",
@@ -57,7 +57,7 @@
     "date": "2019-09-01",
     "categories": [],
     "preview": "posts/2019-09-01-trabajando-con-datos-financieros/img/finplot.png",
-    "last_modified": "2019-09-19T10:53:18-03:00"
+    "last_modified": "2019-09-20T22:42:54-03:00"
   },
   {
     "path": "posts/2019-08-26-pandas-avanzado/",
@@ -86,8 +86,8 @@
     ],
     "date": "2019-08-22",
     "categories": [],
-    "preview": "posts/2019-08-22-complejidad-computacional/img/binarySearch.png",
-    "last_modified": "2019-09-19T10:48:36-03:00"
+    "preview": "posts/2019-08-22-complejidad-computacional/img/complexity.png",
+    "last_modified": "2019-09-20T22:49:29-03:00"
   },
   {
     "path": "posts/2019-08-22-gradiente-descendente/",
