@@ -45,12 +45,12 @@
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Regresión Polinomial"]},{"type":"character","attributes":{},"value":["En construcción...."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["09-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["img/Polynomial_Regression_web.png"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","preview"]}},"value":[{"type":"character","attributes":{},"value":["Regresión Polinomial"]},{"type":"character","attributes":{},"value":["En construcción...."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Gabriel Cabrera"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":[]}},"value":[]}]}]},{"type":"character","attributes":{},"value":["09-10-2019"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["img/polinomial.png"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["img/Polynomial_Regression_web.png","polinomial_files/bowser-1.9.3/bowser.min.js","polinomial_files/distill-2.2.21/template.v2.js","polinomial_files/jquery-1.11.3/jquery.min.js","polinomial_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["img/Bias-Variance_Tradeoff_web.png","img/Learning_Curve_web.png","img/Model_Complexity_web.png","img/polinomial.png","img/Polynomial_Regression_web.png","polinomial_files/bowser-1.9.3/bowser.min.js","polinomial_files/distill-2.2.21/template.v2.js","polinomial_files/jquery-1.11.3/jquery.min.js","polinomial_files/webcomponents-2.0.0/webcomponents.js"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 
@@ -1463,8 +1463,63 @@ ABOUT
 </div>
 
 <div class="d-article">
-<p>Distill is a publication format for scientific and technical writing, native to the web.</p>
-<p>Learn more about using Distill at <a href="https://rstudio.github.io/distill" class="uri">https://rstudio.github.io/distill</a>.</p>
+<h1 id="por-que-la-regresion-polinomial">¿Por qué la Regresión Polinomial?</h1>
+<h1 id="learning-curves"><em>Learning Curves</em></h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-1"></span>
+<img src="img/Learning_Curve_web.png" alt="Learning curve" width="288" />
+<p class="caption">
+Figure 1: Learning curve
+</p>
+</div>
+</div>
+<h1 id="bias-variance-tradeoff"><em>Bias-Variance Tradeoff</em></h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="img/Bias-Variance_Tradeoff_web.png" alt="Bias-Variance tradeoff" width="288" />
+<p class="caption">
+Figure 2: Bias-Variance tradeoff
+</p>
+</div>
+</div>
+<h1 id="model-complexity"><em>Model Complexity</em></h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="img/Model_Complexity_web.png" alt="Model Complexity" width="288" />
+<p class="caption">
+Figure 3: Model Complexity
+</p>
+</div>
+</div>
+<h1 id="ejercicios">Ejercicios</h1>
+<ol type="1">
+<li><p>Genere una variable <span class="math inline">\(X\)</span> e <span class="math inline">\(y\)</span> que contengan 100 observaciones con las siguientes características:</p>
+<ol type="a">
+<li><p><span class="math inline">\(X = 6 \cdot \text{Aleatorio}_1 - 3\)</span></p></li>
+<li><p><span class="math inline">\(y = 2 + X + 0.35 \cdot X^2 + 0.20 \cdot X^3 + \text{Aleatorio}_2\)</span></p></li>
+</ol>
+<p>El parámetro <span class="math inline">\(\text{Aleatorio}_1\)</span> se refiere a la función <code>np.random.rand()</code> y <span class="math inline">\(\text{Aleatorio}_2\)</span> a la función <code>np.random.randn()</code>. Utilice una semilla igual a 42.</p></li>
+<li><p>Vizualice los datos generados en (1).</p></li>
+<li><p>Estime una regresión lineal con constante, luego:</p>
+<ol type="a">
+<li><p>Calcule las métricas RMSE (<em>Root Mean Square Error</em>) y <span class="math inline">\(R^2\)</span>.</p></li>
+<li><p>Realice la predicción utilizando los parámetros <span class="math inline">\(\hat{\theta}\)</span> encontrados en (3.a).</p></li>
+<li><p>Agregue la predicción al gráfico generado en (2).</p></li>
+</ol></li>
+<li><p>Estime una regresión polinomial con grados igual a 2, 3 y 30. Para cada estimación considere:</p>
+<ol type="a">
+<li><p>Almacene en una lista o <em>DataFrame</em> los coeficientes (<span class="math inline">\(\hat{\theta}\)</span>).</p></li>
+<li><p>Almacene en una lista o <em>DataFrame</em> las métricas:</p>
+<ol type="i">
+<li>RMSE (<em>Root Mean Square Error</em>).</li>
+<li><span class="math inline">\(R^2\)</span>.</li>
+</ol></li>
+<li><p>Grafique los datos generados y la predicción por cada grado del polinomio.</p></li>
+</ol></li>
+<li><p>A partir de lo encontrado en (4), comparé su resultados con la regresión lineal en términos visuales, coeficientes y métricas de <em>performance</em>.</p></li>
+<li><p>Genere una función que permita visualizar la <em>learning curves</em> de cada estimación realizada hasta ahora. Discuta los resultados usando los conceptos de <em>Underfitting</em> y <em>Overfitting</em>.</p></li>
+</ol>
+<h1 id="enlaces">Enlaces</h1>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -1472,6 +1527,15 @@ ABOUT
 <div class="d-appendix">
 </div>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 
 <!--radix_placeholder_site_after_body-->
 <!--/radix_placeholder_site_after_body-->
