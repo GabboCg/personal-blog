@@ -1,5 +1,50 @@
 [
   {
+    "path": "posts/2019-10-16-modelos-multinomiales/",
+    "title": "Modelos Multinomiales",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-16T23:52:32-03:00"
+  },
+  {
+    "path": "posts/2019-10-16-redes-neuronales/",
+    "title": "Redes Neuronales",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-16T23:54:20-03:00"
+  },
+  {
+    "path": "posts/2019-10-16-svm/",
+    "title": "Support Vector Machines",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-16T23:54:52-03:00"
+  },
+  {
     "path": "posts/2019-09-10-logistica/",
     "title": "Regresión Logística",
     "description": "En construcción....",
@@ -102,7 +147,7 @@
     "date": "2019-08-22",
     "categories": [],
     "preview": "posts/2019-08-22-gradiente-descendente/img/predict_ols.png",
-    "last_modified": "2019-09-19T22:05:02-03:00"
+    "last_modified": "2019-10-17T00:14:45-03:00"
   },
   {
     "path": "posts/2019-08-10-elementos-basicos-de-python/",

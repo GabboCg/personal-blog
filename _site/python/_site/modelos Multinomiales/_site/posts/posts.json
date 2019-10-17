@@ -1,0 +1,17 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to &quot;Modelos Multinomiales&quot;",
+    "description": "Welcome to our new blog, &quot;Modelos Multinomiales&quot;. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2019-10-16",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-16T23:51:15-03:00"
+  }
+]

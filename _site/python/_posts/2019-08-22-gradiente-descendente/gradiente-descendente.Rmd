@@ -410,12 +410,14 @@ theta_mbgd
 
 # Resumen Algorítmos
 
-| Algorítmo       | >= m    | Out-of-core | >= n    | Hyperparám. | Scaling | Scikit-learn     |
-|-----------------|---------|-------------|---------|-------------|---------|------------------|
-| Ec. Normal      | Rápido  | No          | Lento   | 0           | No      | LinearRegression |
-| Batch GD        | Lento   | No          | Rápido  | 2           | Si      | n/a              |
-| Stochastic GD   | Rápido  | Si          | Rápido  | >=2         | Si      | SGDRegressor     |
-| Mini-batch GD   | Rápido  | Si          | Rápido  | >=2         | Si      | SGDRegressor     |
+::: l-body-outset
+| Algorítmo     | >= m  | Out-of-core | >= n  | Hyperparám.| Scaling| Scikit-learn    |
+|---------------|-------|-------------|-------|------------|--------|-----------------|
+| Ec. Normal    | Rápido| No          | Lento | 0          | No     | LinearRegression|
+| Batch GD      | Lento | No          | Rápido| 2          | Si     | n/a             |
+| Stochastic GD | Rápido| Si          | Rápido| >=2        | Si     | SGDRegressor    |
+| Mini-batch GD | Rápido| Si          | Rápido| >=2        | Si     | SGDRegressor    |
+:::
 
 ## Ejercicios
 

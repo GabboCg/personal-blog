@@ -3,6 +3,9 @@ title: "Python"
 site: distill::distill_website
 listing: 
   posts:
+    - 2019-10-16-redes-neuronales
+    - 2019-10-16-svm
+    - 2019-10-16-modelos-multinomiales
     - 2019-09-10-regularizado
     - 2019-09-10-polinomial
     - 2019-09-10-logistica
