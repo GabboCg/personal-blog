@@ -104,6 +104,7 @@ En las secciones siguientes los ejemplos usan `timeit`.
 
 Se usa la notación $\mathcal{O}$ para cotas superiores asintóticas, debido que va a acotar el crecimiento del tiempo de la ejecución del algoritmo por arriba para iteraciones suficientemente grandes. Lo anterior, quiere decir que si tenenemos una algoritmo que tiene un tiempo de complejidad lineal $\mathcal{O(n)}$ como es el caso de la *busqueda lineal*, no siempre se ejecutará siguiendo $\mathcal{O(n)}$ o nunca va a ser peor que $\mathcal{O(n)}$.
 
+::: l-body-outset
 | Notación             | Nombre      |
 |----------------------|-------------|
 |$\mathcal{O(1)}$      | Constante   |
@@ -111,6 +112,7 @@ Se usa la notación $\mathcal{O}$ para cotas superiores asintóticas, debido que
 |$\mathcal{O(n)}$      | Lineal      |
 |$\mathcal{O(n^2)}$    | Cuadratico  |
 |$\mathcal{O(n!)}$     | Factorial   |
+:::
 
 <!-- ![](https://www.techtud.com/sites/default/files/public/user_files/tud39880/linearSearch%20vs%20binary%20search%20diagram_0.jpg) -->
 
@@ -175,10 +177,12 @@ x_n = x_{n-1} + x_{n-2}
 $$
 Fibonacci es un muy buen ejemplo de una función iterativa y recursiva, debido que tiene distintos comportamiento en términos de complejidad computacional.
 
+::: l-body-outset
 | Complejidad | Iterativo        | Recursivo          |
 |-------------|------------------|--------------------|
 | Tiempo      | $\mathcal{O(n)}$ | $\mathcal{O}(2^n)$ |
 | Espacio     | $\mathcal{O(1)}$ | $\mathcal{O(n)}$   |
+:::
 
 A continuación se presenta la construcción del algorítmo, la función se va a  definir como `fibo_rec`, debería esperarse que `fibo_rec(1) = 0`, `fibo_rec(2) = 1`, `fibo_rec(3) = 1` y así sucesivamente.
 

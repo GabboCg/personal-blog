@@ -1524,13 +1524,13 @@ sum_recursiva(5)</code></pre>
 <pre class="python"><code>
 timeit.timeit(lambda: sum_iterativa(5))</code></pre>
 <pre><code>
-0.5107870101928711</code></pre>
+0.4755520820617676</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="python"><code>
 timeit.timeit(lambda: sum_recursiva(5))</code></pre>
 <pre><code>
-0.6511838436126709</code></pre>
+0.6174628734588623</code></pre>
 </div>
 <p>A partir de lo anterior se aprecia que así es.</p>
 <h2 id="modulo-timeit">Módulo timeit</h2>
@@ -1543,6 +1543,7 @@ timeit.timeit(lambda: sum_recursiva(5))</code></pre>
 <p>En las secciones siguientes los ejemplos usan <code>timeit</code>.</p>
 <h2 id="la-anotacion-big-o">La Anotación Big O</h2>
 <p>Se usa la notación <span class="math inline">\(\mathcal{O}\)</span> para cotas superiores asintóticas, debido que va a acotar el crecimiento del tiempo de la ejecución del algoritmo por arriba para iteraciones suficientemente grandes. Lo anterior, quiere decir que si tenenemos una algoritmo que tiene un tiempo de complejidad lineal <span class="math inline">\(\mathcal{O(n)}\)</span> como es el caso de la <em>busqueda lineal</em>, no siempre se ejecutará siguiendo <span class="math inline">\(\mathcal{O(n)}\)</span> o nunca va a ser peor que <span class="math inline">\(\mathcal{O(n)}\)</span>.</p>
+<div class="l-body-outset">
 <table>
 <thead>
 <tr class="header">
@@ -1573,6 +1574,7 @@ timeit.timeit(lambda: sum_recursiva(5))</code></pre>
 </tr>
 </tbody>
 </table>
+</div>
 <!-- ![](https://www.techtud.com/sites/default/files/public/user_files/tud39880/linearSearch%20vs%20binary%20search%20diagram_0.jpg) -->
 <h1 id="complejidad-de-tiempo">Complejidad de Tiempo</h1>
 <p>Para enteder la complejidad de tiempo, se explicarán dos algorítmos:</p>
@@ -1619,6 +1621,7 @@ resultadoA.plot(x=&#39;iter&#39;, y=&#39;time&#39;, kind=&#39;line&#39;)</code><
 <p>La secuencia de <strong>Fibonacci</strong> es una sucesión infinita de números naturales 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, <span class="math inline">\(\infty\)</span>, definida como: <span class="math display">\[
 x_n = x_{n-1} + x_{n-2}
 \]</span> Fibonacci es un muy buen ejemplo de una función iterativa y recursiva, debido que tiene distintos comportamiento en términos de complejidad computacional.</p>
+<div class="l-body-outset">
 <table>
 <thead>
 <tr class="header">
@@ -1640,6 +1643,7 @@ x_n = x_{n-1} + x_{n-2}
 </tr>
 </tbody>
 </table>
+</div>
 <p>A continuación se presenta la construcción del algorítmo, la función se va a definir como <code>fibo_rec</code>, debería esperarse que <code>fibo_rec(1) = 0</code>, <code>fibo_rec(2) = 1</code>, <code>fibo_rec(3) = 1</code> y así sucesivamente.</p>
 <div class="layout-chunk" data-layout="l-body">
 <pre class="python"><code>
