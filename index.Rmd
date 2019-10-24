@@ -1,6 +1,6 @@
 ---
 title: "Technical notes on using"
 description: | 
-  Scientific and technical writing, native to the web
+  You are welcome!!!
 site: distill::distill_website
 ---
