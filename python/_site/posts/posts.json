@@ -1,5 +1,65 @@
 [
   {
+    "path": "posts/2019-10-27-arboles/",
+    "title": "Arboles de Decisión",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-27",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-27T17:56:12-03:00"
+  },
+  {
+    "path": "posts/2019-10-27-entropy/",
+    "title": "Entropía en Machine Learning",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-27",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-27T17:51:46-03:00"
+  },
+  {
+    "path": "posts/2019-10-27-jupyter/",
+    "title": "Jupyter Notebooks",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-27",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-27T17:51:55-03:00"
+  },
+  {
+    "path": "posts/2019-10-27-random/",
+    "title": "Random Forest",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Gabriel Cabrera",
+        "url": {}
+      }
+    ],
+    "date": "2019-10-27",
+    "categories": [],
+    "preview": {},
+    "last_modified": "2019-10-27T17:50:57-03:00"
+  },
+  {
     "path": "posts/2019-10-16-modelos-multinomiales/",
     "title": "Modelos Multinomiales",
     "description": "A short description of the post.",
