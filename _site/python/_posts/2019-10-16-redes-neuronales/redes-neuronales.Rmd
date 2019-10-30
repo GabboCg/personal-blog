@@ -1,5 +1,5 @@
 ---
-title: "Redes Neuronales"
+title: "Redes Neuronales Artificiales"
 description: |
   A short description of the post.
 author:
