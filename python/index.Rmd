@@ -5,6 +5,7 @@ listing:
   posts:
     - 2019-10-27-random
     - 2019-10-27-arboles
+    - 2019-10-27-entropy
     - 2019-10-16-redes-neuronales
     - 2019-10-16-svm
     - 2019-10-16-modelos-multinomiales

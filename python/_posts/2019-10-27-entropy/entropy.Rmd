@@ -1,5 +1,5 @@
 ---
-title: "Entropía en Machine Learning"
+title: "Entropy & Information Gain"
 description: |
   A short description of the post.
 author:

@@ -16,7 +16,7 @@
   },
   {
     "path": "posts/2019-10-27-entropy/",
-    "title": "Entropía en Machine Learning",
+    "title": "Entropy & Information Gain",
     "description": "A short description of the post.",
     "author": [
       {
@@ -27,7 +27,7 @@
     "date": "2019-10-27",
     "categories": [],
     "preview": {},
-    "last_modified": "2019-10-27T17:51:46-03:00"
+    "last_modified": "2019-11-02T22:41:59-03:00"
   },
   {
     "path": "posts/2019-10-27-jupyter/",
